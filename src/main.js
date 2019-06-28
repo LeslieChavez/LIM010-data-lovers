@@ -1,31 +1,18 @@
 /* Manejo del DOM */
-const user = document.getElementById('user');
+
+const loginBg = document.getElementById('login-bg');
+const secondScreen = document.getElementById('secondScreen');
 const password = document.getElementById('password');
-const login = document.getElementById('login');
-const logOut = document.getElementById('error');
-const informationPage = document.getElementById('information');
+const user = document.getElementById('user');
+const errorMessage = document.getElementById('errorMessage');
+const enterButton = document.getElementById('enterButton');
 // Función para validar contraseña correcta
-const userTrue = 'LABORATORIA'; 
-const passwordTrue = 'LABORATORIA';
-let tryingNumb = 0;
-const validation = () => { 
-  if (password.value === passwordTrue && user.value === userTrue) {
-    login.classList.add('hide');
-    informationPage.classList.replace('hide', 'show');
-    event.preventDefault();
+enterButton.addEventListener ('click',() => {
+  if (user.value === "" && password.value === "") {
+    loginScreen.classList.replace(show, hide);
+    secondScreen.classList.replace(hide, show);
   } else {
-    if (tryingNumb < 2) {
-      wrong.classList.replace('hide', 'show');
-      password.value = '';
-      tryingNumb++;
-      event.preventDefault();
-    } else {
-      login.classList.add('hide');
-      wrong.classList.add('hide');
-      error.classList.replace('hide', 'show');
-      event.preventDefault();
-    } 
+    errorMessage.innerHTML = "Datos incorrectos"
   }
-};  
-const loginButton = document.getElementById('enter-button');
-loginButton.addEventListener('click', validation);
+});
+
