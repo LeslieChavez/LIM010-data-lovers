@@ -1,12 +1,13 @@
 /* Manejo del DOM */
 
+const pokedata = POKEMON.pokemon;
 const loginBg = document.getElementById('login-bg');
 const secondScreen = document.getElementById('second-screen');
 const password = document.getElementById('password');
 const user = document.getElementById('user');
 const enterButton = document.getElementById('enter-button');
 const errorMessage = document.getElementById('error-message');
-// Función para validar contraseña correcta
+const allPokemones = document.getElementById('allPokemones');
 
 // Definir variable para realizar función 
 const userTrue = 'LABORATORIA';
@@ -26,3 +27,18 @@ const validation = () => {
   }
 }; 
 enterButton.addEventListener('click', validation);
+
+const mostrarData = (pokemon) => {
+  let mostrar = ' ';
+  for (let i = 0; i < pokemon.length; i++) {
+    let llamar = `
+    <div>
+      <img src="${pokemon[i].img}"/>
+      <p>nombre= ${pokemon[i].name}</p>
+    <div>`;
+    mostrar += llamar;
+  }
+  return mostrar;
+};
+
+allPokemones.innerHTML = mostrarData(pokedata);
