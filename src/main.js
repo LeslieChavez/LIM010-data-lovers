@@ -7,7 +7,7 @@ const password = document.getElementById('password');
 const user = document.getElementById('user');
 const enterButton = document.getElementById('enter-button');
 const errorMessage = document.getElementById('error-message');
-const allPokemones = document.getElementById('allPokemones');
+const allPokemones = document.getElementById('all-pokemones');
 
 // Definir variable para realizar función 
 const userTrue = 'LABORATORIA';
@@ -15,7 +15,7 @@ const passwordTrue = 'LABORATORIA';
 let tryNumb = 0;
 
 // Función para validar contraseña correcta
-const validation = () => { 
+const validation = () => {
   const password = document.getElementById('password');
   if (password.value === passwordTrue) {
     loginBg.classList.add('hide');
@@ -25,17 +25,22 @@ const validation = () => {
     loginBg.classList.add('hide');
     errorMessage.classList.add('hide');
   }
-}; 
+};
 enterButton.addEventListener('click', validation);
 
 const mostrarData = (pokemon) => {
   let mostrar = ' ';
   for (let i = 0; i < pokemon.length; i++) {
     let llamar = `
-    <div>
-      <img src="${pokemon[i].img}"/>
-      <p>nombre= ${pokemon[i].name}</p>
-    <div>`;
+    <div class="prueba">
+      <figure class="figure">
+        <img src="${pokemon[i].img}"/>
+      </figure>
+      <div class="poke-name">
+        <p>${pokemon[i].name}</p>
+      </div>
+    </div>`;
+    
     mostrar += llamar;
   }
   return mostrar;

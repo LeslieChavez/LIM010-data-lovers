@@ -1,4 +1,4 @@
-*{
+body, html{
     padding: 0;
     margin: 0;
     font-family: 'Open Sans', sans-serif;
@@ -80,6 +80,31 @@ a {
     cursor: pointer;
 }
 
+.all-pokemones {
+    display: flex;
+    flex-flow: wrap row;
+    justify-content: space-between;
+    padding: 10% 12%;
+    align-items: center;
 
+}
 
+.prueba {
+    width: 200px;
+    border: 2px solid #8CD790;
+    border-radius: 2%;
+    padding: 10px;
+    margin: 20px;
+    text-align: center;
+}
 
+.figure{
+    margin: 30px;
+    width: 40px;
+    display: inline-block;
+    height: 20px;
+}
+
+.poke-name{
+    width: 40px;
+}
