@@ -10,13 +10,13 @@
 window.example = example;
 */
 const dataPoker = (pokemon) => {
-  const vacio = [];
+  const empty = [];
   for (let i = 0; i < pokemon.length; i++);
-  vacio.push({ 
+  empty.push({ 
     img: pokemon[i].img,
     nombre: pokemon[i].name,
   });
-  return vacio; 
+  return empty; 
 };
 
 window.pokemon = {

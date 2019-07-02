@@ -89,13 +89,19 @@ a {
 
 }
 
-.prueba {
+.show-pokemon {
     width: 200px;
-    border: 2px solid #8CD790;
-    border-radius: 2%;
+    height: 200px;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    background: #8CD790;
     padding: 10px;
     margin: 20px;
+    display: flex;
+    justify-content: center;
     text-align: center;
+
 }
 
 .figure{
@@ -107,4 +113,6 @@ a {
 
 .poke-name{
     width: 40px;
+    display: flex;
+    justify-content: center;
 }

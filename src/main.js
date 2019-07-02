@@ -32,7 +32,7 @@ const mostrarData = (pokemon) => {
   let mostrar = ' ';
   for (let i = 0; i < pokemon.length; i++) {
     let llamar = `
-    <div class="prueba">
+    <div class="show-pokemon">
       <figure class="figure">
         <img src="${pokemon[i].img}"/>
       </figure>
