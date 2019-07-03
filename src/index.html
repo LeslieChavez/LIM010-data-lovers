@@ -10,7 +10,11 @@
 </head>
 
 <body>
-  <header></header>
+  <header class="headear hide">
+    <div>
+      <img src="icono/filter.png" alt="filtro">
+    </div>
+  </header>
   <main>
     <!-- Sección Login -->
     <section class="login-bg" id="login-bg">
@@ -27,16 +31,27 @@
       </form>
     </section>
 
-    <!-- Segunda vista -->
+    <!--Menu lateral-->
+    <section class="container">
+        <nav>
+          <ul>
+            <li>KANTO</li>
+            <li>POKEDEX</li>
+          </ul>
+        </nav>
+        <!-- <input id="range" type="range" min="1" max="99" value="1" class="slider"> -->
+    </section>
 
+    <!-- Segunda vista -->
     <section id="second-screen" class="pokemon hide">
-      <nav>
-        <button class="pokedex">POKEDEX</button>
-        <button class="kanto">KANTO</button>
-      </nav>
       <div id="all-pokemones" class="all-pokemones"></div>
     </section>
   </main>
+
+  <!--mostrar a detalle los pokemones-->
+  <section class="thrid-screen">
+    <div id="poke-details"></div>
+  </section>
 
   <footer></footer>
   <script src="./data/pokemon/pokemon.js"></script>

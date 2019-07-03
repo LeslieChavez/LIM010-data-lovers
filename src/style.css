@@ -116,3 +116,19 @@ a {
     display: flex;
     justify-content: center;
 }
+
+.poke-details{
+    display: flex;
+    flex-flow: wrap row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.all-poke-details{
+    padding: 10px;
+    border: #3897f0;
+    margin: 20px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
