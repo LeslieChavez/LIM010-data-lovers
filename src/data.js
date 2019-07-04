@@ -22,3 +22,26 @@ const dataPoker = (pokemon) => {
 window.pokemon = {
   dataPoker: dataPoker,
 };
+
+// ordenamiento de a -z
+
+const ordenarAlfb = (data, opcion) => {
+  const arrSortPok = data.sort((ab, bc) => {
+    /* a es menor que b según criterio de ordenamiento */
+    if (ab.name > bc.name) {
+      return 1;
+    } if (ab.name < bc.name) {
+      return -1;
+    }
+    return 0;
+  });
+  if (opcion === '0') {
+    return arrSortPok;
+  }
+  if (opcion === '1') {
+    return arrSortPok.reverse();
+  }
+  return 0;
+};
+
+window.ordenarAlfb = ordenarAlfb;

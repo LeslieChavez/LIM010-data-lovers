@@ -1,6 +1,6 @@
 /* Manejo del DOM */
 
-const pokedata = POKEMON.pokemon;
+const dataPoker = POKEMON.pokemon;
 const loginBg = document.getElementById('login-bg');
 const secondScreen = document.getElementById('second-screen');
 const password = document.getElementById('password');
@@ -9,6 +9,7 @@ const enterButton = document.getElementById('enter-button');
 const errorMessage = document.getElementById('error-message');
 const allPokemones = document.getElementById('all-pokemones');
 const pokeDetails = document.getElementById('poke-details');
+const header = document.getElementById('header');
 
 // Definir variable para realizar función 
 const userTrue = 'LABORATORIA';
@@ -21,6 +22,7 @@ const validation = () => {
   if (password.value === passwordTrue) {
     loginBg.classList.add('hide');
     secondScreen.classList.replace('hide', 'show');
+    header.classList.replace('hide', 'show');
     event.preventDefault();
   } else {
     loginBg.classList.add('hide');
@@ -46,14 +48,14 @@ const mostrarData = (pokemon) => {
   return mostrar;
 };
 
-allPokemones.innerHTML = mostrarData(pokedata);
+allPokemones.innerHTML = mostrarData(dataPoker);
 
-
+ 
 const detailData = (pokemon) => {
   let show = ' ';
   for (let i = 0; i < pokemon.length; i++) {
     let callPoke = `
-  <div class="all-poke-details">
+  <div class="all-poke-details hide">
     <div class="img-poke-details">
       <figure class="img-poke-details">
         <img src="${pokemon[i].img}"/>
@@ -81,5 +83,10 @@ const detailData = (pokemon) => {
   }
   return show;
 };
-pokeDetails.innerHTML = detailData(pokedata);
+pokeDetails.innerHTML = detailData(dataPoker);
+const ordenaraz = document.getElementById('alfa-options');
+ordenaraz.addEventListener('change', () => {
+  const ordenarpokemones = window.ordenarAlfb(dataPoker, ordenaraz.value); // cambiar por la data
+  mostrarData(ordenarpokemones);
+});
 

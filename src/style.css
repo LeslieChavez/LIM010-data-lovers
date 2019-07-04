@@ -129,3 +129,7 @@ a {
     justify-content: center;
     text-align: center;
 }
+
+.nav-menu ul li{
+    list-style: none;
+}

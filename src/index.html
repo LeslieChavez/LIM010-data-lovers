@@ -10,9 +10,9 @@
 </head>
 
 <body>
-  <header class="headear hide">
+  <header id="header" class="header hide">
     <div>
-      <img src="icono/filter.png" alt="filtro">
+      <img src="img/logo.png" alt="logo">
     </div>
   </header>
   <main>
@@ -31,14 +31,30 @@
       </form>
     </section>
 
+    <!--mostrar a detalle los pokemones-->
+    <section class="thrid-screen">
+        <div id="poke-details"></div>
+          <nav class="nav-menu">
+            <ul>
+              <li>Mi Pokedex</li> |
+              <li>Incubadora</li>
+            </ul>
+          </nav>
+
+      <div>
+        <input type="search" class="search-input" placeholder="Busca tu pokemon">
+      </div>
+
+  </section>
+
     <!--Menu lateral-->
-    <section class="container">
+    <section class="filter-menu">
         <div>
          <p>¡Ordenalos ya!</p>
          <select id="alfa-options">
             <option value="" disabled="" selected="">Alfabéticamente</option>
-            <option value="a-z" id="a-z">De la A a la Z</option>
-            <option value="z-a" id="z-a">De la Z a la A</option>
+            <option value="0">De la A a la Z</option>
+            <option value="1">De la Z a la A</option>
           </select>
           <select id="show-options">
                  <option value="" disabled="" selected="">Aparición</option>
@@ -47,22 +63,27 @@
                </select>
 
           <div>
-            <p>Tipo y debilidad</p>
+            <p>Debilidad</p>
             <select id="weakness">
                 <option value="" disabled="" selected="">Debilidad</option>
-                <option value="more" id="more">Fuego</option>
-                <option value="less" id="less">Hielo</option>
-                <option value="less" id="less">Psiquico</option>
-                <option value="less" id="less">Roca</option>
-                <option value="less" id="less">Hada</option>
-                <option value="less" id="less">Vuelo</option>
-                <option value="less" id="less">Fantasma<option>
-                <option value="less" id="less">Bicho</option>
-                <option value="less" id="less">Veneno</option>
+                <option value="" id="fire">Fuego</option>
+                <option value="" id="ice">Hielo</option>
+                <option value="" id="psy">Psiquico</option>
+                <option value="" id="rock">Roca</option>
+                <option value="" id="dragon">Dragón</option>
+                <option value="" id="fly">Vuelo</option>
+                <option value="" id="ghost">Fantasma<option>
+                <option value="" id="bug">Bicho</option>
+                <option value="" id="poison">Veneno</option>
+                <option value="" id="fight">Lucha</option>
+                <option value="" id="grass">Planta</option>
+                <option value="" id="normal">Normal</option>
+                <option value="" id="electric">Eléctrico</option>
+                <option value="" id="ground">Tierra</option>
               </select>
           </div>
 
-      
+
     </section>
 
     <!-- Segunda vista -->
@@ -70,11 +91,6 @@
       <div id="all-pokemones" class="all-pokemones"></div>
     </section>
   </main>
-
-  <!--mostrar a detalle los pokemones-->
-  <section class="thrid-screen">
-    <div id="poke-details"></div>
-  </section>
 
   <footer></footer>
   <script src="./data/pokemon/pokemon.js"></script>
