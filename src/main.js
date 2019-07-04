@@ -35,11 +35,10 @@ const mostrarData = (pokemon) => {
     let llamar = `
     <div class="show-pokemon">
       <figure class="figure">
-        <img src="${pokemon[i].img}"/>
-      </figure>
+        <img src="${pokemon[i].img}"/></figure>
       <div class="poke-name">
-        <p>${pokemon[i].name}</p>
-      </div>
+        <p>${pokemon[i].name}</p></div>
+    </div>
     </div>`;
     
     mostrar += llamar;
@@ -48,6 +47,7 @@ const mostrarData = (pokemon) => {
 };
 
 allPokemones.innerHTML = mostrarData(pokedata);
+
 
 const detailData = (pokemon) => {
   let show = ' ';
@@ -82,3 +82,4 @@ const detailData = (pokemon) => {
   return show;
 };
 pokeDetails.innerHTML = detailData(pokedata);
+

@@ -96,25 +96,22 @@ a {
     -webkit-border-radius: 50%;
     border-radius: 50%;
     background: #8CD790;
+    padding: 20px;
+    margin: 20px;    
+}
+
+.figure{
     padding: 10px;
     margin: 20px;
     display: flex;
     justify-content: center;
     text-align: center;
-
-}
-
-.figure{
-    margin: 30px;
-    width: 40px;
-    display: inline-block;
-    height: 20px;
 }
 
 .poke-name{
-    width: 40px;
     display: flex;
     justify-content: center;
+    text-align: center;
 }
 
 .poke-details{
