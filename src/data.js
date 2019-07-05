@@ -9,7 +9,7 @@
 
 window.example = example;
 */
-const dataPoker = (pokemon) => {
+const pokerData = (pokemon) => {
   const empty = [];
   for (let i = 0; i < pokemon.length; i++);
   empty.push({ 
@@ -20,7 +20,7 @@ const dataPoker = (pokemon) => {
 };
 
 window.pokemon = {
-  dataPoker: dataPoker,
+  pokerData: pokerData,
 };
 
 // ordenamiento de a -z

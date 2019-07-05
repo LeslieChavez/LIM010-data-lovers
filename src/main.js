@@ -1,5 +1,4 @@
 /* Manejo del DOM */
-
 const dataPoker = POKEMON.pokemon;
 const loginBg = document.getElementById('login-bg');
 const secondScreen = document.getElementById('second-screen');
