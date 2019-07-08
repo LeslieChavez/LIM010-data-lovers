@@ -44,16 +44,24 @@ const showData = (pokemon) => {
   return show;
 };
 
-allPokemones.innerHTML = showData(window.pokemon.newData(dataPoker));
+allPokemones.innerHTML = showData(newPokeData(dataPoker));
+
+/* ordenaz.addEventListener('change', () => {
+  console.log(ordenaAtoZ(dataPoker, ordenaz.value));
+
+  if ('A-Z' === ordenaz.value) {
+    const pokeOrder = ordenaAtoZ(dataPoker);
+
+    allPokemones.innerHTML = showData(pokeOrder);
+  } else {
+    const pokeOrderReverse = ordenaAtoZ(dataPoker).reverse();
+
+    allPokemones.innerHTML = showData(pokeOrderReverse);
+  }
+}); */
 
 ordenaz.addEventListener('change', () => {
-  if ('A-Z' === ordenaz.value) {
-    const pokeOrder = window.pokemon.ordena(dataPoker);
-
-    allPokemones.innerHTML = window.pokemon.newData(dataPoker);
-  } else {
-    const pokeOrder = window.pokemon.ordena(dataPoker).reverse();
-
-    allPokemones.innerHTML = window.pokemon.newData(dataPoker);
-  }
+  const ordenarpokemones = window.ordenaAtoZ(dataPoker, ordenaz.value); // cambiar por la data
+  allPokemones.innerHTML = showData(ordenarpokemones);
 });
+

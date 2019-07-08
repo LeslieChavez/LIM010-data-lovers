@@ -9,29 +9,6 @@
 
 window.example = example; */
 
-// ordenamiento de a -z
-/*
-const orderAtoZ = (data, opcion) => {
-  const arrSortPoke = data.sort((ab, bc) => {
-    /* a es menor que b según criterio de ordenamiento 
-    if (ab.name > bc.name) {
-      return 1;
-    } if (ab.name < bc.name) {
-      return -1;
-    }
-    return 0;
-  });
-  if (opcion === '0') {
-    return arrSortPoke;
-  }
-  if (opcion === '1') {
-    return arrSortPoke.reverse();
-  }
-  return 0;
-};
-
-window.orderAtoZ = orderAtoZ; */
-
 const newPokeData = (pokemon) => {
   const empty = [];
   for (let i = 0; i < pokemon.length; i++) {
@@ -43,7 +20,7 @@ const newPokeData = (pokemon) => {
   return empty; 
 };
 
-const ordenaAtoZ = (dataPoker) => {
+/* const ordenaAtoZ = (dataPoker) => {
   newPokeArr = [];
   const ordenador = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'W', 'X', 'Y', 'Z'];
   for (let i = 0; i < ordenador.length; i++) {
@@ -54,9 +31,28 @@ const ordenaAtoZ = (dataPoker) => {
     }
   } 
   return newPokeArr;
-};
+}; */ 
 
-window.pokemon = {
-  newData: newPokeData,
-  ordena: ordenaAtoZ,
-};
+const ordenaAtoZ = (data, clickOrder) => {
+  const arrSortName = data.sort((ab, bc) => {
+    /* a es menor que b según criterio de ordenamiento */
+    if (ab.name > bc.name) {
+      return 1;
+    } if (ab.name < bc.name) {
+      return -1;
+    }
+    return 0;
+  });
+  if (clickOrder === '0') {
+    return arrSortName;
+  }
+  if (clickOrder === '1') {
+    return arrSortName.reverse();
+  }
+  return 0;
+}; 
+
+window.POKEMON = POKEMON;
+window.ordenaAtoZ = ordenaAtoZ;
+window.newPokeData = newPokeData; 
+
