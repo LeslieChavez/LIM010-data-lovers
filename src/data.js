@@ -20,19 +20,6 @@ const newPokeData = (pokemon) => {
   return empty; 
 };
 
-/* const ordenaAtoZ = (dataPoker) => {
-  newPokeArr = [];
-  const ordenador = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'W', 'X', 'Y', 'Z'];
-  for (let i = 0; i < ordenador.length; i++) {
-    for (let j = 0; j < dataPoker.length; j++) {
-      if (ordenador[j] === dataPoker[j].name[0]) {
-        newPokeArr.push(dataPoker[j]);
-      };
-    }
-  } 
-  return newPokeArr;
-}; */ 
-
 const ordenaAtoZ = (data, clickOrder) => {
   const arrSortName = data.sort((ab, bc) => {
     /* a es menor que b según criterio de ordenamiento */
@@ -52,7 +39,27 @@ const ordenaAtoZ = (data, clickOrder) => {
   return 0;
 }; 
 
+const orderSpawn = (data, clickOrder) => {
+  const arrSpawn = data.sort((ab, bc) => {
+    /* a es menor que b según criterio de ordenamiento */
+    if (ab.spawn_chance > bc.spawn_chance) {
+      return 1;
+    } if (ab.spawn_chance < bc.spawn_chance) {
+      return -1;
+    }
+    return 0;
+  });
+  if (clickOrder === '0') {
+    return arrSpawn;
+  }
+  if (clickOrder === '1') {
+    return arrSpawn.reverse();
+  }
+  return 0;
+}; 
+
 window.POKEMON = POKEMON;
 window.ordenaAtoZ = ordenaAtoZ;
 window.newPokeData = newPokeData; 
+window.orderSpawn = orderSpawn;
 

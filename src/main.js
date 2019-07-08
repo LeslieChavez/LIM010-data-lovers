@@ -7,6 +7,7 @@ const user = document.getElementById('user');
 const enterButton = document.getElementById('enter-button');
 const allPokemones = document.getElementById('all-pokemones');
 const ordenaz = document.getElementById('alfa-options');
+const spawnChance = document.getElementById('spawn-chance');
 
 // Definir variable para realizar función 
 const userTrue = 'LABORATORIA';
@@ -46,22 +47,12 @@ const showData = (pokemon) => {
 
 allPokemones.innerHTML = showData(newPokeData(dataPoker));
 
-/* ordenaz.addEventListener('change', () => {
-  console.log(ordenaAtoZ(dataPoker, ordenaz.value));
-
-  if ('A-Z' === ordenaz.value) {
-    const pokeOrder = ordenaAtoZ(dataPoker);
-
-    allPokemones.innerHTML = showData(pokeOrder);
-  } else {
-    const pokeOrderReverse = ordenaAtoZ(dataPoker).reverse();
-
-    allPokemones.innerHTML = showData(pokeOrderReverse);
-  }
-}); */
-
 ordenaz.addEventListener('change', () => {
-  const ordenarpokemones = window.ordenaAtoZ(dataPoker, ordenaz.value); // cambiar por la data
+  const ordenarpokemones = window.ordenaAtoZ(dataPoker, ordenaz.value);
   allPokemones.innerHTML = showData(ordenarpokemones);
 });
 
+spawnChance.addEventListener('change', () => {
+  const spawnPokemones = window.orderSpawn(dataPoker, spawnChance.value); 
+  allPokemones.innerHTML = showData(spawnPokemones);
+});
