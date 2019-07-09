@@ -1,7 +1,8 @@
+const dataGlobal = POKEMON.pokemon;
 /* Login */
 const loginSection = document.getElementById('loginSection');
 const pokedexSection = document.getElementById('pokedexSection');
-const headerTop = document.getElementById('headerTop'); //Agregue el header 
+const headerTop = document.getElementById('headerTop'); // Agregue el header 
 const password = document.getElementById('password');
 const user = document.getElementById('user');
 const enterButton = document.getElementById('enter-button');
@@ -60,13 +61,32 @@ const showPokemons = (pokemon) => {
 };
 allPokedex.innerHTML = showPokemons(arrayPokemon(dataGlobal));
 
+
+// Busca
+/*inputSearch.addEventListener('click', () => {
+  const pokemonBuscado = window.filterWeakness(dataGlobal, inputSearch.value);
+  allPokedex.innerHTML = showPokemons(pokemonBuscado);
+})*/
+
 // Ordenar pokemones
 alfaSelect.addEventListener('change', () => {
-  const ordenarpokemones = window.sortAlfa(dataGlobal, alfaSelect.value);
-  allPokedex.innerHTML = showPokemons(ordenarpokemones);
+  const orderPokemons = window.sortAlfa(dataGlobal, alfaSelect.value);
+  allPokedex.innerHTML = showPokemons(orderPokemons);
 });
 
 spawnSelect.addEventListener('change', () => {
-  const spawnPokemones = window.orderSpawn(dataGlobal, spawnSelect.value); 
-  allPokedex.innerHTML = showPokemons(spawnPokemones);
+  const spawnPokemons = window.orderSpawn(dataGlobal, spawnSelect.value); 
+  allPokedex.innerHTML = showPokemons(spawnPokemons);
 });
+
+// Filtra pokemones por tipo
+typeSelect.addEventListener('click', () => {
+  const typePokemons = window.filterTypes(dataGlobal, typeSelect.value);
+  allPokedex.innerHTML = showPokemons(typePokemons);
+})
+
+// Filtra pokemones por debilidades
+weakSelect.addEventListener('change', () => {
+  const weakPokemons = window.filterWeakness(dataGlobal, weakSelect.value);
+  allPokedex.innerHTML = showPokemons(weakPokemons);
+})
