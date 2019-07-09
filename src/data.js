@@ -1,5 +1,3 @@
-const dataGlobal = POKEMON.pokemon;
-
 const arrayPokemon = (pokemon) => {
   const newArrayPokemon = [];
   for (let i = 0; i < pokemon.length; i++) {
@@ -23,7 +21,6 @@ const arrayPokemon = (pokemon) => {
   };
   return newArrayPokemon; 
 };
-
 
 /* Ordenar Alfabeticamente */
 const sortAlfa = (data, clickOrder) => {
@@ -63,10 +60,39 @@ const orderSpawn = (data, clickOrder) => {
   return 0;
 }; 
 
+/* Filtrar por debilidad*/
+const filterWeakness = (dataGlobal, weakness) => {
+  return dataGlobal.filter((element) => {
+    return element.weaknesses.indexOf(weakness) > -1
+  });
+}
+
+/* Filtrar por tipo*/
+const filterTypes = (dataGlobal, types) => {
+  return dataGlobal.filter((element) => {
+    return element.type.indexOf(types) > -1
+  });
+}
+
+/* Buscar
+const searchPokemons = (dataGlobal, namespoke) => {
+  return dataGlobal.find((element) => {
+    return element.name.indexOf(namespoke) > -1
+  });
+}*/
+
+
+
+
+
+
 window.POKEMON = POKEMON;
 window.sortAlfa = sortAlfa;
 window.arrayPokemon = arrayPokemon; 
 window.orderSpawn = orderSpawn;
+window.filterWeakness = filterWeakness;
+window.filterTypes = filterTypes;
+/*window.searchPokemons = searchPokemons;*/
 
 
 
