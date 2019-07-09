@@ -12,10 +12,11 @@ body, html{
     display: none !important;
 }
 
-
 a {
-    color: #3897f0;
     text-decoration: none;
+}
+.url {
+    color: #3897f0;
     font-weight: bold;
 }
 
@@ -86,22 +87,23 @@ a {
     justify-content: space-between;
     padding: 10% 12%;
     align-items: center;
-
 }
 
 .show-pokemon {
+    display: flex;
+    flex-flow: wrap row;
     width: 200px;
     height: 200px;
     padding: 20px;
     margin: 20px;    
 }
 
-.figure{
-    padding: 10px;
-    margin: 20px;
-    display: flex;
-    justify-content: center;
-    text-align: center;
+figure{
+    height: 50px;
+    width: 50px;
+    border-radius: 80%;
+    background: #8CD790;
+    filter: blur(18px);
 }
 
 .poke-name{
@@ -110,23 +112,57 @@ a {
     text-align: center;
 }
 
-.poke-details{
-    display: flex;
-    flex-flow: wrap row;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.all-poke-details{
-    padding: 10px;
-    border: #3897f0;
-    margin: 20px;
-    display: flex;
-    justify-content: center;
-    text-align: center;
-}
-
-.nav-menu ul li{
+nav ul li{
     list-style: none;
 }
 
+/* Fitrado */
+
+.input-search{
+    width: 60vw;
+    height: 40px;
+    padding: 10px 10px 11px 30px;
+    border: solid 1px rgb(201, 201, 201);
+    border-radius: 15px;
+}
+
+.filter-menu{
+    width: auto;
+    height: auto;
+    padding: 30px;
+    background: #fff;
+    box-shadow: 0 4px 10px rgba(190, 190, 190, 0.5);
+
+}
+.selectors{
+    width: inherit;
+    height: auto;
+    padding: 10px;
+    border: solid 0.5px rgb(238, 238, 238);
+    border-radius: 15px;
+}
+
+/* Header */
+
+.header-up{
+    width: 100%;
+    height: auto;
+    padding: 8px;
+    background: linear-gradient(to bottom, #24CCAA, #A2DB95);
+    top: 0;
+    overflow: auto;
+    transition: all 0.5s ease;
+}
+
+.header-logo{
+    block-size: 40px;
+}
+
+.header-nav{
+    width: 100%;
+    background: rgb(225, 255, 226);
+}
+
+.header-nav a{
+    display: inline;
+}
