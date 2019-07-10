@@ -67,7 +67,7 @@ inputSearch.addEventListener('input', event => {
   const pokemonWanted = searchPokemons(dataGlobal, inputSearch.value);
   allPokedex.innerHTML = showPokemons(pokemonWanted);
 });
-console.log(pokemonWanted);
+console.log("hola leslie");
 
 // Ordenar pokemones
 alfaSelect.addEventListener('change', () => {
