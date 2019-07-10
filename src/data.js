@@ -68,7 +68,12 @@ const filterWeakness = (dataGlobal, weakness) => {
   });
 };
 
-/* Manejo de data */
+const filterTypes = (dataGlobal, types) => {
+  return dataGlobal.filter(element => {
+    return element.type.indexOf(types) > -1;
+  });
+};
+
 
 // Buscar
 const searchPokemons = () => {
