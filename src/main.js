@@ -1,3 +1,4 @@
+const dataGlobal = POKEMON.pokemon;
 /* Login */
 const loginSection = document.getElementById('loginSection');
 const pokedexSection = document.getElementById('pokedexSection');
@@ -16,8 +17,9 @@ const filterMenu = document.getElementById('filterMenu');
 const catchedSelect = document.getElementById('catchedSelect');
 const alfaSelect = document.getElementById('alfaSelect');
 const spawnSelect = document.getElementById('spawnSelect');
-const typeSelect = document.getElementById('typeSelect');
+const typeSelect = document.getElementById('typeSelect'); // padre de botones
 const weakSelect = document.getElementById('weakSelect');
+const typeButton = document.getElementsByClassName('typeButton');
 
 // Definir variable para realizar función 
 const userTrue = 'LABORATORIA';
@@ -51,7 +53,6 @@ const showPokemons = (pokemon) => {
       <figure></figure>
       <img src="${pokemon[i].img}"/>
       <p>${pokemon[i].name}</p>
-      <p>#${pokemon[i].num}<p/>
     </div>`;
     
     show += llamar;
@@ -60,13 +61,34 @@ const showPokemons = (pokemon) => {
 };
 allPokedex.innerHTML = showPokemons(arrayPokemon(dataGlobal));
 
+
+// Busca
+inputSearch.addEventListener('input', event => {
+  const pokemonWanted = searchPokemons(dataGlobal, inputSearch.value);
+  allPokedex.innerHTML = showPokemons(pokemonWanted);
+});
+console.log('hola leslie');
+
 // Ordenar pokemones
 alfaSelect.addEventListener('change', () => {
-  const ordenarpokemones = window.sortAlfa(dataGlobal, alfaSelect.value);
-  allPokedex.innerHTML = showPokemons(ordenarpokemones);
+  const orderPokemons = sortAlfa(dataGlobal, alfaSelect.value);
+  allPokedex.innerHTML = showPokemons(orderPokemons);
 });
 
+// Filtra pokemones por aparición
 spawnSelect.addEventListener('change', () => {
-  const spawnPokemones = window.orderSpawn(dataGlobal, spawnSelect.value); 
-  allPokedex.innerHTML = showPokemons(spawnPokemones);
+  const spawnPokemons = orderSpawn(dataGlobal, spawnSelect.value); 
+  allPokedex.innerHTML = showPokemons(spawnPokemons);
+});
+
+// Filtra pokemones por tipo
+typeSelect.addEventListener('click', (event)=>{
+  const typePokemon = filterTypes(dataGlobal, event.target.value);
+  allPokedex.innerHTML = showPokemons(typePokemon);
+});
+
+// Filtra pokemones por debilidades
+weakSelect.addEventListener('change', () => {
+  const weakPokemons = filterWeakness(dataGlobal, weakSelect.value);
+  allPokedex.innerHTML = showPokemons(weakPokemons);
 });
