@@ -60,30 +60,28 @@ const orderSpawn = (data, clickOrder) => {
   return 0;
 }; 
 
-/* Filtrar por debilidad*/
+/* Filtrar por debilidad* inicializado (=) como funciòn */
+
 const filterWeakness = (dataGlobal, weakness) => {
-  return dataGlobal.filter((element) => {
+  return dataGlobal.filter(element => {
     return element.weaknesses.indexOf(weakness) > -1
   });
 }
 
-/* Filtrar por tipo*/
 const filterTypes = (dataGlobal, types) => {
-  return dataGlobal.filter((element) => {
+  return dataGlobal.filter(element => {
     return element.type.indexOf(types) > -1
   });
 }
 
-/* Buscar
-const searchPokemons = (dataGlobal, namespoke) => {
-  return dataGlobal.find((element) => {
-    return element.name.indexOf(namespoke) > -1
+
+//Buscar
+const searchPokemons = () => {
+  return dataGlobal.find(element => {
+    return element.name
   });
-}*/
-
-
-
-
+}
+console.log("hola");
 
 
 window.POKEMON = POKEMON;
@@ -92,17 +90,4 @@ window.arrayPokemon = arrayPokemon;
 window.orderSpawn = orderSpawn;
 window.filterWeakness = filterWeakness;
 window.filterTypes = filterTypes;
-/*window.searchPokemons = searchPokemons;*/
-
-
-
-/* Manejo de data */
-
-// esta es una función de ejemplo
-// puedes ver como agregamos la función a nuestro objeto global window
-
-/* const example = () => {
-  return 'example';
-};
-
-window.example = example; */
+window.searchPokemons = searchPokemons;

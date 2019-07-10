@@ -102,8 +102,8 @@ figure{
     height: 50px;
     width: 50px;
     border-radius: 80%;
-    background: #8CD790;
-    filter: blur(18px);
+    background: linear-gradient(to right, #24CCAA, #A2DB95);
+    filter: blur(25px);
 }
 
 .poke-name{
@@ -118,11 +118,16 @@ nav ul li{
 
 /* Fitrado */
 
-.input-search{
+.search-with-icon{
+    background: red;
+}
+
+.search{
     width: 60vw;
     height: 40px;
     padding: 10px 10px 11px 30px;
-    border: solid 1px rgb(201, 201, 201);
+    background: #F6F4F4;
+    border: solid 0.5px rgb(230, 230, 230);
     border-radius: 15px;
 }
 
