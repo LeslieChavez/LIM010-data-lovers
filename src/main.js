@@ -1,7 +1,7 @@
 /* Login */
 const loginSection = document.getElementById('loginSection');
 const pokedexSection = document.getElementById('pokedexSection');
-const headerTop = document.getElementById('headerTop'); //Agregue el header 
+const headerTop = document.getElementById('headerTop'); // Agregue el header 
 const password = document.getElementById('password');
 const user = document.getElementById('user');
 const enterButton = document.getElementById('enter-button');
@@ -30,7 +30,7 @@ const validation = () => {
   if (password.value === passwordTrue) {
     loginSection.classList.add('hide');
     pokedexSection.classList.replace('hide', 'show');
-    headerTop.classList.replace('hide', 'show'); //Agregue el header 
+    headerTop.classList.replace('hide', 'show'); // Agregue el header 
     event.preventDefault();
   } else {
     loginSection.classList.add('hide');

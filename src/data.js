@@ -69,7 +69,6 @@ window.arrayPokemon = arrayPokemon;
 window.orderSpawn = orderSpawn;
 
 
-
 /* Manejo de data */
 
 // esta es una función de ejemplo
