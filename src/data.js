@@ -25,9 +25,9 @@ const arrayPokemon = (pokemon) => {
 /* Busca a tu Pokemon */
 const searchPokemons = (dataGlobal, wanted) => {
   return dataGlobal.filter(element => {
-    return element.name.toLowerCase().indexOf(wanted)>=0
+    return element.name.toLowerCase().indexOf(wanted) >= 0;
   });
-}
+};
 
 /* Ordenar Alfabeticamente */
 const sortAlfa = (data, clickOrder) => {
@@ -80,15 +80,18 @@ const filterTypes = (dataGlobal, types) => {
   });
 };
 
-/* Codigo que esta siendo probado
 
+const catchedPokemon = () => {
+  return dataGlobal.filter(element => {
+    return element.multipliers !== null;
+  });
+};
 
 const unCatchedPokemon = () => {
   return dataGlobal.filter(element => {
-    return element.multipliers = null;
-  })
+    return element.multipliers === null;
+  });
 };
-*/ 
 
 window.POKEMON = POKEMON;
 window.sortAlfa = sortAlfa;
@@ -98,6 +101,6 @@ window.filterWeakness = filterWeakness;
 window.filterTypes = filterTypes;
 window.searchPokemons = searchPokemons;
 
-/*
+
 window.catchedPokemon = catchedPokemon;
-window.unCatchedPokemon = unCatchedPokemon;*/
+window.unCatchedPokemon = unCatchedPokemon;

@@ -22,7 +22,8 @@
         <a href="https://google.com" class="right links url">¿Olvidaste la contraseña?</a>
         <button class="login-btn" id="enter-button" type="submit"><b>INGRESA</b></button>
         <p id="error-message" class="error-message hide">Datos incorrectos</p>
-        <p class="center links">¿No tienes una cuenta?<a class="url" href="https://google.com"><span>Regístrate</span></a></p>
+        <p class="center links">¿No tienes una cuenta?<a class="url"
+            href="https://google.com"><span>Regístrate</span></a></p>
       </form>
     </section>
 
@@ -63,7 +64,7 @@
       <!--Menu lateral-->
       <div id='filterMenu center' class="filter-menu">
         <h4>¡Ordénalos ya!</h4>
-       
+
         <select id="alfaSelect" class="selectors">
           <option disabled>Alfabéticamente</option>
           <option value="0">A-Z</option>
@@ -95,7 +96,7 @@
 
         <div>
           <select id="weakSelect" class="selectors">
-            <option value="weak" disabled="" selected="">Debilidad</option>    
+            <option value="weak" disabled="" selected="">Debilidad</option>
             <option value="Grass">Planta</option>
             <option value="Poison">Veneno</option>
             <option value="Fire">Fuego</option>
@@ -113,14 +114,20 @@
           </select>
         </div>
       </div>
+
       <div id="allPokedex" class="all-pokemones"></div> <!-- Todos los pokemones -->
+      <!--Seccion Modal -->
     </section>
 
+    <div id="myModal" class="modal hide">
+      <!-- Modal content -->
+      <div class="modal-content" id='modal-content'>
+        <span class="close" id="close">&times;</span>
+        <p>ESTO ES UN EJEMPLO</p>
+        <div id="card-pokemon"></div>
+      </div>
+    </div>
 
-    <!--Seccion Modal -->
-    <section class="thrid-screen">
-      <div id="cardPokemon"></div>
-    </section>
   </main>
 
   <footer></footer>
