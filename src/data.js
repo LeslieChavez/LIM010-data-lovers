@@ -70,23 +70,18 @@ const orderSpawn = (data, clickOrder) => {
 /* Filta por debilidad */
 const filterWeakness = (dataGlobal, weakness) => {
   return dataGlobal.filter(element => {
-    return element.weaknesses.indexOf(weakness) > -1
+    return element.weaknesses.indexOf(weakness) > -1;
   });
-}
+};
 
 const filterTypes = (dataGlobal, types) => {
   return dataGlobal.filter(element => {
-    return element.type.indexOf(types) > -1
+    return element.type.indexOf(types) > -1;
   });
-}
+};
 
 /* Codigo que esta siendo probado
 
-const catchedPokemon = () => {
-  return dataGlobal.filter(element => {
-    return element.multipliers != null;
-  })
-};
 
 const unCatchedPokemon = () => {
   return dataGlobal.filter(element => {

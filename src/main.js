@@ -18,7 +18,7 @@ const filterMenu = document.getElementById('filterMenu');
 /*const catchedSelect = document.getElementById('catchedSelect'); Ha sido cambiado por un div con buttons*/
 const alfaSelect = document.getElementById('alfaSelect');
 const spawnSelect = document.getElementById('spawnSelect');
-const typeSelect = document.getElementById('typeSelect'); //padre de botones
+const typeSelect = document.getElementById('typeSelect'); // padre de botones
 const weakSelect = document.getElementById('weakSelect');
 const typeButton = document.getElementsByClassName('typeButton');
 
@@ -32,7 +32,7 @@ const validation = () => {
   if (password.value === passwordTrue) {
     loginSection.classList.add('hide');
     pokedexSection.classList.replace('hide', 'show');
-    headerTop.classList.replace('hide', 'show'); //Agregue el header 
+    headerTop.classList.replace('hide', 'show'); // Agregue el header 
     event.preventDefault();
   } else {
     loginSection.classList.add('hide');
