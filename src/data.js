@@ -22,6 +22,13 @@ const arrayPokemon = (pokemon) => {
   return newArrayPokemon; 
 };
 
+/* Busca a tu Pokemon */
+const searchPokemons = (dataGlobal, wanted) => {
+  return dataGlobal.filter(element => {
+    return element.name.toLowerCase().indexOf(wanted)>=0
+  });
+}
+
 /* Ordenar Alfabeticamente */
 const sortAlfa = (data, clickOrder) => {
   const arrSortName = data.sort((ab, bc) => {
@@ -60,8 +67,7 @@ const orderSpawn = (data, clickOrder) => {
   return 0;
 }; 
 
-/* Filtrar por debilidad* inicializado (=) como funciòn */
-
+/* Filta por debilidad */
 const filterWeakness = (dataGlobal, weakness) => {
   return dataGlobal.filter(element => {
     return element.weaknesses.indexOf(weakness) > -1;
@@ -74,15 +80,15 @@ const filterTypes = (dataGlobal, types) => {
   });
 };
 
+/* Codigo que esta siendo probado
 
-// Buscar
-const searchPokemons = () => {
-  return dataGlobal.find(element => {
-    return element.name;
-  });
+
+const unCatchedPokemon = () => {
+  return dataGlobal.filter(element => {
+    return element.multipliers = null;
+  })
 };
-console.log('hola');
-
+*/ 
 
 window.POKEMON = POKEMON;
 window.sortAlfa = sortAlfa;
@@ -91,3 +97,7 @@ window.orderSpawn = orderSpawn;
 window.filterWeakness = filterWeakness;
 window.filterTypes = filterTypes;
 window.searchPokemons = searchPokemons;
+
+/*
+window.catchedPokemon = catchedPokemon;
+window.unCatchedPokemon = unCatchedPokemon;*/
