@@ -54,7 +54,7 @@ const showPokemons = (pokemon) => {
   let show = [];
   for (let i = 0; i < pokemon.length; i++) {
     let llamar = `
-    <div id="${i}" class="show-pokemon">
+    <div id="${pokemon[i].id}" class="show-pokemon">
       <figure></figure>
       <img src="${pokemon[i].img}"/>
       <p>${pokemon[i].name}</p>
@@ -112,8 +112,9 @@ weakSelect.addEventListener('change', () => {
   allPokedex.innerHTML = showPokemons(weakPokemons);
 });
 
-allPokedex.addEventListener('click', (event) => {
-  const informationCards = parseInt(event.target.getAttribute('id'));
+// Modal
+  allPokedex.addEventListener('click', (event) => {
+  const informationCards = event.target.parentElement.getAttribute('id')-1;
   document.getElementById('myModal').classList.remove('hide');
   /* Insertar informacion de pokemon en Modal */
   document.getElementById('card-pokemon').innerHTML = `
