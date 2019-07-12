@@ -32,8 +32,9 @@
       <div class="header-up center">
         <img class="header-logo" src="img/logo.png" alt="logo">
       </div>
+
       <nav class="header-nav center">
-        <ul>
+        <ul class='menu'>
           <li><a href="#">Mi Pokedex</a></li>
           <li><a href="#">Incubadora</a></li>
         </ul>
@@ -47,60 +48,60 @@
         <input id="inputSearch" class="search" type="search" value="" placeholder="Busca a tu pokemon">
         <img class="icon" alt="lupa" src="img/icon-web/search-icon.svg">
       </div>
-      <!-- Número de Pokemones 
-      
-      <div>
-        <img alt="pokebola" class="pokebola">
-        <span class="" id="title">CAMPEONES</span>
-        <img alt="divisor" class="divider divider-right">
-      </div>-->
 
       <!-- Pokemones Atrapados-->
       <div id="catchedPokedex" class="">
-        <button value="1">Atrapados</button>
-        <button value="0">Por atrapar</button>
+        <button value="1">Atrapados</button><button value="0">Por atrapar</button>
       </div>
 
       <!--Menu lateral-->
 
-      <div>
-        <a href='#' class='link-side-menu' id='link-side-menu'>
-        <img class='filter-logo' src="img/icon-web/filter-icon.svg" id='filter-logo'/></a>
+      <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="#">About</a>
+        <a href="#">Services</a>
+        <a href="#">Clients</a>
+        <a href="#">Contact</a>
       </div>
+      <span onclick="openNav()"><img class='filter-logo' src="filter-icon.svg" id='filter-logo' /></a></span>
+      <div id="main"></div>
+
+      <!-- <div>
+        <a href='#' class='link-side-menu' id='link-side-menu'>
+          <img class='filter-logo' src="filter-icon.svg" id='filter-logo' /></a>
+      </div> -->
+
       <nav class='filter-menu disable-menu ' id='filter-menu'>
-        <div id='side-menu' class='side-menu'>
-          <a href="#" class="closing-button" id="closing-button">&times;<a>
-        </div>
-        <div id='filter-panel' class='filter-panel hide'>
+        <div id='filter-panel' class='filter-panel'>
           <h4>¡Ordénalos ya!</h4>
 
-          <select id="alfaSelect" class="selectors">
-            <option disabled>Alfabéticamente</option>
+          <select id="alfaSelect" class="alpha-selectors selectors">
+            <option disabled="" selected="">Alfabéticamente</option>
             <option value="0">A-Z</option>
             <option value="1">Z-A</option>
           </select>
 
-          <select id="spawnSelect" class="selectors">
-            <option value="" disablebld="" selected="">Aparición</option>
+          <select id="spawnSelect" class="spawn-selectors selectors">
+            <option value="" disabled="" selected="">Aparición</option>
             <option value="1" id="more">Más comunes</option>
             <option value="0" id="less">Menos comunes</option>
           </select>
 
           <div id="typeSelect" class="type-select">
-            <button class='button-type' value="Grass"><img class="icon-type" src="iconos/1.png" />Planta</button>
-            <button class='button-type' value="Poison"><img class="icon-type" src="iconos/12.png" />Veneno</button>
-            <button class='button-type' value="Fire"><img class="icon-type" src="iconos/13.png" />Fuego</button>
-            <button class='button-type' value="Normal"><img class="icon-type" src="iconos/14.png" />Normal</button>
-            <button class='button-type' value="Psychic"><img class="icon-type" src="iconos/10.png" />Psíquico</button>
-            <button class='button-type' value="Dragon"><img class="icon-type" src="iconos/3.png" />Dragón</button>
-            <button class='button-type' value="Electric"><img class="icon-type" src="iconos/4.png" />Eléctrico</button>
-            <button class='button-type' value="Ice"><img class="icon-type" src="iconos/11.png" />Hielo</button>
-            <button class='button-type' value="Rock"><img class="icon-type" src="iconos/16.png" />Roca</button>
-            <button class='button-type' value="Bug"><img class="icon-type" src="iconos/2.png" />Bicho</button>
-            <button class='button-type' value="Ground"><img class="icon-type" src="iconos/6.png" />Tierra</button>
-            <button class='button-type' value="Water"><img class="icon-type" src="iconos/18.png" />Agua</button>
-            <button class='button-type' value="Ghost"><img class="icon-type" src="iconos/5.png" />Fantasma</button>
-            <button class='button-type' value="Flying"><img class="icon-type" src="iconos/15.png" />Volador</button>
+            <button class='button' value="Grass"><img src="iconos/1.png" class='icon' /><p class="text-tipo">Planta</p></button>
+            <button class='button' value="Poison"><img src="iconos/12.png" class='icon' /><p class="text-tipo">Veneno</p></button>
+            <button class='button' value="Fire"><img src="iconos/13.png" class='icon' /><p class="text-tipo">Fuego</p></button>
+            <button class='button' value="Normal"><img src="iconos/14.png" class='icon' /><p class="text-tipo">Normal</p></button>
+            <button class='button' value="Psychic"><img src="iconos/10.png" class='icon' /><p class="text-tipo">Psíquico</p></button>
+            <button class='button' value="Dragon"><img src="iconos/3.png" class='icon' /><p class="text-tipo">Dragón</p></button>
+            <button class='button' value="Electric"><img src="iconos/4.png" class='icon' /><p class="text-tipo">Eléctrico</p></button>
+            <button class='button' value="Ice"><img src="iconos/11.png" class='icon' /><p class="text-tipo">Hielo</p></button>
+            <button class='button' value="Rock"><img src="iconos/16.png" class='icon' /><p class="text-tipo">Roca</p></button>
+            <button class='button' value="Bug"><img src="iconos/2.png" class='icon' /> <p class="text-tipo">Bicho</p></button>
+            <button class='button' value="Ground"><img src="iconos/6.png" class='icon' /><p class="text-tipo">Tierra</p></button>
+            <button class='button' value="Water"><img src="iconos/18.png" class='icon' /><p class="text-tipo">Agua</p></button>
+            <button class='button' value="Ghost"><img src="iconos/5.png" class='icon' /><p class="text-tipo">Fantasma</p></button>
+            <button class='button' value="Flying"><img src="iconos/15.png" class='icon' /><p class="text-tipo">Volador</p></button>
           </div>
 
           <div>
@@ -124,7 +125,6 @@
           </div>
         </div>
       </nav>
-
       <div id="allPokedex" class="all-pokemones"></div> <!-- Todos los pokemones -->
     </section>
 

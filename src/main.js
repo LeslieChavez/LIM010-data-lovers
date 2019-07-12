@@ -28,7 +28,7 @@ const passwordTrue = 'LABORATORIA';
 let tryNumb = 0;
 
 /* Mostrar tarjeta de información de pokemones */
-const myModal = document.getElementById('myModal')
+const myModal = document.getElementById('myModal');
 const modalContent = document.getElementById('modal-content');
 const cardPokemon = document.getElementById('card-pokemon');
 const close = document.getElementById('close');
@@ -71,7 +71,7 @@ const showPokemons = (p1) => {
   }
   return templatePokedex;
 };
-//console.log(typeof showPokemons(dataGlobal));
+// console.log(typeof showPokemons(dataGlobal));
 allPokedex.innerHTML = showPokemons(arrayPokemon(dataGlobal));
 
 /* Buscar a un pokémon */
@@ -117,17 +117,18 @@ weakSelect.addEventListener('change', () => {
 });
 
 /* Modal */
-  allPokedex.addEventListener('click', (event) => {
-  const informationCards = event.target.parentElement.getAttribute('id')-1;
+allPokedex.addEventListener('click', (event) => {
+  const informationCards = event.target.parentElement.getAttribute('id') - 1;
   myModal.classList.remove('hide');
   /* Insertar informacion de pokemon en Modal */
   document.getElementById('card-pokemon').innerHTML = `
+    <img src='${dataGlobal[informationCards].img}'/>
     <p>${dataGlobal[informationCards].name}</p>
     <p>${dataGlobal[informationCards].weight}</p> 
     <p>${dataGlobal[informationCards].height}</p>    
     <p>${dataGlobal[informationCards].type}</p>
     <p>${dataGlobal[informationCards].avg_spawns}</p>
-    <p>${dataGlobal[informationCards].weaknesses}</p>`
+    <p>${dataGlobal[informationCards].weaknesses}</p>`;
 });
 
 /* Cerrar Modal */
@@ -156,18 +157,22 @@ typeSelect.addEventListener('click', (event) => {
 const logoLink = document.getElementById('link-side-menu');
 const showMenu = () => {
   const menu = document.getElementById('filter-menu');
-
-  if(menu.classList.contains('disable-menu')){
-    menu.classList.remove("disable-menu");
+  if (menu.classList.contains('disable-menu')) {
+    menu.classList.remove('disable-menu');
     menu.classList.add('enabled-menu');
-  } 
-  else{
+  } else {
     menu.classList.remove('enabled-menu');
     menu.classList.add('disable-menu');
   }
-}
+};
 
 logoLink.addEventListener('click', showMenu);
 
+function openNav() {
+  document.getElementById('mySidenav').style.width = '250px';
+}
 
-
+/* Set the width of the side navigation to 0 */
+function closeNav() {
+  document.getElementById('mySidenav').style.width = '0';
+}

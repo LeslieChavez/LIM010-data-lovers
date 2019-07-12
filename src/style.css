@@ -1,3 +1,6 @@
+*{
+    outline: none;
+}
 body, html{
     padding: 0;
     margin: 0;
@@ -114,34 +117,15 @@ figure{
 
 nav ul li{
     list-style: none;
+    padding: 7px;
 }
-
-/* Seccion del Filtrado*/
-.filter-menu{
-  width: 60%;
-  margin-left: 5%;
-  text-align: left;
-}
-
-.enabled-menu{
-  display: block;
-}
-
-.disable-menu{
-  display: none;
-}
-
-.filter-logo{
-  width: 10%;
-  height: 10%;
-}
-
-
 
 /* Fitrado */
 
 .search-with-icon{
-    background: red;
+    background: linear-gradient(to right, #24CCAA, #A2DB95);
+    display: flex;
+    justify-content: center;
 }
 
 .search{
@@ -150,7 +134,7 @@ nav ul li{
     padding: 10px 10px 11px 30px;
     background: #F6F4F4;
     border: solid 0.5px rgb(230, 230, 230);
-    border-radius: 15px;
+    border-radius: 15px;    
 }
 
 .filter-menu{
@@ -168,6 +152,7 @@ nav ul li{
     border: solid 0.5px rgb(238, 238, 238);
     border-radius: 15px;
 }
+
 
 /* Header */
 
@@ -190,8 +175,9 @@ nav ul li{
     background: rgb(225, 255, 226);
 }
 
-.header-nav a{
-    display: inline;
+.menu{
+    display: flex;
+    flex-direction: row;
 }
 
 #contenedor{
@@ -246,8 +232,8 @@ nav ul li{
         height: 80%;
     }
 
-  /* The Close Button */
-  .close {
+/* The Close Button Modal */
+.close {
     color: #aaa;
     float: right;
     font-size: 28px;
@@ -260,14 +246,29 @@ nav ul li{
     text-decoration: none;
     cursor: pointer;
   }
+  
+  /* Menu desplegable */ 
 
+  .enabled-menu{
+    display: block;
+  }
+  
+  .disable-menu{
+    display: none;
+  }
+  
+  .filter-logo{
+    width: 7vw;
+    height: 7vh;
+  }
+  
   .type-select{
     display: flex;
     flex-wrap: wrap;
     align-content: flex-start;
   }
   
-.button-type{
+  .button{
     width: 9vw;
     height: 5vh;
     background: linear-gradient(to right, #24CCAA, #A2DB95);
@@ -279,9 +280,60 @@ nav ul li{
     flex-direction:row;
   }
   
-  .icon-type{
+  .icon{
     width: 2.5vw;
-    height: 5vh;
-    padding: 0;
-    margin: 10px;
+
+  }
+  .text-tipo{
+    padding:8px;
+    margin: 0;
+  }
+  /* The side navigation menu */
+.sidenav {
+    height: 100%; /* 100% Full-height */
+    width: 0; /* 0 width - change this with JavaScript */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Stay on top */
+    top: 0; /* Stay at the top */
+    left: 0;
+    background-color: #111; /* Black*/
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 60px; /* Place content 60px from the top */
+    transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+  }
+  
+  /* The navigation menu links */
+  .sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+  }
+  
+  /* When you mouse over the navigation links, change their color */
+  .sidenav a:hover {
+    color: #f1f1f1;
+  }
+  
+  /* Position and style the close button (top right corner) */
+  .sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+  }
+  
+  /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+  #main {
+    transition: margin-left .5s;
+    padding: 20px;
+  }
+  
+  /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+  @media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
   }

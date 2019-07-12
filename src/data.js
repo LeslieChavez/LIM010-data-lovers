@@ -33,7 +33,6 @@ const searchPokemons = (dataGlobal, wanted) => {
 };
 
 
-
 /* Ordenar Alfabeticamente */
 const sortAlfa = (data, clickOrder) => {
   const arrSortName = data.sort((ab, bc) => {
@@ -105,7 +104,6 @@ const filterEggs = (dataGlobal, huevitos) => {
     return element.egg.indexOf(huevitos) > -1;
   });
 };
-
 
 
 window.POKEMON = POKEMON;
