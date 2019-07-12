@@ -127,15 +127,16 @@ nav ul li{
   display: block;
 }
 
-/*.disable-menu{
+.disable-menu{
   display: none;
-}*/
+}
 
 .filter-logo{
   width: 10%;
   height: 10%;
 }
-/* Seccion del Filtrado*/
+
+
 
 /* Fitrado */
 
