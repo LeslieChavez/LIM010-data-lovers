@@ -1,33 +1,38 @@
-const arrayPokemon = (pokemon) => {
+const arrayPokemon = (p1) => {
   const newArrayPokemon = [];
-  for (let i = 0; i < pokemon.length; i++) {
+  for (let i = 0; i < p1.length; i++) {
     newArrayPokemon.push({ 
-      id: pokemon[i].id, 
-  		num: pokemon[i].num,  		
-  		name: pokemon[i].name,
-  		img: pokemon[i].img,
-  		type: pokemon[i].type,
-      height: pokemon[i].height,
-      weight: pokemon[i].weight,
-      candy: pokemon[i].candy,
-      candyCount: pokemon[i].candy_count,
-      egg: pokemon[i].egg,
-      avgSpawns: pokemon[i].avg_spawns,
-      multipliers: pokemon[i].multipliers,
-      weaknesses: pokemon[i].weaknesses,
-      prevEvolution: pokemon[i].prev_evolution,
-      nextEvolution: pokemon[i].next_evolution
+      id: p1[i].id, 
+  		num: p1[i].num,
+  		name: p1[i].name,
+  		img: p1[i].img,
+  		type: p1[i].type,
+      height: p1[i].height,
+      weight: p1[i].weight,
+      candy: p1[i].candy,
+      candyCount: p1[i].candy_count,
+      egg: p1[i].egg,
+      avgSpawns: p1[i].avg_spawns,
+      multipliers: p1[i].multipliers,
+      weaknesses: p1[i].weaknesses,
+      prevEvolution: p1[i].prev_evolution,
+      nextEvolution: p1[i].next_evolution
     });
   };
   return newArrayPokemon; 
 };
 
-/* Busca a tu Pokemon */
+/* Busca a tu Pokemon 
+  p1: array de objetos,
+  p2: string que representa el nombre del pokemon
+*/
 const searchPokemons = (dataGlobal, wanted) => {
   return dataGlobal.filter(element => {
-    return element.name.toLowerCase().indexOf(wanted) >= 0;
+    return element.name.toLowerCase().startsWith(wanted);
   });
 };
+
+
 
 /* Ordenar Alfabeticamente */
 const sortAlfa = (data, clickOrder) => {
@@ -67,31 +72,41 @@ const orderSpawn = (data, clickOrder) => {
   return 0;
 }; 
 
-/* Filta por debilidad */
+/* Filtra por debilidad */
 const filterWeakness = (dataGlobal, weakness) => {
   return dataGlobal.filter(element => {
     return element.weaknesses.indexOf(weakness) > -1;
   });
 };
 
+/* Filtra por tipo */
 const filterTypes = (dataGlobal, types) => {
   return dataGlobal.filter(element => {
     return element.type.indexOf(types) > -1;
   });
 };
 
-
+/* Pokemones atrapados */
 const catchedPokemon = () => {
   return dataGlobal.filter(element => {
     return element.multipliers !== null;
   });
 };
 
+/* Pokemones No atrapados */
 const unCatchedPokemon = () => {
   return dataGlobal.filter(element => {
     return element.multipliers === null;
   });
 };
+
+const filterEggs = (dataGlobal, huevitos) => {
+  return dataGlobal.filter(element => {
+    return element.egg.indexOf(huevitos) > -1;
+  });
+};
+
+
 
 window.POKEMON = POKEMON;
 window.sortAlfa = sortAlfa;
@@ -100,7 +115,7 @@ window.orderSpawn = orderSpawn;
 window.filterWeakness = filterWeakness;
 window.filterTypes = filterTypes;
 window.searchPokemons = searchPokemons;
-
-
 window.catchedPokemon = catchedPokemon;
 window.unCatchedPokemon = unCatchedPokemon;
+window.filterEggs = filterEggs;
+
