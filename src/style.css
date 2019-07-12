@@ -116,6 +116,27 @@ nav ul li{
     list-style: none;
 }
 
+/* Seccion del Filtrado*/
+.filter-menu{
+  width: 60%;
+  margin-left: 5%;
+  text-align: left;
+}
+
+.enabled-menu{
+  display: block;
+}
+
+/*.disable-menu{
+  display: none;
+}*/
+
+.filter-logo{
+  width: 10%;
+  height: 10%;
+}
+/* Seccion del Filtrado*/
+
 /* Fitrado */
 
 .search-with-icon{
@@ -237,4 +258,29 @@ nav ul li{
     color: black;
     text-decoration: none;
     cursor: pointer;
+  }
+
+  .type-select{
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+  }
+  
+.button-type{
+    width: 9vw;
+    height: 5vh;
+    background: linear-gradient(to right, #24CCAA, #A2DB95);
+    color: white;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    display: flex;
+    flex-direction:row;
+  }
+  
+  .icon-type{
+    width: 2.5vw;
+    height: 5vh;
+    padding: 0;
+    margin: 10px;
   }

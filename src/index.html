@@ -62,58 +62,69 @@
       </div>
 
       <!--Menu lateral-->
-      <div id='filterMenu center' class="filter-menu">
-        <h4>¡Ordénalos ya!</h4>
 
-        <select id="alfaSelect" class="selectors">
-          <option disabled>Alfabéticamente</option>
-          <option value="0">A-Z</option>
-          <option value="1">Z-A</option>
-        </select>
-
-        <select id="spawnSelect" class="selectors">
-          <option value="" disabled="" selected="">Aparición</option>
-          <option value="1" id="more">Más comunes</option>
-          <option value="0" id="less">Menos comunes</option>
-        </select>
-
-        <div id="typeSelect" class="type-select">
-          <button value="Grass">Planta</button>
-          <button value="Poison">Veneno</button>
-          <button value="Fire">Fuego</button>
-          <button value="Normal">Normal</button>
-          <button value="Psychic">Psíquico</button>
-          <button value="Dragon">Dragón</button>
-          <button value="Electric">Eléctrico</button>
-          <button value="Ice">Hielo</button>
-          <button value="Rock">Roca</button>
-          <button value="Bug">Bicho</button>
-          <button value="Ground">Tierra</button>
-          <button value="Water">Agua</button>
-          <button value="Ghost">Fantasma</button>
-          <button value="Flying">Volador</button>
-        </div>
-
-        <div>
-          <select id="weakSelect" class="selectors">
-            <option value="weak" disabled="" selected="">Debilidad</option>
-            <option value="Grass">Planta</option>
-            <option value="Poison">Veneno</option>
-            <option value="Fire">Fuego</option>
-            <option value="Normal">Normal</option>
-            <option value="Psychic">Psíquico</option>
-            <option value="Dragon">Dragón</option>
-            <option value="Electric">Eléctrico</option>
-            <option value="Ice">Hielo</option>
-            <option value="Rock">Roca</option>
-            <option value="Bug">Bicho</option>
-            <option value="Ground">Tierra</option>
-            <option value="Water">Agua</option>
-            <option value="Ghost">Fantasma</option>
-            <option value="Flying">Volador</option>
-          </select>
-        </div>
+      <!--Boton icono de filtrar-->
+      <div>
+        <a href='#' class='link-side-menu' id='link-side-menu'>
+        <img class='filter-logo' src="img/icon-web/filter-icon.svg" id='filter-logo'/></a>
       </div>
+      <nav class='filter-menu none' id='filter-menu'>
+        <div id='side-menu' class='side-menu'>
+          <a href="#" class="closing-button" id="closing-button">&times;<a>
+        </div>
+        <div id='filter-panel' class='filter-panel hide'>
+          <h4>¡Ordénalos ya!</h4>
+
+          <select id="alfaSelect" class="selectors">
+            <option disabled>Alfabéticamente</option>
+            <option value="0">A-Z</option>
+            <option value="1">Z-A</option>
+          </select>
+
+          <select id="spawnSelect" class="selectors">
+            <option value="" disablebld="" selected="">Aparición</option>
+            <option value="1" id="more">Más comunes</option>
+            <option value="0" id="less">Menos comunes</option>
+          </select>
+
+          <div id="typeSelect" class="type-select">
+            <button class='button-type' value="Grass"><img class="icon-type" src="iconos/1.png" />Planta</button>
+            <button class='button-type' value="Poison"><img class="icon-type" src="iconos/12.png" />Veneno</button>
+            <button class='button-type' value="Fire"><img class="icon-type" src="iconos/13.png" />Fuego</button>
+            <button class='button-type' value="Normal"><img class="icon-type" src="iconos/14.png" />Normal</button>
+            <button class='button-type' value="Psychic"><img class="icon-type" src="iconos/10.png" />Psíquico</button>
+            <button class='button-type' value="Dragon"><img class="icon-type" src="iconos/3.png" />Dragón</button>
+            <button class='button-type' value="Electric"><img class="icon-type" src="iconos/4.png" />Eléctrico</button>
+            <button class='button-type' value="Ice"><img class="icon-type" src="iconos/11.png" />Hielo</button>
+            <button class='button-type' value="Rock"><img class="icon-type" src="iconos/16.png" />Roca</button>
+            <button class='button-type' value="Bug"><img class="icon-type" src="iconos/2.png" />Bicho</button>
+            <button class='button-type' value="Ground"><img class="icon-type" src="iconos/6.png" />Tierra</button>
+            <button class='button-type' value="Water"><img class="icon-type" src="iconos/18.png" />Agua</button>
+            <button class='button-type' value="Ghost"><img class="icon-type" src="iconos/5.png" />Fantasma</button>
+            <button class='button-type' value="Flying"><img class="icon-type" src="iconos/15.png" />Volador</button>
+          </div>
+
+          <div>
+            <select id="weakSelect" class="selectors">
+              <option value="weak" disabled="" selected="">Debilidad</option>
+              <option value="Grass">Planta</option>
+              <option value="Poison">Veneno</option>
+              <option value="Fire">Fuego</option>
+              <option value="Normal">Normal</option>
+              <option value="Psychic">Psíquico</option>
+              <option value="Dragon">Dragón</option>
+              <option value="Electric">Eléctrico</option>
+              <option value="Ice">Hielo</option>
+              <option value="Rock">Roca</option>
+              <option value="Bug">Bicho</option>
+              <option value="Ground">Tierra</option>
+              <option value="Water">Agua</option>
+              <option value="Ghost">Fantasma</option>
+              <option value="Flying">Volador</option>
+            </select>
+          </div>
+        </div>
+      </nav>
 
       <div id="allPokedex" class="all-pokemones"></div> <!-- Todos los pokemones -->
     </section>
@@ -121,6 +132,7 @@
     <!--Seccion Modal -->
     <div id="myModal" class="modal hide">
       <!-- Modal content -->
+
       <div class="modal-content" id='modal-content'>
         <span class="close" id="close">&times;</span>
         <p>ESTO ES UN EJEMPLO</p>
@@ -128,6 +140,20 @@
       </div>
     </div>
 
+
+    <!-- Incubadora -->
+    <section class="">
+      <p>Aqui ira la informacion introductoria</p>
+      <div id="eggSelect">
+        <button value="Not in Eggs">Huevo sin embrión</button>
+        <button value="2 km">Huevos de 2 Km</button>
+        <button value="5 km">Huevos de 5 Km</button>
+        <button value="7 km">Huevos de 7 Km</button>
+        <button value="10 km">Huevos de 10 Km</button>
+      </div>
+      <p></p> <!-- Aqui va el resultado del porcentaje -->
+      <div id="pokemonEggs" class="pokemonEggs">CONTENEDOR DE POKEMONES CON HUEVO</div> <!-- Todos los pokemones -->
+    </section>
   </main>
 
   <footer></footer>
