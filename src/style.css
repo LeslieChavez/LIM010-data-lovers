@@ -137,14 +137,14 @@ nav ul li{
     border-radius: 15px;    
 }
 
-.filter-menu{
+/* .filter-menu{
     width: auto;
     height: auto;
     padding: 30px;
     background: #fff;
     box-shadow: 0 4px 10px rgba(190, 190, 190, 0.5);
 
-}
+} */ 
 .selectors{
     width: inherit;
     height: auto;
@@ -289,7 +289,7 @@ nav ul li{
     margin: 0;
   }
   /* The side navigation menu */
-.sidenav {
+.filter-menu {
     height: 100%; /* 100% Full-height */
     width: 0; /* 0 width - change this with JavaScript */
     position: fixed; /* Stay in place */
@@ -302,7 +302,7 @@ nav ul li{
     transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
   }
   
-  /* The navigation menu links */
+  /* The navigation menu links 
   .sidenav a {
     padding: 8px 8px 8px 32px;
     text-decoration: none;
@@ -310,15 +310,15 @@ nav ul li{
     color: #818181;
     display: block;
     transition: 0.3s;
-  }
+  } */
   
   /* When you mouse over the navigation links, change their color */
-  .sidenav a:hover {
+  .filter-menu a:hover {
     color: #f1f1f1;
   }
   
   /* Position and style the close button (top right corner) */
-  .sidenav .closebtn {
+  .filter-menu .closebtn {
     position: absolute;
     top: 0;
     right: 25px;
@@ -334,6 +334,6 @@ nav ul li{
   
   /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
   @media screen and (max-height: 450px) {
-    .sidenav {padding-top: 15px;}
-    .sidenav a {font-size: 18px;}
+    .filter-menu {padding-top: 15px;}
+    .filter-menu a {font-size: 18px;}
   }

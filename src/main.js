@@ -147,7 +147,6 @@ eggSelect.addEventListener('click',(event)=>{
 });
 */
 
-
 typeSelect.addEventListener('click', (event) => {
   const typePokemon = filterTypes(dataGlobal, event.target.value);
   allPokedex.innerHTML = showPokemons(typePokemon);
@@ -168,11 +167,11 @@ const showMenu = () => {
 
 logoLink.addEventListener('click', showMenu);
 
-function openNav() {
+/* function openNav() {
   document.getElementById('mySidenav').style.width = '250px';
 }
 
 /* Set the width of the side navigation to 0 */
-function closeNav() {
+/* function closeNav() {
   document.getElementById('mySidenav').style.width = '0';
-}
+} */ 
