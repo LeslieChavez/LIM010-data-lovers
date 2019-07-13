@@ -76,6 +76,7 @@ allPokedex.innerHTML = showPokemons(arrayPokemon(dataGlobal));
 
 /* Buscar a un pokémon */
 inputSearch.addEventListener('input', event => {
+   console.log(event.target.value);
   const pokemonWanted = searchPokemons(dataGlobal, event.target.value.toLowerCase());
   allPokedex.innerHTML = showPokemons(pokemonWanted);
 });
@@ -136,7 +137,7 @@ close.addEventListener('click', () => {
 }); 
 
 
-/*
+
 const eggSelect = document.getElementById('eggSelect');
 const pokemonEggs = document.getElementById('pokemonEggs');
 
@@ -144,30 +145,13 @@ eggSelect.addEventListener('click',(event)=>{
   const eggPokemon = filterEggs(dataGlobal, event.target.value);
   pokemonEggs.innerHTML = showPokemons()
 });
-*/
+
 
 
 typeSelect.addEventListener('click', (event) => {
   const typePokemon = filterTypes(dataGlobal, event.target.value);
   allPokedex.innerHTML = showPokemons(typePokemon);
 });
-
-/* Funcion del panel de filtrado */
-const logoLink = document.getElementById('link-side-menu');
-const showMenu = () => {
-  const menu = document.getElementById('filter-menu');
-
-  if(menu.classList.contains('disable-menu')){
-    menu.classList.remove("disable-menu");
-    menu.classList.add('enabled-menu');
-  } 
-  else{
-    menu.classList.remove('enabled-menu');
-    menu.classList.add('disable-menu');
-  }
-}
-
-logoLink.addEventListener('click', showMenu);
 
 
 
