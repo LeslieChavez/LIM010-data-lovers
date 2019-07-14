@@ -120,6 +120,7 @@ weakSelect.addEventListener('change', () => {
 allPokedex.addEventListener('click', (event) => {
   const informationCards = event.target.parentElement.getAttribute('id') - 1;
   myModal.classList.remove('hide');
+
   /* Insertar informacion de pokemon en Modal */
   document.getElementById('card-pokemon').innerHTML = `
     <img src='${dataGlobal[informationCards].img}'/>
@@ -147,11 +148,6 @@ eggSelect.addEventListener('click',(event)=>{
 });
 */
 
-typeSelect.addEventListener('click', (event) => {
-  const typePokemon = filterTypes(dataGlobal, event.target.value);
-  allPokedex.innerHTML = showPokemons(typePokemon);
-});
-
 /* Funcion del panel de filtrado */
 const logoLink = document.getElementById('link-side-menu');
 const showMenu = () => {
@@ -168,7 +164,7 @@ const showMenu = () => {
 logoLink.addEventListener('click', showMenu);
 
 /* function openNav() {
-  document.getElementById('mySidenav').style.width = '250px';
+  document.getElementById('mySidenav');
 }
 
 /* Set the width of the side navigation to 0 */
