@@ -123,42 +123,62 @@ nav ul li{
 /* Fitrado */
 
 .search-with-icon{
-    background: linear-gradient(to right, #24CCAA, #A2DB95);
     display: flex;
     justify-content: center;
 }
 
 .search{
-    width: 60vw;
+    width: 40vw;
     height: 40px;
     padding: 10px 10px 11px 30px;
     background: #F6F4F4;
     border: solid 0.5px rgb(230, 230, 230);
-    border-radius: 15px;    
+    border-radius: 15px;  
 }
 
 .filter-menu{
-    width: auto;
     height: auto;
-    padding: 30px;
+    padding: 15px;
     background: #fff;
-    box-shadow: 0 4px 10px rgba(190, 190, 190, 0.5);
+    opacity: 90%;
+    box-shadow: 0 4px 30px rgba(190, 190, 190, 0.5);
+    height: 100%;
+    width: 25%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    padding-top: 60px;
+    transition: 0.5s;
+}
 
+#main {
+    transition: margin-left .5s;
+  padding: 20px;
 }
 .selectors{
-    width: inherit;
-    height: auto;
+    width: 90%;
+    height: 30%;
     padding: 10px;
-    border: solid 0.5px rgb(238, 238, 238);
+    border: solid 1px lightgray;
     border-radius: 15px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 }
 
+h4{
+    display: flex;
+    justify-content: center;
+    color: gray;
+}
 
 /* Header */
 
 .header-up{
     width: 100%;
-    height: auto;
+    height: 10vh;
     padding: 8px;
     background: linear-gradient(to bottom, #24CCAA, #A2DB95);
     top: 0;
@@ -167,12 +187,13 @@ nav ul li{
 }
 
 .header-logo{
-    block-size: 40px;
+    block-size: 70px;
 }
 
 .header-nav{
     width: 100%;
     background: rgb(225, 255, 226);
+    height: 7vh;
 }
 
 .menu{
@@ -200,7 +221,6 @@ nav ul li{
         }
 
 .modal {
-
     position: fixed;
     z-index: 1; 
     left: 0;
@@ -213,23 +233,22 @@ nav ul li{
 
   }
   
-  /* Modal Content/Box */
+  /* Modal Box */
   .modal-content {
     font-size: 25px;
-    margin: 15% auto; /* 15% from the top and centered */
+    margin: 15% auto;
     padding: 20px;
     border: 1px solid #888;
-    width: 80%; /* Could be more or less, depending on screen size */
-    background: #429bdf;
+    width: 80%; 
+    background: #ffff;
     border-radius: 15px;
     width: 400px;
     text-align: center;
     }
 
-    .imagenModal{
-        
-        width: 80%;
-        height: 80%;
+.imagenModal{ 
+    width: 80%;
+    height: 80%;
     }
 
 /* The Close Button Modal */
@@ -241,7 +260,7 @@ nav ul li{
     cursor: pointer;
   }
   
-  .close:hover .close:focus {
+.close:hover .close:focus {
     color: black;
     text-decoration: none;
     cursor: pointer;
@@ -249,29 +268,34 @@ nav ul li{
   
   /* Menu desplegable */ 
 
-  .enabled-menu{
+.enabled-menu{
     display: block;
   }
   
-  .disable-menu{
+.disable-menu{
     display: none;
   }
   
-  .filter-logo{
+.filter-logo{
     width: 5vw;
     height: 5vh;
   }
   
-  .type-select{
+.type-select{
     display: flex;
     flex-wrap: wrap;
     align-content: flex-start;
+    justify-content: space-between;
+  }
+
+@media screen and (max-height: 450px) {
+  .filter-panel {padding-top: 15px;}
   }
   
-  .button{
-    width: 9vw;
+.button{
+    width: 7vw;
     height: 5vh;
-    background: linear-gradient(to right, #24CCAA, #A2DB95);
+    padding: 0px;
     color: white;
     border: none;
     border-radius: 20px;
@@ -280,57 +304,67 @@ nav ul li{
     flex-direction:row;
   }
   
-  .icon{
+.icon{
     width: 2.5vw;
 
   }
-  .text-tipo{
+.text-tipo{
     padding:8px;
     margin: 0;
   }
 
-  /* The side navigation menu */
-.filter-menu {
-  height: 100%; /* 100% Full-height */
-  width: 28%; /* 0 width - change this with JavaScript */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Stay on top */
-  top: 0; /* Stay at the top */
-  left: 0;
-  background-color: #fff; /* White*/
-  overflow-x: hidden; /* Disable horizontal scroll */
-  padding-top: 60px; /* Place content 60px from the top */
-  transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+.hada{
+    background: #d298be;
 }
 
-/* The navigation menu links */
-.filter-menu a {
-  padding: 8px 8px 8px 32px;
-  text-decoration: none;
-  font-size: 25px;
-  color: #818181;
-  display: block;
-  transition: 0.3s;
+.dragon{
+    background: #206bae;
 }
 
-
-/* Position and style the close button (top right corner) */
-.closebtn {
-  position: absolute;
-  top: 0;
-  right: 25px;
-  font-size: 36px;
-  margin-left: 50px;
+.flying{
+    background: #c9bc8b;
 }
 
-/* Style page content - use this if you want to push the page content to the right when you open the side navigation */
-.main {
-  transition: margin-left .5s;
-  padding: 20px;
+.normal{
+    background: #9a9ea0;
 }
 
-/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
-@media screen and (max-height: 500px) {
-  .filter-menu {padding-top: 15px;}
-  .filter-menu a {font-size: 18px;}
+.electric{
+    background: #636573;
+}
+
+.rock{
+    background: #ce8153;
+}
+
+.poison{
+    background: #91609d;
+}
+
+.bug{
+    background: #98b738;
+}
+
+.ghost{
+    background: #5e67a6;
+}
+
+.water{
+    background: #73b1ac;
+}
+
+.fire{
+    background: #db9953;
+}
+
+.grass{
+    background: #5ea35f;
+}
+
+.psychic{
+    background: #d17e7f;
+}
+
+.ice{
+    background: #96add6;
 }

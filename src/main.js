@@ -33,6 +33,8 @@ const modalContent = document.getElementById('modal-content');
 const cardPokemon = document.getElementById('card-pokemon');
 const close = document.getElementById('close');
 
+const closebtn = document.getElementById('closebtn');
+
 /* Funciòn de loggeo */
 const validation = () => {
   const password = document.getElementById('password');
@@ -152,6 +154,7 @@ eggSelect.addEventListener('click',(event)=>{
 const logoLink = document.getElementById('link-side-menu');
 const showMenu = () => {
   const menu = document.getElementById('filter-menu');
+
   if (menu.classList.contains('disable-menu')) {
     menu.classList.remove('disable-menu');
     menu.classList.add('enabled-menu');
@@ -161,13 +164,14 @@ const showMenu = () => {
   }
 };
 
-logoLink.addEventListener('click', showMenu);
+logoLink.addEventListener('click', showMenu); 
 
-/* function openNav() {
-  document.getElementById('mySidenav');
-}
+/* const openNav = () => {
+  document.getElementById('filter-panel').style.width = '250px';
+  document.getElementById('main').style.marginLeft = '250px';
+};
 
-/* Set the width of the side navigation to 0 */
-/* function closeNav() {
-  document.getElementById('mySidenav').style.width = '0';
-} */ 
+const closeNav = () => {
+  filterPanel.style.width = '0';
+  main.style.marginLeft = '0';
+}; */
