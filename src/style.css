@@ -123,62 +123,42 @@ nav ul li{
 /* Fitrado */
 
 .search-with-icon{
+    background: linear-gradient(to right, #24CCAA, #A2DB95);
     display: flex;
     justify-content: center;
 }
 
 .search{
-    width: 40vw;
+    width: 60vw;
     height: 40px;
     padding: 10px 10px 11px 30px;
     background: #F6F4F4;
     border: solid 0.5px rgb(230, 230, 230);
-    border-radius: 15px;  
+    border-radius: 15px;    
 }
 
 .filter-menu{
+    width: auto;
     height: auto;
-    padding: 15px;
+    padding: 30px;
     background: #fff;
-    opacity: 90%;
-    box-shadow: 0 4px 30px rgba(190, 190, 190, 0.5);
-    height: 100%;
-    width: 25%;
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    left: 0;
-    overflow: hidden;
-    padding-top: 60px;
-    transition: 0.5s;
-}
+    box-shadow: 0 4px 10px rgba(190, 190, 190, 0.5);
 
-#main {
-    transition: margin-left .5s;
-  padding: 20px;
 }
 .selectors{
-    width: 90%;
-    height: 30%;
+    width: inherit;
+    height: auto;
     padding: 10px;
-    border: solid 1px lightgray;
+    border: solid 0.5px rgb(238, 238, 238);
     border-radius: 15px;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
 }
 
-h4{
-    display: flex;
-    justify-content: center;
-    color: gray;
-}
 
 /* Header */
 
 .header-up{
     width: 100%;
-    height: 10vh;
+    height: auto;
     padding: 8px;
     background: linear-gradient(to bottom, #24CCAA, #A2DB95);
     top: 0;
@@ -187,13 +167,12 @@ h4{
 }
 
 .header-logo{
-    block-size: 70px;
+    block-size: 40px;
 }
 
 .header-nav{
     width: 100%;
     background: rgb(225, 255, 226);
-    height: 7vh;
 }
 
 .menu{
@@ -205,22 +184,9 @@ h4{
     display: inline-flex;
     flex-wrap: wrap;
 }
-    .poke{
-        width: 10%;
-        position: relative;
-        display: flex;
-        display: block;
-        margin-block-start: 2em;
-        margin-block-end: 3em;
-        margin-inline-start: 50px;
-        margin-inline-end: 41px;
-        text-align: center;
-        cursor: pointer;
-        background: linear-gradient(180deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0) 100%);
-        border-radius: 15px;
-        }
 
 .modal {
+
     position: fixed;
     z-index: 1; 
     left: 0;
@@ -233,22 +199,23 @@ h4{
 
   }
   
-  /* Modal Box */
+  /* Modal Content/Box */
   .modal-content {
     font-size: 25px;
-    margin: 15% auto;
+    margin: 15% auto; /* 15% from the top and centered */
     padding: 20px;
     border: 1px solid #888;
-    width: 80%; 
-    background: #ffff;
+    width: 80%; /* Could be more or less, depending on screen size */
+    background: #429bdf;
     border-radius: 15px;
     width: 400px;
     text-align: center;
     }
 
-.imagenModal{ 
-    width: 80%;
-    height: 80%;
+    .imagenModal{
+        
+        width: 80%;
+        height: 80%;
     }
 
 /* The Close Button Modal */
@@ -260,7 +227,7 @@ h4{
     cursor: pointer;
   }
   
-.close:hover .close:focus {
+  .close:hover .close:focus {
     color: black;
     text-decoration: none;
     cursor: pointer;
@@ -268,34 +235,30 @@ h4{
   
   /* Menu desplegable */ 
 
-.enabled-menu{
+  .enabled-menu{
     display: block;
   }
   
-.disable-menu{
+  .disable-menu{
     display: none;
   }
   
-.filter-logo{
-    width: 5vw;
-    height: 5vh;
+  .filter-logo{
+    width: 7vw;
+    height: 7vh;
   }
   
-.type-select{
+  .type-select{
     display: flex;
     flex-wrap: wrap;
     align-content: flex-start;
-    justify-content: space-between;
-  }
-
-@media screen and (max-height: 450px) {
-  .filter-panel {padding-top: 15px;}
   }
   
 .button{
-    width: 7vw;
-    height: 5vh;
-    padding: 0px;
+    width: 200px;
+    height: 150px;
+    margin: 2px;
+    background: linear-gradient(to right, #24CCAA, #A2DB95);
     color: white;
     border: none;
     border-radius: 20px;
@@ -304,67 +267,41 @@ h4{
     flex-direction:row;
   }
   
-.icon{
-    width: 2.5vw;
 
-  }
-.text-tipo{
-    padding:8px;
-    margin: 0;
-  }
+  /* Modal Inicio */ 
+.modal-mask {
+    display: flex;
+    position: fixed;
+    z-index: 1;
+    overflow: auto;
+    background: rgb(185, 196, 199,0.5);
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;}
 
-.hada{
-    background: #d298be;
+.modal-box{
+    margin: auto;
+    width: 291px;
+    height: 453px;
+    background: red;
 }
 
-.dragon{
-    background: #206bae;
+.info-pokemon{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
+/* Modal Final */ 
 
-.flying{
-    background: #c9bc8b;
-}
 
-.normal{
-    background: #9a9ea0;
-}
+.icon {
+  width: 50px;
+  height: 50px;
+  background-image: url(iconos/_-01.svg);
+  background-position: center center;
+  background-repeat: no-repeat
 
-.electric{
-    background: #636573;
-}
-
-.rock{
-    background: #ce8153;
-}
-
-.poison{
-    background: #91609d;
-}
-
-.bug{
-    background: #98b738;
-}
-
-.ghost{
-    background: #5e67a6;
-}
-
-.water{
-    background: #73b1ac;
-}
-
-.fire{
-    background: #db9953;
-}
-
-.grass{
-    background: #5ea35f;
-}
-
-.psychic{
-    background: #d17e7f;
-}
-
-.ice{
-    background: #96add6;
 }
