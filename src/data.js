@@ -1,3 +1,10 @@
+<<<<<<< HEAD
+=======
+
+// ESTE
+=======
+
+>>>>>>> c7e557ba46620444ce5059ffafbf4186a26ae9dc
 /*dato: función
   p1: data => array,
   p2: wanted => string que representa el nombre del pokemon
@@ -45,6 +52,42 @@ const unCatchedPokemon = (data) => {
 const filterEggs = (data, typeEgg) => {
   return data.filter(obj => obj.egg.indexOf(typeEgg) > -1)
 };
+
+};
+
+/* Buscar a un pokémon */
+const searchPokemons = (data, wanted) => {
+  return data.filter(obj => obj.name.toLowerCase().startsWith(wanted));
+};
+
+/* Filtra por debilidad */
+const filterWeakness = (data, weakness) => {
+  return data.filter(obj => obj.weaknesses.indexOf(weakness) > -1);
+};
+
+
+/* Filtra por tipo */
+const filterTypes = (data, types) => {
+  return data.filter(obj => obj.type.indexOf(types) > -1);
+};
+
+/* Pokemones atrapados / no atrapados */
+const catchedPokemon = (data) => {
+  return data.filter(obj => obj.multipliers !== null);
+};
+
+const unCatchedPokemon = (data) => {
+  return data.filter(obj => obj.multipliers === null)
+};
+
+/* Filtrado de huevos */
+
+/* Ver Pokemones por tipo de huevo */
+const filterEggs = (data, typeEgg) => {
+  return data.filter(obj => obj.egg.indexOf(typeEgg) > -1)
+};
+/* Calcular cuantos pokemones hay */
+
 
 window = {
   searchPokemons: searchPokemons,
