@@ -1,8 +1,8 @@
 const dataGlobal = POKEMON.pokemon;
 /* Login */
-const loginSection = document.getElementById('loginSection');
-const pokedexSection = document.getElementById('pokedexSection');
-const headerTop = document.getElementById('headerTop'); // Agregue el header 
+const loginSection = document.getElementById('login-section');
+const pokedexSection = document.getElementById('pokedex-section');
+const headerTop = document.getElementById('header-top'); // Agregue el header 
 const password = document.getElementById('password');
 const user = document.getElementById('user');
 const enterButton = document.getElementById('enter-button');
@@ -12,13 +12,30 @@ const pokedexTitle = document.getElementById('pokedex-title');
 const incubatorTitle = document.getElementById('incubator-title');
 
 /* Pokedex */
-const inputSearch = document.getElementById('inputSearch');
+const inputSearch = document.getElementById('input-search');
 const submitSearch = document.getElementById('submitSearch');
-const allPokedex = document.getElementById('allPokedex');
-const catchedPokedex = document.getElementById('catchedPokedex');
+const allPokedex = document.getElementById('all-pokedex');
+const catchedPokedex = document.getElementById('catched-pokedex');
 
 /* Filter */
-const filterMenu = document.getElementById('filterMenu');
+const filterMenu = document.getElementById('filter-menu');
+
+const alfaSelect = document.getElementById('alfa-select');
+const spawnSelect = document.getElementById('spawn-select');
+const typeSelect = document.getElementById('type-select'); // padre de botones
+const weakSelect = document.getElementById('weak-select');
+
+/* Modal */
+const modalMask = document.getElementById('modal-mask');
+const modalBox = document.getElementById('modal-box');
+const infoPokemon = document.getElementById('info-pokemon');
+const close = document.getElementById('close');
+
+/* Incucubadora */
+const incubatorSection = document.getElementById('incubator-section');
+const eggSelect = document.getElementById('egg-select');
+const eggPokedex = document.getElementById('egg-pokedex'); //contenedor de pokemones por huevo
+const eggDescriptionPercent = document.getElementById('egg-description-percent');
 
 const alfaSelect = document.getElementById('alfaSelect');
 const spawnSelect = document.getElementById('spawnSelect');
@@ -78,6 +95,20 @@ dato: función
 p1: data => array
 retorna: string => template de la propiedades de los objetos que tiene data
 */
+
+const showPokemon = (data) => {
+  let templatePokemon = '';
+  data.map(obj => {
+    templatePokemon += `
+    <div id="${obj.id}" class="show-pokemon flex">
+      <figure></figure>
+      <img src="${obj.img}"/>
+      <p class="name-pokemon flex" >${obj.name}</p>
+      <p>${obj.type}</p>
+    </div>`;
+  });
+  return templatePokemon;
+
 const showPokemon = (data) => {
   return data.map(obj => {
     let templatePokemon = `
@@ -91,6 +122,7 @@ const showPokemon = (data) => {
     </div>`;
     return templatePokemon;
   });
+
 };
 allPokedex.innerHTML = showPokemon(dataGlobal);
 
@@ -126,6 +158,13 @@ inputSearch.addEventListener('input', event => {
 
 /* Filtra por tipo */
 typeSelect.addEventListener('click', (event) => {
+
+  let targetTypeValue = event.target.value;
+  if (targetTypeValue !== undefined) {
+  const typePokemon = filterTypes(dataGlobal, targetTypeValue);
+  allPokedex.innerHTML = showPokemon(typePokemon);
+}});
+
   const typePokemon = filterTypes(dataGlobal, event.target.value);
   allPokedex.innerHTML = showPokemon(typePokemon);
 });
@@ -152,7 +191,9 @@ weakSelect.addEventListener('change', () => {
 allPokedex.addEventListener('click', (event) => {
   const id = event.target.parentElement.getAttribute('id') -1;
   modalMask.classList.remove('hide');
+
   if (id > -1){
+
   infoPokemon.innerHTML = `
     <img src="${dataGlobal[id].img}"/>
     <p>${dataGlobal[id].name}</p>
@@ -161,7 +202,11 @@ allPokedex.addEventListener('click', (event) => {
     <p>${dataGlobal[id].type}</p>
     <p>${dataGlobal[id].avg_spawns}</p>
     <p>${dataGlobal[id].weaknesses}</p>`
+
+    console.log(id);
+
   }
+
 });
 
 /* Cerrar Modal */
