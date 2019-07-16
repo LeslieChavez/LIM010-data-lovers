@@ -37,7 +37,9 @@
       </div>
 
       <nav class="header-nav center">
+
         <ul class="menu flex">
+        <ul class='menu'>
           <li><a href="#" id="pokedex-title">Mi Pokedex</a></li>
           <li><a href="#" id="incubator-title">Incubadora</a></li>
         </ul>
@@ -58,23 +60,39 @@
         <!--Buscador-->
       <div class="search-with-icon" flex>
         <input id="input-search" class="search" type="search" value="" placeholder="Busca a tu pokemon">
+
+    <section id="pokedexSection" class="hide">
+      <!--Buscador-->
+      <div class="search-with-icon">
+        <input id="inputSearch" class="search" type="search" value="" placeholder="Busca a tu pokemon">
+
         <img class="icon" alt="lupa" src="img/icon-web/search-icon.svg">
       </div>
 
       <!-- Pokemones Atrapados-->
       <!--Menu lateral-->
+
       <nav class="filter-menu" id="filter-menu"> 
         <div id="filterPanel" class="filter-panel">
           <img class="icon" src="img/icon-web/filter-icon.svg" alt="filtrar">
           <h4>¡Ordénalos ya!</h4>
 
           <select id="alfa-select" class="alpha-selectors selectors">
+
+      <nav class="filter-menu" id="filterMenu"> <!--class='filter-menu disable-menu ' id='filter-menu'>-->
+        <div id='filterPanel' class='filter-panel'>
+          <h4>¡Ordénalos ya!</h4>
+
+          <select id="alfaSelect" class="alpha-selectors selectors">
+
             <option disabled="" selected="">Alfabéticamente</option>
             <option value="0">A-Z</option>
             <option value="1">Z-A</option>
           </select> 
-
           <select id="spawn-select" class="spawn-selectors selectors">
+
+          <select id="spawnSelect" class="spawn-selectors selectors">
+
             <option>Aparición</option>
             <option value="desc" id="more">Más comunes</option>
             <option value="asc" id="less">Menos comunes</option>
@@ -95,8 +113,25 @@
             <button class="button water" value="Water">Agua</button>
             <button class="button ghost" value="Ghost">Fantasma</button>
             <button class="button flying" value="Flying">Volador</button>
-          </div>
 
+          <div id="typeSelect" class="type-select">
+            <button class='button grass' value="Grass">Planta</button>
+            <button class='button poison' value="Poison">Veneno</button>
+            <button class='button fire' value="Fire">Fuego</button>
+            <button class='button normal' value="Normal">Normal</button>
+            <button class='button psychic' value="Psychic">Psíquico</button>
+            <button class='button dragon' value="Dragon">Dragón</button>
+            <button class='button electric' value="Electric">Eléctrico</button>
+            <button class='button ice' value="Ice">Hielo</button>
+            <button class='button rock' value="Rock">Roca</button>
+            <button class='button bug' value="Bug">Bicho</button>
+            <button class='button ground' value="Ground">Tierra</button>
+            <button class='button water' value="Water">Agua</button>
+            <button class='button ghost' value="Ghost">Fantasma</button>
+            <button class='button flying' value="Flying">Volador</button>
+
+          </div>
+          
           <div>
             <select id="weak-select" class="selectors">
               <option value="weak" disabled="" selected="">Debilidad</option>
@@ -118,6 +153,7 @@
           </div>
         </div>
       </nav>
+
       <div id="all-pokedex" class="all-pokemones flex"></div>
     </section>
 
@@ -127,6 +163,17 @@
       <!-- Modal content -->
       <div class="modal-box" id="modal-box">
         <div id="info-pokemon" class="info-pokemon flex"></div>
+
+      <div id="allPokedex" class="all-pokemones"></div> <!-- Todos los pokemones -->
+    </section>
+
+    <!--Seccion Modal -->
+    <div id="modal-mask" class="modal-mask hide">
+      <!-- Modal content -->
+      <div class="modal-box" id='modal-box'>
+        <span class="close" id="close">&times;</span>
+        <div id="info-pokemon"></div>
+
       </div>
     </div>
 
