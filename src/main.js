@@ -83,10 +83,11 @@ const showPokemon = (data) => {
     let templatePokemon = `
     <div id="${obj.id}" class="show-pokemon">
       <figure></figure>
-      <img src="${obj.img}"/>
-      <p>${obj.num}</p>
+      <div class"front">
+      <img class="img-show-pokemon" src="${obj.img}"/>
       <p>${obj.name}</p>
-      <p>${obj.type}</p>
+      <p>${obj.num}</p>
+      </div>
     </div>`;
     return templatePokemon;
   });

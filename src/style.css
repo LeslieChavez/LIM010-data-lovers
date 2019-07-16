@@ -102,12 +102,15 @@ a {
 }
 
 figure{
-    height: 50px;
-    width: 50px;
+    height: 10%;
+    width: 8%;
     border-radius: 80%;
     background: linear-gradient(to right, #24CCAA, #A2DB95);
     filter: blur(25px);
-}
+    position: absolute;
+    margin: 2%;
+    z-index: -1;
+    }
 
 .poke-name{
     display: flex;
@@ -180,44 +183,6 @@ nav ul li{
     flex-direction: row;
 }
 
-#contenedor{
-    display: inline-flex;
-    flex-wrap: wrap;
-}
-
-.modal {
-
-    position: fixed;
-    z-index: 1; 
-    left: 0;
-    top: 0;
-    width: 100%; 
-    height: 100%; 
-    overflow: auto; 
-    background-color: rgb(0,0,0); 
-    background-color: rgba(0,0,0,0.6); 
-
-  }
-  
-  /* Modal Content/Box */
-  .modal-content {
-    font-size: 25px;
-    margin: 15% auto; /* 15% from the top and centered */
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%; /* Could be more or less, depending on screen size */
-    background: #429bdf;
-    border-radius: 15px;
-    width: 400px;
-    text-align: center;
-    }
-
-    .imagenModal{
-        
-        width: 80%;
-        height: 80%;
-    }
-
 /* The Close Button Modal */
 .close {
     color: #aaa;
@@ -254,19 +219,110 @@ nav ul li{
     align-content: flex-start;
   }
   
-.button{
-    width: 200px;
-    height: 150px;
+  .button {
+    width: 150px;
+    height: 40px;
     margin: 2px;
-    background: linear-gradient(to right, #24CCAA, #A2DB95);
+    background-image: url(iconos/_-13.svg);
+    background-position-x: 1px;
+    background-position-y: center;
+    background-color: #A2DB95;
+    background-repeat: no-repeat;
     color: white;
     border: none;
-    border-radius: 20px;
+    border-radius: 50px;
     cursor: pointer;
-    display: flex;
-    flex-direction:row;
-  }
-  
+}
+
+.grass{
+    background-image: url(iconos/_-13.svg);
+    background-color: #5ea35f;
+    background-repeat: no-repeat;
+}
+
+.poison{
+    background-image: url(iconos/_-03.svg);
+    background-color: #91609d;
+    background-repeat: no-repeat;
+}
+
+.fire{
+    background-image: url(iconos/_-15.svg);
+    background-color: #db9953;
+    background-repeat: no-repeat;
+}
+
+.normal{
+    background-image: url(iconos/_-06.svg);
+    background-color: #9a9ea0;
+    background-repeat: no-repeat;
+}
+
+.psychic{
+    background-image: url(iconos/_-12.svg);
+    background-color: #d17e7f;
+    background-repeat: no-repeat;
+}
+
+.dragon{
+    background-image: url(iconos/_-08.svg);
+    background-color: #206bae;
+    background-repeat: no-repeat;
+}
+
+.electric{
+    background-image: url(iconos/_-05.svg);
+    background-color: #636573;
+    background-repeat: no-repeat;
+}
+
+.hada{
+    background-image: url(iconos/_-11.svg);
+    background-color: #d298be;
+    background-repeat: no-repeat;
+}
+
+.ice{
+    background-image: url(iconos/_-01.svg);
+    background-color: #96add6;
+    background-repeat: no-repeat;
+}
+
+.rock{
+    background-image: url(iconos/_-04.svg);
+    background-color: #ce8153;
+    background-repeat: no-repeat;
+}
+
+.bug{
+    background-image: url(iconos/_-02.svg);
+    background-color: #98b738;
+    background-repeat: no-repeat;
+}
+
+.ground{
+    background-image: url(iconos/_-09.svg);
+    background-color: #A2DB95;
+    background-repeat: no-repeat;
+}
+
+.water{
+    background-image: url(iconos/_-16.svg);
+    background-color: #73b1ac;
+    background-repeat: no-repeat;
+}
+
+.ghost{
+    background-image: url(iconos/_-18.svg);
+    background-color: #5e67a6;
+    background-repeat: no-repeat;
+}
+
+.flying{
+    background-image: url(iconos/_-07.svg);
+    background-color: #c9bc8b;
+    background-repeat: no-repeat;
+}
 
   /* Modal Inicio */ 
 .modal-mask {
@@ -274,17 +330,19 @@ nav ul li{
     position: fixed;
     z-index: 1;
     overflow: auto;
-    background: rgb(185, 196, 199,0.5);
+    background: rgba(129, 206, 180, 0.5);
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;}
 
 .modal-box{
-    margin: auto;
-    width: 291px;
-    height: 453px;
-    background: red;
+    margin: 5%;
+    padding: 10px;
+    height: 80%;
+    background: #ffff;
+    border-radius: 42px;
+    width: 30%;
 }
 
 .info-pokemon{
@@ -304,4 +362,13 @@ nav ul li{
   background-position: center center;
   background-repeat: no-repeat
 
+}
+
+.front{
+    z-index: 0;
+    padding: 0 10%;
+}
+
+.front > p {
+    margin: 0;
 }
