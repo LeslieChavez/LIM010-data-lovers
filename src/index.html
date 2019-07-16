@@ -4,7 +4,9 @@
 <head>
   <meta charset="utf-8">
   <title>Pokekool</title>
+  <link rel="icon" type="image/png" href="img/icon-pokemon/pokebol-2.png" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
 </head>
@@ -12,7 +14,7 @@
 <body>
   <main>
     <!-- Sección Login -->
-    <section id="loginSection" class="login-bg">
+    <section id="login-section" class="login-bg flex">
       <form class="login-box">
         <img class="img-logo" src="img/logo.png" alt="logo" />
         <label for="user">Usuario</label>
@@ -28,82 +30,75 @@
     </section>
 
     <!-- Header -->
-    <header id="headerTop" class="hide center">
+    <!-- Quiero hacer que cuando le das click a la pokebola se vea un lable -->
+    <header id="header-top" class="hide center">
       <div class="header-up center">
         <img class="header-logo" src="img/logo.png" alt="logo">
       </div>
+
       <nav class="header-nav center">
-        <ul>
-          <li><a href="#">Mi Pokedex</a></li>
-          <li><a href="#">Incubadora</a></li>
+        <ul class="menu flex">
+          <li><a href="#" id="pokedex-title">Mi Pokedex</a></li>
+          <li><a href="#" id="incubator-title">Incubadora</a></li>
         </ul>
       </nav>
     </header>
 
     <!-- Sección Pokedex -->
-    <section id="pokedexSection" class="pokemons hide">
-      <!--Buscador-->
-      <div class="search-with-icon">
-        <input id="inputSearch" class="search" type="search" value="" placeholder="Busca a tu pokemon">
+    <section id="pokedex-section" class="hide">
+      <!--Icono fijo mostrar a los pokemones atrapados-->
+      <div>
+          <img id="catched-pokebol" class="icon" src="img/icon-pokemon/pokeball.svg" alt="atrapados">
+      </div>
+      <div id="catched-pokedex" class="">
+          <button value="1">Atrapados</button>
+          <button value="0">Por atrapar</button>
+      </div>
+      </div>
+        <!--Buscador-->
+      <div class="search-with-icon" flex>
+        <input id="input-search" class="search" type="search" value="" placeholder="Busca a tu pokemon">
         <img class="icon" alt="lupa" src="img/icon-web/search-icon.svg">
       </div>
-      <!-- Número de Pokemones 
-      
-      <div>
-        <img alt="pokebola" class="pokebola">
-        <span class="" id="title">CAMPEONES</span>
-        <img alt="divisor" class="divider divider-right">
-      </div> -->
 
       <!-- Pokemones Atrapados-->
-      <div id="catchedPokedex" class="">
-        <button value="1">Atrapados</button>
-        <button value="0">Por atrapar</button>
-      </div>
-
       <!--Menu lateral-->
-      <div>
-        <a href='#' class='link-side-menu' id='link-side-menu'>
-        <img class='filter-logo' src="img/icon-web/filter-icon.svg" id='filter-logo' /></a>
-      </div>
-      <nav class='filter-menu disable-menu ' id='filter-menu'>
-        <div id='side-menu' class='side-menu'>
-          <a href="#" class="closing-button" id="closing-button">&times;<a>
-        </div>
-        <div id='filter-panel' class='filter-panel hide'>
+      <nav class="filter-menu" id="filter-menu"> 
+        <div id="filterPanel" class="filter-panel">
+          <img class="icon" src="img/icon-web/filter-icon.svg" alt="filtrar">
           <h4>¡Ordénalos ya!</h4>
 
-          <select id="alfaSelect" class="selectors">
-            <option disabled>Alfabéticamente</option>
+          <select id="alfa-select" class="alpha-selectors selectors">
+            <option disabled="" selected="">Alfabéticamente</option>
             <option value="0">A-Z</option>
             <option value="1">Z-A</option>
+          </select> 
+
+          <select id="spawn-select" class="spawn-selectors selectors">
+            <option>Aparición</option>
+            <option value="desc" id="more">Más comunes</option>
+            <option value="asc" id="less">Menos comunes</option>
           </select>
 
-          <select id="spawnSelect" class="selectors">
-            <option value="" disablebld="" selected="">Aparición</option>
-            <option value="1" id="more">Más comunes</option>
-            <option value="0" id="less">Menos comunes</option>
-          </select>
-
-          <div id="typeSelect" class="type-select">
-            <button class='button-type' value="Grass"><img class="icon-type" src="iconos/1.png" />Planta</button>
-            <button class='button-type' value="Poison"><img class="icon-type" src="iconos/12.png" />Veneno</button>
-            <button class='button-type' value="Fire"><img class="icon-type" src="iconos/13.png" />Fuego</button>
-            <button class='button-type' value="Normal"><img class="icon-type" src="iconos/14.png" />Normal</button>
-            <button class='button-type' value="Psychic"><img class="icon-type" src="iconos/10.png" />Psíquico</button>
-            <button class='button-type' value="Dragon"><img class="icon-type" src="iconos/3.png" />Dragón</button>
-            <button class='button-type' value="Electric"><img class="icon-type" src="iconos/4.png" />Eléctrico</button>
-            <button class='button-type' value="Ice"><img class="icon-type" src="iconos/11.png" />Hielo</button>
-            <button class='button-type' value="Rock"><img class="icon-type" src="iconos/16.png" />Roca</button>
-            <button class='button-type' value="Bug"><img class="icon-type" src="iconos/2.png" />Bicho</button>
-            <button class='button-type' value="Ground"><img class="icon-type" src="iconos/6.png" />Tierra</button>
-            <button class='button-type' value="Water"><img class="icon-type" src="iconos/18.png" />Agua</button>
-            <button class='button-type' value="Ghost"><img class="icon-type" src="iconos/5.png" />Fantasma</button>
-            <button class='button-type' value="Flying"><img class="icon-type" src="iconos/15.png" />Volador</button>
+          <div id="type-select" class="type-select">
+            <button class="button grass" value="Grass">Planta</button>
+            <button class="button poison" value="Poison">Veneno</button>
+            <button class="button fire" value="Fire">Fuego</button>
+            <button class="button normal" value="Normal">Normal</button>
+            <button class="button psychic" value="Psychic">Psíquico</button>
+            <button class="button dragon" value="Dragon">Dragón</button>
+            <button class="button electric" value="Electric">Eléctrico</button>
+            <button class="button ice" value="Ice">Hielo</button>
+            <button class="button rock" value="Rock">Roca</button>
+            <button class="button bug" value="Bug">Bicho</button>
+            <button class="button ground" value="Ground">Tierra</button>
+            <button class="button water" value="Water">Agua</button>
+            <button class="button ghost" value="Ghost">Fantasma</button>
+            <button class="button flying" value="Flying">Volador</button>
           </div>
-im
+
           <div>
-            <select id="weakSelect" class="selectors">
+            <select id="weak-select" class="selectors">
               <option value="weak" disabled="" selected="">Debilidad</option>
               <option value="Grass">Planta</option>
               <option value="Poison">Veneno</option>
@@ -123,34 +118,30 @@ im
           </div>
         </div>
       </nav>
-
-      <div id="allPokedex" class="all-pokemones"></div> <!-- Todos los pokemones -->
+      <div id="all-pokedex" class="all-pokemones flex"></div>
     </section>
 
     <!--Seccion Modal -->
-    <div id="myModal" class="modal hide">
+    <div id="modal-mask" class="modal-mask flex hide">
+      <span class="close flex" id="close">&times;</span>
       <!-- Modal content -->
-
-      <div class="modal-content" id='modal-content'>
-        <span class="close" id="close">&times;</span>
-        <p>ESTO ES UN EJEMPLO</p>
-        <div id="card-pokemon"></div>
+      <div class="modal-box" id="modal-box">
+        <div id="info-pokemon" class="info-pokemon flex"></div>
       </div>
     </div>
 
-
     <!-- Incubadora -->
-    <section class="">
+    <section id="incubator-section" class="hide">
       <p>Aqui ira la informacion introductoria</p>
-      <div id="eggSelect">
+      <div id="egg-select">
         <button value="Not in Eggs">Huevo sin embrión</button>
         <button value="2 km">Huevos de 2 Km</button>
         <button value="5 km">Huevos de 5 Km</button>
         <button value="7 km">Huevos de 7 Km</button>
         <button value="10 km">Huevos de 10 Km</button>
       </div>
-      <p></p> <!-- Aqui va el resultado del porcentaje -->
-      <div id="pokemonEggs" class="pokemonEggs">CONTENEDOR DE POKEMONES CON HUEVO</div> <!-- Todos los pokemones -->
+      <div id="egg-description-percent"></div> <!-- Aqui va el resultado del porcentaje -->
+      <div id="egg-pokedex" class="egg-pokedex"></div> <!-- Todos los pokemones -->
     </section>
   </main>
 
@@ -160,5 +151,4 @@ im
   <script src="main.js"></script>
 
 </body>
-
 </html>
