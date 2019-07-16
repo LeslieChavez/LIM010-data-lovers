@@ -1,4 +1,3 @@
-// ESTE
 /*dato: función
   p1: data => array,
   p2: wanted => string que representa el nombre del pokemon
