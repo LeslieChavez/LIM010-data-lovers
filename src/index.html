@@ -56,8 +56,8 @@
       <!-- Pokemones Atrapados-->
       <!--Menu lateral-->
       <nav class="filter-menu" id="filter-menu"> 
-        <div id="filterPanel" class="filter-panel">
-          <img class="icon" src="img/icon-web/filter-icon.svg" alt="filtrar">
+        <img class="filter-icon" id="filter-icon" src="img/icon-web/filter-icon.svg" alt="filtrar">
+        <div id="filter-panel" class="filter-panel hide">
           <h4>¡Ordénalos ya!</h4>
 
           <select id="alfa-select" class="alpha-selectors selectors">
@@ -109,8 +109,10 @@
             </select>
           </div>
         </div>
+      </div>
       </nav>
-      <div id="all-pokedex" class="all-pokemones flex"></div>
+      <div id="main" class="main">
+      <div id="all-pokedex" class="all-pokemones flex"></div></div> 
     </section>
 
     <!--Seccion Modal -->
@@ -118,9 +120,25 @@
       <span class="close flex" id="close">&times;</span>
       <!-- Modal content -->
       <div class="modal-box" id="modal-box">
-        <div id="info-pokemon" class="info-pokemon flex"></div>
+        <div id="info-pokemon" class="info-pokemon flex">
+         <!-- <table class="table-modal">
+            <tbody>
+            <tr class="tables">
+              <td>Altura</td>
+              <td>Peso</td>
+            <td>Caramelo</td>
+          </tr>
+          <tr class="tables">
+            <td id="height-table-modal"></td>
+            <td id="weight-table-modal"></td>
+            <td id="candy-table-modal"></td>
+          </tr>
+            </tbody>
+          </tr>
+            </table>  -->
+        </div>
       </div>
-    </div>
+    </div>  
 
     <!-- Incubadora -->
     <section id="incubator-section" class="hide">

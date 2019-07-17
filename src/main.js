@@ -146,15 +146,16 @@ allPokedex.addEventListener('click', (event) => {
   const id = event.target.parentElement.getAttribute('id') -1;
   modalMask.classList.remove('hide');
   infoPokemon.innerHTML = `
-    <img src="${dataGlobal[id].img}"/>
-    <p>${dataGlobal[id].name}</p>
-    <p>${dataGlobal[id].weight}</p> 
-    <p>${dataGlobal[id].height}</p>    
+    <img class="img-modal" src="${dataGlobal[id].img}"/>
+    <p class="name-modal">${dataGlobal[id].name}</p>
+    <p class="weight-modal style">${dataGlobal[id].weight}</p> 
+    <p class="height-modal style">${dataGlobal[id].height}</p> 
+    <p class="candy-modal style">${dataGlobal[id].candy_count}</p>
     <p>${dataGlobal[id].type}</p>
     <p>${dataGlobal[id].avg_spawns}</p>
     <p>${dataGlobal[id].weaknesses}</p>`
     console.log(id);
-});
+}); 
 
 /* Cerrar Modal */
 close.addEventListener('click', () => {
@@ -194,6 +195,27 @@ eggSelect.addEventListener('click', (event) => {
     <p>¡Conoce quien son esos pokémons!</p>
     `}
 });
+
+/* Función que despliega el side menu */ 
+const logoLink = document.getElementById('filter-icon');
+const showMenu = () => {
+  const menu = document.getElementById('filter-panel');
+
+  if(menu.classList.contains('hide')){
+    menu.classList.remove("hide");
+    menu.classList.add('show');
+    document.getElementById('filter-icon').style.width = '250px';
+    allPokedex.style.marginLeft = '250px';
+  } 
+  else{
+    menu.classList.remove('show');
+    menu.classList.add('hide');
+    document.getElementById('filter-icon').style.width = '0';
+    allPokedex.style.marginLeft = '0';
+  }
+}
+
+logoLink.addEventListener('click', showMenu);
 
 /* Pokemones atrapados 
 catchedPokedex.addEventListener('click', (event) => {
