@@ -301,11 +301,13 @@ nav ul li {
 }
   
 .modal-box{
-    margin: auto;
     width: 60vh;
     height: 80vh;
     background: #fff;
     border-radius: 40px;
+    position: fixed;
+    left: 35%;
+    bottom: 5%; 
 }
 
 .info-pokemon{
@@ -324,7 +326,6 @@ nav ul li {
 
 .img-modal{
     display: flex;
-    /* margin: -70px; */
     padding: 9px;
     height: 170px;
 }
