@@ -1,8 +1,8 @@
 const dataGlobal = POKEMON.pokemon;
 /* Login */
-const loginSection = document.getElementById('loginSection');
-const pokedexSection = document.getElementById('pokedexSection');
-const headerTop = document.getElementById('headerTop'); // Agregue el header 
+const loginSection = document.getElementById('login-section');
+const pokedexSection = document.getElementById('pokedex-section');
+const headerTop = document.getElementById('header-top'); // Agregue el header 
 const password = document.getElementById('password');
 const user = document.getElementById('user');
 const enterButton = document.getElementById('enter-button');
@@ -12,18 +12,18 @@ const pokedexTitle = document.getElementById('pokedex-title');
 const incubatorTitle = document.getElementById('incubator-title');
 
 /* Pokedex */
-const inputSearch = document.getElementById('inputSearch');
+const inputSearch = document.getElementById('input-search');
 const submitSearch = document.getElementById('submitSearch');
-const allPokedex = document.getElementById('allPokedex');
-const catchedPokedex = document.getElementById('catchedPokedex');
+const allPokedex = document.getElementById('all-pokedex');
+const catchedPokedex = document.getElementById('catched-pokedex');
 
 /* Filter */
-const filterMenu = document.getElementById('filterMenu');
+const filterMenu = document.getElementById('filter-menu');
 
-const alfaSelect = document.getElementById('alfaSelect');
-const spawnSelect = document.getElementById('spawnSelect');
-const typeSelect = document.getElementById('typeSelect'); // padre de botones
-const weakSelect = document.getElementById('weakSelect');
+const alfaSelect = document.getElementById('alfa-select');
+const spawnSelect = document.getElementById('spawn-select');
+const typeSelect = document.getElementById('type-select'); // padre de botones
+const weakSelect = document.getElementById('weak-select');
 
 /* Modal */
 const modalMask = document.getElementById('modal-mask');
@@ -78,19 +78,20 @@ dato: función
 p1: data => array
 retorna: string => template de la propiedades de los objetos que tiene data
 */
+
 const showPokemon = (data) => {
-  return data.map(obj => {
-    let templatePokemon = `
-    <div id="${obj.id}" class="show-pokemon">
+  let templatePokemon = '';
+  data.map(obj => {
+    templatePokemon += `
+    <div id="${obj.id}" class="show-pokemon flex">
       <figure></figure>
-      <div class"front">
-      <img class="img-show-pokemon" src="${obj.img}"/>
-      <p>${obj.name}</p>
       <p>${obj.num}</p>
-      </div>
+      <img src="${obj.img}"/>
+      <p class="name-pokemon flex" >${obj.name}</p>
+      <p>${obj.type}</p>
     </div>`;
-    return templatePokemon;
   });
+  return templatePokemon;
 };
 allPokedex.innerHTML = showPokemon(dataGlobal);
 
@@ -122,25 +123,17 @@ spawnSelect.addEventListener('change', () => {
 inputSearch.addEventListener('input', event => {
   const pokemonWanted = searchPokemons(dataGlobal, event.target.value.toLowerCase());
   allPokedex.innerHTML = showPokemon(pokemonWanted);
-});
+  console.log(event.target.value);
+
+ });
 
 /* Filtra por tipo */
 typeSelect.addEventListener('click', (event) => {
-  const typePokemon = filterTypes(dataGlobal, event.target.value);
+  let targetTypeValue = event.target.value;
+  if (targetTypeValue !== undefined) {
+  const typePokemon = filterTypes(dataGlobal, targetTypeValue);
   allPokedex.innerHTML = showPokemon(typePokemon);
-});
-
-/* Pokemones atrapados */
-catchedPokedex.addEventListener('click', (event) => {
-  switch (event.target.value) {
-    case '1':
-      allPokedex.innerHTML = showPokemon(catchedPokemon(dataGlobal));
-      break;
-    case '0':
-      allPokedex.innerHTML = showPokemon(unCatchedPokemon(dataGlobal));
-      break;
-  };
-});
+}});
 
 /* Filtra por debilidad */
 weakSelect.addEventListener('change', () => {
@@ -152,7 +145,6 @@ weakSelect.addEventListener('change', () => {
 allPokedex.addEventListener('click', (event) => {
   const id = event.target.parentElement.getAttribute('id') -1;
   modalMask.classList.remove('hide');
-  if (id > -1){
   infoPokemon.innerHTML = `
     <img src="${dataGlobal[id].img}"/>
     <p>${dataGlobal[id].name}</p>
@@ -161,7 +153,7 @@ allPokedex.addEventListener('click', (event) => {
     <p>${dataGlobal[id].type}</p>
     <p>${dataGlobal[id].avg_spawns}</p>
     <p>${dataGlobal[id].weaknesses}</p>`
-  }
+    console.log(id);
 });
 
 /* Cerrar Modal */
@@ -202,3 +194,15 @@ eggSelect.addEventListener('click', (event) => {
     <p>¡Conoce quien son esos pokémons!</p>
     `}
 });
+
+/* Pokemones atrapados 
+catchedPokedex.addEventListener('click', (event) => {
+  switch (event.target.value) {
+    case '1':
+      allPokedex.innerHTML = showPokemon(catchedPokemon(dataGlobal));
+      break;
+    case '0':
+      allPokedex.innerHTML = showPokemon(unCatchedPokemon(dataGlobal));
+      break;
+  };
+});*/
