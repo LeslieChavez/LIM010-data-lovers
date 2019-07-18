@@ -36,8 +36,9 @@
         <img class="header-logo" src="img/logo.png" alt="logo">
       </div>
 
-      <nav class="header-nav center">
+      <nav class="header-nav center"> <!--MODIFICA EL MODAL -->
         <ul class="menu flex">
+            <img class="filter-icon" id="filter-icon" src="img/icon-web/filter-icon.svg" alt="filtrar">
           <li><a href="#" id="pokedex-title">Mi Pokedex</a></li>
           <li><a href="#" id="incubator-title">Incubadora</a></li>
         </ul>
@@ -46,8 +47,8 @@
 
     <!-- Sección Pokedex -->
     <section id="pokedex-section" class="hide">
-     
-      <!--Buscador-->
+
+      <!--Buscador--> 
       <div class="search-with-icon" flex>
         <input id="input-search" class="search" type="search" value="" placeholder="Busca a tu pokemon">
         <img class="icon" alt="lupa" src="img/icon-web/search-icon.svg">
@@ -55,16 +56,15 @@
 
       <!-- Pokemones Atrapados-->
       <!--Menu lateral-->
-      <nav class="filter-menu" id="filter-menu"> 
-        <img class="filter-icon" id="filter-icon" src="img/icon-web/filter-icon.svg" alt="filtrar">
+      <nav class="filter-menu" id="filter-menu">
         <div id="filter-panel" class="filter-panel hide">
-          <h4>¡Ordénalos ya!</h4>
+          <p class="menu-title">¡Ordénalos ya!</p>
 
           <select id="alfa-select" class="alpha-selectors selectors">
             <option disabled="" selected="">Alfabéticamente</option>
             <option value="0">A-Z</option>
             <option value="1">Z-A</option>
-          </select> 
+          </select>
 
           <select id="spawn-select" class="spawn-selectors selectors">
             <option>Aparición</option>
@@ -73,6 +73,7 @@
           </select>
 
           <div id="type-select" class="type-select">
+            <p class="type-title">Tipo</p> <!--MODIFICA EL MODAL -->
             <button class="button grass" value="Grass">Planta</button>
             <button class="button poison" value="Poison">Veneno</button>
             <button class="button fire" value="Fire">Fuego</button>
@@ -88,32 +89,33 @@
             <button class="button ghost" value="Ghost">Fantasma</button>
             <button class="button flying" value="Flying">Volador</button>
           </div>
-
-          <div>
-            <select id="weak-select" class="selectors">
-              <option value="weak" disabled="" selected="">Debilidad</option>
-              <option value="Grass">Planta</option>
-              <option value="Poison">Veneno</option>
-              <option value="Fire">Fuego</option>
-              <option value="Normal">Normal</option>
-              <option value="Psychic">Psíquico</option>
-              <option value="Dragon">Dragón</option>
-              <option value="Electric">Eléctrico</option>
-              <option value="Ice">Hielo</option>
-              <option value="Rock">Roca</option>
-              <option value="Bug">Bicho</option>
-              <option value="Ground">Tierra</option>
-              <option value="Water">Agua</option>
-              <option value="Ghost">Fantasma</option>
-              <option value="Flying">Volador</option>
-            </select>
-          </div>
+          <div><p class="weakness-title">Debilidad</p></div> <!--MODIFICA EL MODAL -->
+          <select id="weak-select" class="selectors">
+            <option value="weak" disabled="" selected="">Elige</option>
+            <option value="Grass">Planta</option>
+            <option value="Poison">Veneno</option>
+            <option value="Fire">Fuego</option>
+            <option value="Normal">Normal</option>
+            <option value="Psychic">Psíquico</option>
+            <option value="Dragon">Dragón</option>
+            <option value="Electric">Eléctrico</option>
+            <option value="Ice">Hielo</option>
+            <option value="Rock">Roca</option>
+            <option value="Bug">Bicho</option>
+            <option value="Ground">Tierra</option>
+            <option value="Water">Agua</option>
+            <option value="Ghost">Fantasma</option>
+            <option value="Flying">Volador</option>
+          </select>
         </div>
-      </div>
+        </div>
       </nav>
       <div id="main" class="main">
-      <div id="all-pokedex" class="all-pokemones flex"></div></div> 
+        <div id="all-pokedex" class="all-pokemones flex"></div>
+      </div>
     </section>
+
+    
 
     <!--Seccion Modal -->
     <div id="modal-mask" class="modal-mask flex hide">
@@ -121,25 +123,9 @@
       <!-- Modal content -->
       <div class="modal-box" id="modal-box">
         <div id="info-pokemon" class="info-pokemon flex">
-          <table id="table-area"></table>
-         <!-- <table class="table-modal">
-            <tbody>
-            <tr class="tables">
-              <td>Altura</td>
-              <td>Peso</td>
-            <td>Caramelo</td>
-          </tr>
-          <tr class="tables">
-            <td id="height-table-modal"></td>
-            <td id="weight-table-modal"></td>
-            <td id="candy-table-modal"></td>
-          </tr>
-            </tbody>
-          </tr>
-            </table>  -->
         </div>
       </div>
-    </div>  
+    </div>
 
     <!-- Incubadora -->
     <section id="incubator-section" class="hide">
@@ -155,7 +141,7 @@
       <div id="egg-pokedex" class="egg-pokedex"></div> <!-- Todos los pokemones -->
     </section>
 
-      <!-- POKEMONES ATRAPADOS. NO BORRAR, LO USAREMOS MAS ADELANTE
+    <!-- POKEMONES ATRAPADOS. NO BORRAR, LO USAREMOS MAS ADELANTE
       <div> 
           <img id="catched-pokebol" class="icon" src="img/icon-pokemon/pokeball.svg" alt="atrapados">
       </div>
@@ -172,4 +158,5 @@
   <script src="main.js"></script>
 
 </body>
+
 </html>

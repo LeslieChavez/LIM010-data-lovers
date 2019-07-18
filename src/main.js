@@ -87,7 +87,7 @@ const showPokemon = (data) => {
       <figure></figure>
       <p>${obj.num}</p>
       <img src="${obj.img}"/>
-      <p class="name-pokemon flex" >${obj.name}</p>
+      <p class="name-pokemon flex">${obj.name}</p>
       <p>${obj.type}</p>
     </div>`;
   });
@@ -141,19 +141,37 @@ weakSelect.addEventListener('change', () => {
   allPokedex.innerHTML = showPokemon(weakPokemons);
 });
 
-/* Modal */
+/* Modal */ /* MODIFICA EL MODAL */
 allPokedex.addEventListener('click', (event) => {
   const id = event.target.parentElement.getAttribute('id') -1;
   modalMask.classList.remove('hide');
   infoPokemon.innerHTML = `
     <img class="img-modal" src="${dataGlobal[id].img}"/>
-    <p class="name-modal">${dataGlobal[id].name}</p>
-    <p class="weight-modal style">${dataGlobal[id].weight}</p> 
-    <p class="height-modal style">${dataGlobal[id].height}</p> 
-    <p class="candy-modal style">${dataGlobal[id].candy_count}</p>
+    <h1 class="name-modal">${dataGlobal[id].name}</h1>
+    <div class="fact-container">
+      <div class="fact">
+        <p class="fact-style">${dataGlobal[id].weight}</p>
+        <span>Peso</span>
+      </div>
+      <div class="fact">
+          <p class="fact-style">${dataGlobal[id].height}</p>
+          <span>Altura</span>
+      </div>
+      <div class="fact">
+      <p class="fact-style">${dataGlobal[id].candy_count}</p>
+      <span>caramelos</span>
+      </div>
+    </div>
+    <div class="type-container">
+    <div class="type-poke-modal">
+    <p>Tipo:</p>
+    <img src=""/>
     <p>${dataGlobal[id].type}</p>
-    <p>${dataGlobal[id].avg_spawns}</p>
-    <p>${dataGlobal[id].weaknesses}</p>`
+    </div>
+    </div>
+    <p>${dataGlobal[id].avg_spawns}%</p>
+    <p>${dataGlobal[id].weaknesses}</p>
+    </div>`
     console.log(id);
 }); 
 
@@ -196,7 +214,7 @@ eggSelect.addEventListener('click', (event) => {
     `}
 });
 
-/* Función que despliega el side menu */ 
+/* Función que despliega el side menu */ /* MODIFICA EL MODAL */
 const logoLink = document.getElementById('filter-icon');
 const showMenu = () => {
   const menu = document.getElementById('filter-panel');
@@ -204,13 +222,13 @@ const showMenu = () => {
   if(menu.classList.contains('hide')){
     menu.classList.remove("hide");
     menu.classList.add('show');
-    document.getElementById('filter-icon').style.width = '250px';
+    menu.style.width = '380px';
     allPokedex.style.marginLeft = '250px';
   } 
   else{
     menu.classList.remove('show');
     menu.classList.add('hide');
-    document.getElementById('filter-icon').style.width = '0';
+    menu.style.width = '0';
     allPokedex.style.marginLeft = '0';
   }
 }
