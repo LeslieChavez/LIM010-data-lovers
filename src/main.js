@@ -80,13 +80,13 @@ const showPokemon = (data) => {
   let templatePokemon = '';
   data.map(obj => {
     templatePokemon += `
-    <div id="${obj.id}" name="pokemon" class="show-pokemon flex">
-      <figure class="circle-shadow"></figure>
-      <p>${obj.num}</p>
-      <img src="${obj.img}"/>
-      <p class="name-pokemon flex" >${obj.name}</p>
-      <p>${obj.type}</p></div>
-      `;
+    <div id="${obj.id}" class="show-pokemon flex">
+      <figure></figure>
+      <img class="img-pokemon" src="${obj.img}"/>
+      <p class="id-num-pokemon">${obj.num}</p>
+      <p class="name-pokemon flex">${obj.name}</p>
+      <p class="type-pokemon" >${obj.type}</p>
+    </div>`;
   });
   return templatePokemon;
 };

@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css"/>
 </head>
 
 <body>
@@ -36,13 +36,15 @@
         <img class="header-logo" src="img/logo.png" alt="logo">
       </div>
 
-      <nav class="header-nav center">
-        <img class="filter-icon" id="filter-icon" src="img/icon-web/filter-icon.svg" alt="filtrar">
-        <ul class="menu flex">
-          <li><a href="#" id="pokedex-title">Mi Pokedex</a></li>
-          <li><a href="#" id="incubator-title">Incubadora</a></li>
-        </ul>
-      </nav>
+      <nav class="header-nav center"> <!--MODIFICA EL MODAL -->
+        <div class="top-menu icon-container">
+            <img class="filter-icon" id="filter-icon" src="img/icon-web/filter-icon.svg" alt="filtrar">
+          </div>
+          <div class="top-menu list-container">
+          <a href="#" id="pokedex-title">Mi Pokedex</a>
+          <a href="#" id="incubator-title">Incubadora</a>
+        </div>
+        <nav></nav>
     </header>
 
     <!-- Sección Pokedex -->
@@ -92,6 +94,7 @@
             <button class="button water" value="Water">Agua</button>
             <button class="button ghost" value="Ghost">Fantasma</button>
             <button class="button flying" value="Flying">Volador</button>
+            <button class="button fight" value="Fight">Lucha</button>
           </div>
 
           <div>
