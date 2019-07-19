@@ -80,7 +80,7 @@ const showPokemon = (data) => {
   let templatePokemon = '';
   data.map(obj => {
     templatePokemon += `
-    <div id="${obj.id}" class="show-pokemon flex">
+    <div id="${obj.id}" name="pokemon"class="show-pokemon flex">
       <figure></figure>
       <img class="img-pokemon" src="${obj.img}"/>
       <p class="id-num-pokemon">${obj.num}</p>
@@ -150,15 +150,15 @@ const openModal = () => {
     <p class="name-modal">${dataGlobal[newArrayPokemon].name}</p>
     <div class="fact-container">
       <div class="fact">
-        <p class=fact-style>${dataGlobal[newArrayPokemon].weight}</p>
+        <p class="fact-style">${dataGlobal[newArrayPokemon].weight}</p>
         <span>Peso</span>
       </div>
       <div class="fact">
-        <p class=fact-style>${dataGlobal[newArrayPokemon].height}</p>
+        <p class="fact-style">${dataGlobal[newArrayPokemon].height}</p>
         <span>Altura</span>
       </div>
       <div class="fact">
-        <p class=fact-style>${dataGlobal[newArrayPokemon].candy_count}</p>
+        <p class="fact-style">${dataGlobal[newArrayPokemon].candy_count}</p>
         <span>Caramelos</span>
       </div>
     </div>
