@@ -19,6 +19,9 @@ const catchedPokedex = document.getElementById('catched-pokedex');
 
 /* Filter */
 const filterMenu = document.getElementById('filter-menu');
+const filterIcon = document.getElementById('filter-icon');
+const filterPanel = document.getElementById('filter-panel');
+
 
 const alfaSelect = document.getElementById('alfa-select');
 const spawnSelect = document.getElementById('spawn-select');
@@ -34,7 +37,7 @@ const close = document.getElementById('close');
 /* Incucubadora */
 const incubatorSection = document.getElementById('incubator-section');
 const eggSelect = document.getElementById('egg-select');
-const eggPokedex = document.getElementById('egg-pokedex'); //contenedor de pokemones por huevo
+const eggPokedex = document.getElementById('egg-pokedex');
 const eggDescriptionPercent = document.getElementById('egg-description-percent');
 
 
@@ -66,30 +69,24 @@ enterButton.addEventListener('click', (event) => {
 pokedexTitle.addEventListener('click', () => {
   pokedexSection.classList.remove('hide');
   incubatorSection.classList.add('hide');
-})
+});
 
 incubatorTitle.addEventListener('click', () => {
   incubatorSection.classList.remove('hide');
   pokedexSection.classList.add('hide');
-})
-
-/*
-dato: función
-p1: data => array
-retorna: string => template de la propiedades de los objetos que tiene data
-*/
+});
 
 const showPokemon = (data) => {
   let templatePokemon = '';
   data.map(obj => {
     templatePokemon += `
-    <div id="${obj.id}" class="show-pokemon flex">
-      <figure></figure>
+    <div id="${obj.id}" name="pokemon" class="show-pokemon flex">
+      <figure class="circle-shadow"></figure>
       <p>${obj.num}</p>
       <img src="${obj.img}"/>
       <p class="name-pokemon flex" >${obj.name}</p>
-      <p>${obj.type}</p>
-    </div>`;
+      <p>${obj.type}</p></div>
+      `;
   });
   return templatePokemon;
 };
@@ -98,24 +95,24 @@ allPokedex.innerHTML = showPokemon(dataGlobal);
 /* Ordena AZ / ZA*/
 alfaSelect.addEventListener('change', (event) => {
   switch (event.target.value) {
-    case '0':
-      allPokedex.innerHTML = showPokemon(sortAlfa(dataGlobal));
-      break;
-    case '1':
-      allPokedex.innerHTML = showPokemon(sortAlfa(dataGlobal).reverse());
-      break;
+  case '0':
+    allPokedex.innerHTML = showPokemon(sortAlfa(dataGlobal));
+    break;
+  case '1':
+    allPokedex.innerHTML = showPokemon(sortAlfa(dataGlobal).reverse());
+    break;
   };
 });
 
 /* Filtra por aparición*/
 spawnSelect.addEventListener('change', () => {
   switch (spawnSelect.value) {
-    case 'asc':
-      allPokedex.innerHTML = showPokemon(sortSpawn(dataGlobal));
-      break;
-    case 'desc':
-      allPokedex.innerHTML = showPokemon(sortSpawn(dataGlobal).reverse());
-      break;
+  case 'asc':
+    allPokedex.innerHTML = showPokemon(sortSpawn(dataGlobal));
+    break;
+  case 'desc':
+    allPokedex.innerHTML = showPokemon(sortSpawn(dataGlobal).reverse());
+    break;
   };
 });
 
@@ -123,17 +120,16 @@ spawnSelect.addEventListener('change', () => {
 inputSearch.addEventListener('input', event => {
   const pokemonWanted = searchPokemons(dataGlobal, event.target.value.toLowerCase());
   allPokedex.innerHTML = showPokemon(pokemonWanted);
-  console.log(event.target.value);
-
- });
+});
 
 /* Filtra por tipo */
 typeSelect.addEventListener('click', (event) => {
   let targetTypeValue = event.target.value;
   if (targetTypeValue !== undefined) {
-  const typePokemon = filterTypes(dataGlobal, targetTypeValue);
-  allPokedex.innerHTML = showPokemon(typePokemon);
-}});
+    const typePokemon = filterTypes(dataGlobal, targetTypeValue);
+    allPokedex.innerHTML = showPokemon(typePokemon);
+  }
+});
 
 /* Filtra por debilidad */
 weakSelect.addEventListener('change', () => {
@@ -141,90 +137,117 @@ weakSelect.addEventListener('change', () => {
   allPokedex.innerHTML = showPokemon(weakPokemons);
 });
 
-/* Modal */
-allPokedex.addEventListener('click', (event) => {
-  const id = event.target.parentElement.getAttribute('id') -1;
-  modalMask.classList.remove('hide');
-  infoPokemon.innerHTML = `
-    <img class="img-modal" src="${dataGlobal[id].img}"/>
-    <p class="name-modal">${dataGlobal[id].name}</p>
-    <p class="weight-modal style">${dataGlobal[id].weight}</p> 
-    <p class="height-modal style">${dataGlobal[id].height}</p> 
-    <p class="candy-modal style">${dataGlobal[id].candy_count}</p>
-    <p>${dataGlobal[id].type}</p>
-    <p>${dataGlobal[id].avg_spawns}</p>
-    <p>${dataGlobal[id].weaknesses}</p>`
-    console.log(id);
-}); 
+/* Open Modal */
+const openModal = () => {
+  const eventIdPokemon = parseInt(event.target.parentElement.id);
+  const newArrayPokemon = dataGlobal.map(obj => {
+    return obj.id;
+  }).indexOf(eventIdPokemon);
+  if (event.target.parentElement.getAttribute('name') === 'pokemon') {
+    modalMask.classList.remove('hide');
+    infoPokemon.innerHTML = `
+    <img class="img-modal" src="${dataGlobal[newArrayPokemon].img}"/>
+    <p class="name-modal">${dataGlobal[newArrayPokemon].name}</p>
+    <div class="fact-container">
+      <div class="fact">
+        <p class=fact-style>${dataGlobal[newArrayPokemon].weight}</p>
+        <span>Peso</span>
+      </div>
+      <div class="fact">
+        <p class=fact-style>${dataGlobal[newArrayPokemon].height}</p>
+        <span>Altura</span>
+      </div>
+      <div class="fact">
+        <p class=fact-style>${dataGlobal[newArrayPokemon].candy_count}</p>
+        <span>Caramelos</span>
+      </div>
+    </div>
+    <div class="type-container"></div>
+    <div class="type-poke-modal"></div>
+    <p>Tipo</p>
+    <img src=""/>
+    <p>${dataGlobal[newArrayPokemon].type}</p> 
+    <p>${dataGlobal[newArrayPokemon].avg_spawns}</p> 
+    <p>${dataGlobal[newArrayPokemon].weaknesses}</p>
+    <p>${dataGlobal[newArrayPokemon].next_evolution}</p>
+    `;
+  }
+};
+
+/* Pokedex Modal */
+allPokedex.addEventListener('click', () => {
+  openModal();
+});
 
 /* Cerrar Modal */
 close.addEventListener('click', () => {
   modalMask.classList.add('hide');
 });
 
-/* Filtra por tipo de huevos */
-eggSelect.addEventListener('click', (event) => {
-  let targetEggValue = event.target.value;
-  const typeEgg = filterEggs(dataGlobal, targetEggValue); // Esto es un array
- 
-  const typeEggCount = typeEgg.length;
-  const typeEggPercent = Math.round((typeEggCount * 100)/151);
-  eggPokedex.innerHTML = showPokemon(typeEgg);
+/* Sección Incubadora */
+eggSelect.addEventListener('change', () => {
+  const showPokemonEgg = (data) => {
+    let templateEggPokemon = '';
+    data.map(obj => {
+      templateEggPokemon += `
+      <div id="${obj.id}" name="pokemon" class="show-pokemon flex">
+        <figure class="circle-shadow"></figure>
+        <img src="${obj.img}"/>
+        <p>${obj.egg}</p>
+        <p class="name-pokemon flex" >${obj.name}</p>
+        <p>${obj.type}</p></div>
+        `;
+    });
+    return templateEggPokemon;
+  };
+  
+  eggPokedex.innerHTML = showPokemonEgg(dataGlobal);
+  eggPokedex.addEventListener('click', () => {
+    openModal();
+  });
 
-  switch (targetEggValue) {
-    case 'Not in Eggs':
+  const typeEgg = filterEggs(dataGlobal, eggSelect.value); // Esto es un array
+
+  const typeEggCount = typeEgg.length;
+  const typeEggPercent = Math.round((typeEggCount * 100) / 151);
+  eggPokedex.innerHTML = showPokemonEgg(typeEgg);
+
+  switch (eggSelect.value) {
+  case 'Not in Eggs':
     eggDescriptionPercent.innerHTML = `
-    <p>${typeEggCount}/151</p>
-    <p>El ${typeEggPercent}% de los pokémons de la región Kanto
+    <p>El ${typeEggPercent}% (${typeEggCount}) de los pokémons de la región Kanto
     jamás podrá ser incubado.<br>
     <p>¡Conoce quien son esos pokémons!</p>
-    `
+    `;
     break;
-    case '7 km': 
+  case '7 km':
     eggDescriptionPercent.innerHTML = `
-    <p>${typeEggCount}/151</p>
     <p>Ningún pokémon de la Región Kanto es incubado en
-    huevos de ${targetEggValue}.<br>
-    `
+    huevos de ${eggSelect.value}.<br>
+    `;
     break;
-    default:
+  default:
     eggDescriptionPercent.innerHTML = `
-    <p>${typeEggCount}/151</p>
-    <p>De los 151 pokémons de la región Kanto, el ${typeEggPercent}% es
-    incubado en huevos de ${targetEggValue}.<br>
+    <p>De los 151 pokémons de la región Kanto, el ${typeEggPercent}% (${typeEggCount}) es
+    incubado en huevos de ${eggSelect.value}.<br>
     <p>¡Conoce quien son esos pokémons!</p>
-    `}
+    `;
+  }
 });
 
-/* Función que despliega el side menu */ 
-const logoLink = document.getElementById('filter-icon');
-const showMenu = () => {
-  const menu = document.getElementById('filter-panel');
+/* Función que despliega el side menu */
 
-  if(menu.classList.contains('hide')){
-    menu.classList.remove("hide");
-    menu.classList.add('show');
-    document.getElementById('filter-icon').style.width = '250px';
+const showFilterMenu = () => {
+  if (filterPanel.classList.contains('hide')) {
+    filterPanel.classList.remove('hide');
+    filterPanel.classList.add('show');
+    filterPanel.style.width = '380px';
     allPokedex.style.marginLeft = '250px';
-  } 
-  else{
-    menu.classList.remove('show');
-    menu.classList.add('hide');
-    document.getElementById('filter-icon').style.width = '0';
+  } else {
+    filterPanel.classList.remove('show');
+    filterPanel.classList.add('hide');
+    filterPanel.style.width = '0';
     allPokedex.style.marginLeft = '0';
   }
-}
-
-logoLink.addEventListener('click', showMenu);
-
-/* Pokemones atrapados 
-catchedPokedex.addEventListener('click', (event) => {
-  switch (event.target.value) {
-    case '1':
-      allPokedex.innerHTML = showPokemon(catchedPokemon(dataGlobal));
-      break;
-    case '0':
-      allPokedex.innerHTML = showPokemon(unCatchedPokemon(dataGlobal));
-      break;
-  };
-});*/
+};
+filterIcon.addEventListener('click', showFilterMenu);

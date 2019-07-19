@@ -2,7 +2,7 @@
     padding: 0;
     margin: 0;
     outline: none;
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Roboto', sans-serif;
 }
 
 .show {
@@ -39,7 +39,24 @@ a {
     justify-content: flex-end;
 }
 
+  /*Scroll*/
 
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #c4c4c4;
+    border-radius: 50px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #24CCAA;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: rgb(243, 243, 243);
+    border-radius: 50px;
+  }
+/*Login*/
 .login-bg{
     background: url(img/bg-13.png) no-repeat center top;
     background-size: cover;
@@ -88,6 +105,7 @@ a {
 .all-pokemones {
     flex-flow: wrap row;
     justify-content: space-between;
+    padding: 100px; /**/
     padding: 10% 12%;
     align-items: center;
 }
@@ -99,7 +117,7 @@ a {
     margin: 20px;    
 }
 
-figure{
+.circle-shadow{
     height: 7%;
     width: 8%;
     border-radius: 50%;
@@ -113,7 +131,9 @@ figure{
 /* Averiguar que es esto*/
 .name-pokemon {
     justify-content: center;
-    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    color: #707070;
 }
 
 nav ul li {
@@ -131,31 +151,13 @@ nav ul li {
     width: 60vw;
     height: 40px;
     padding: 10px 10px 11px 30px;
+    margin-top: 30px;
     background: #F6F4F4;
+    background-image: url(img/icon-web/search-icon.svg);
+    background-repeat: no-repeat;
     border: solid 0.5px rgb(230, 230, 230);
-    border-radius: 15px;    
+    border-radius: 50px;    
 }
-
-.filter-menu{
-    width: 0;
-    height: 100%;
-    background: #fff;
-    box-shadow: 0 4px 10px rgba(190, 190, 190, 0.5);
-}
-
-.main{
-    transition: margin-left .5s;
-    padding: 20px;
-}
-
-.selectors{
-    width: inherit;
-    height: auto;
-    padding: 10px;
-    border: solid 0.5px rgb(238, 238, 238);
-    border-radius: 15px;
-}
-
 
 /* Header */
 
@@ -188,11 +190,12 @@ nav ul li {
     display: flex;
     flex-wrap: wrap;
     align-content: flex-start;
+    margin: 12px;
 }
   
 .button {
     width: 120px;
-    height: 40px;
+    height: 30px;
     margin: 2px;
     color: white;
     border: none;
@@ -287,8 +290,6 @@ nav ul li {
 
   /* Modal Inicio */ 
 
-  /*background: linear-gradient(to right, #24CCAA, #A2DB95)  0.7;*/
-
 .modal-mask {
     position: fixed;
     z-index: 1;
@@ -304,6 +305,7 @@ nav ul li {
     width: 60vh;
     height: 80vh;
     background: #fff;
+    box-shadow: 3px 12px 25px 0 rgba(0, 0, 0, 0.18);
     border-radius: 40px;
     position: fixed;
     left: 35%;
@@ -315,25 +317,70 @@ nav ul li {
     width: 100%;
     flex-direction: column;
     align-items: center;
+    padding-top: 170px;
 }
 
+.filter-icon { /* MODIFICA EL MODAL */ 
+    position: inherit;
+    width: 40px;
+    height: 40px;
+  }
+
+.img-modal{
+    height: 200px;
+    position: absolute;
+    bottom: 420px;
+}
+/*
 .filter-icon {
     width: 40px;
     height: 40px;
     background-position: center center;
     background-repeat: no-repeat
-  }
+  } */
 
-.img-modal{
-    display: flex;
-    padding: 9px;
-    height: 170px;
+  .img-modal{
+    height: 200px;
+    position: absolute;
+    bottom: 420px;
 }
 
-.name-modal{
-    margin: 5px;
-    font-size: 170%;
+.name-modal {
+    position: fixed;
+    top: 200px;
+    padding-bottom: 20px;
+    border-bottom: 5px solid #24CCAA;
+    width: 210px;
+    text-align: center;
+}
+
+.fact-container{ /* MODIFICA EL MODAL */ 
     display: flex;
+    flex-flow: row wrap;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.fact{ /* MODIFICA EL MODAL */ 
+    width: 100px;
+}
+
+.fact{ /* MODIFICA EL MODAL */ 
+    width: 100px;
+}
+
+.fact:nth-child(2) {  /* MODIFICA EL MODAL */ 
+    border-left: 1px solid darkgrey;
+    border-right: 1px solid darkgrey;
+}
+
+.fact-style { /* MODIFICA EL MODAL */ 
+    margin-bottom: -5px;
+}
+
+.fact > span { /* MODIFICA EL MODAL */ 
+    font-size: 0.9rem;
+    color: #A9A5A5;
 }
 
 .style{
@@ -365,16 +412,101 @@ nav ul li {
     margin: 0;
 }
 
-/* table.table-modal {
-    border: 0px solid #1C6EA4;
-    background-color: #FFFFFF;
-    width: 20%;
+.line-green{
+    width: 200px;
+    height: 3px;
+    background: linear-gradient(to right, #24CCAA, #A2DB95);
+    border-radius: 30px;
+}
+
+.box-info-eggs{
+    flex-flow: column wrap;
+      margin-top: 50px;
+      justify-content: center;
+}
+
+
+/*Filter-menu CODIGO DE MARIAN
+.filter-menu{
+    position: relative;
+    float: left;
+    flex-direction: column;
+    z-index: 2;
+    height: calc(100vh - 88px);
+    display: n<div><p class="weakness-title">Debilidad</p></div>one;
+    background-color: #5692d1;
+    width: 240px;
+    margin-right: -240px;
+    transition: 0.5s;
+    box-shadow: 0 4px 10px rgba(190, 190, 190, 0.5);
+}
+
+.btn-menu{
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: 50px;
+    left: -50px;
+    border-radius: 100% 0 0 100%;
+    z-index: 5;
+    background-color: #5692d1;
+    cursor: pointer;
+}
+.line-menu{display: block;background-color: #ffcc00;width: 23px;height: 4px;margin-left: 15px;border-radius: 25px;transition: .5s;}
+.line-menu:nth-child(2){margin-top: 5px;}
+.line-menu:nth-child(3){margin-top: 5px;}
+.btn-menu-activo .line-menu:nth-child(1){transform: rotate(45deg);}
+.btn-menu-activo .line-menu:nth-child(2){width: 0;}
+.btn-menu-activo .line-menu:nth-child(3){transform: rotate(-45deg);margin-top: -13px;}
+
+.navbar-show{
+    margin-right: 0;
+}
+*/
+
+.filter-menu{ /* MODIFICA EL MODAL */ 
+    width: 0;
+    height: 100%;
+    background: #fff;
+    box-shadow: 0 4px 10px rgba(190, 190, 190, 0.5);
+}
+
+.menu-title { /* MODIFICA EL MODAL */ 
+    margin: 10px;
+    position: relative;
+    top: 10px;
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+.filter-title{  /* MODIFICA EL MODAL */ 
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-top: 2px solid #a2c3bd8c;
+    width: 280px;
     text-align: center;
-  }
-  table.table-modal td, table.table-modal th {
-    border: 1px solid #AAAAAA;
-    padding: 1px 1px;
-  }
-  table.table-modal tbody td {
-    font-size: 12px;
-  } */
+}
+
+.main{  /* MODIFICA EL MODAL */ 
+    transition: margin-left .5s;
+    padding: 20px;
+}
+
+.selectors{
+    width: 215px;
+    height: 40px;
+    margin: 6px;
+    padding: 10px;
+    border: solid 0.5px rgb(238, 238, 238);
+    border-radius: 15px;
+}
+
+.filter-panel{ /* MODIFICA EL MODAL */ 
+    -webkit-box-shadow: 12px 11px 7px -8px rgba(158,158,158,1);
+    -moz-box-shadow: 12px 11px 7px -8px rgba(158,158,158,1);
+    box-shadow: 12px 11px 7px -8px rgba(158,158,158,1);
+    position: fixed;
+    height: 550px;
+    top: 86px;
+    border-radius: 2%;
+}
