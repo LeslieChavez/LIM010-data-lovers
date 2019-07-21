@@ -3,11 +3,9 @@ const sortAlfa = (data) => {
   return data.sort((prev, next) => {
     if (prev.name > next.name) {
       return 1;
-    };
-    if (prev.name < next.name) {
+    } else {
       return -1;
-    };
-    return 0; /* Falta hacer */
+    }
   });
 };
 
@@ -42,14 +40,3 @@ window.sortAlfa = sortAlfa;
 window.filterWeakness = filterWeakness;
 window.filterTypes = filterTypes;
 window.filterEggs = filterEggs;
-
-
-/* Pokemones atrapados / no atrapados 
-const catchedPokemon = (data) => {
-  return data.filter(obj => obj.multipliers !== null);
-};
-
-const unCatchedPokemon = (data) => {
-  return data.filter(obj => obj.multipliers === null)
-};*/
-

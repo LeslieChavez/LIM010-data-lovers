@@ -2,7 +2,7 @@ const dataGlobal = POKEMON.pokemon;
 /* Login */
 const loginSection = document.getElementById('login-section');
 const pokedexSection = document.getElementById('pokedex-section');
-const headerTop = document.getElementById('header-top'); // Agregue el header 
+const headerTop = document.getElementById('header'); // Agregue el header 
 const password = document.getElementById('password');
 const user = document.getElementById('user');
 const enterButton = document.getElementById('enter-button');
@@ -15,12 +15,10 @@ const incubatorTitle = document.getElementById('incubator-title');
 const inputSearch = document.getElementById('input-search');
 const submitSearch = document.getElementById('submitSearch');
 const allPokedex = document.getElementById('all-pokedex');
-const catchedPokedex = document.getElementById('catched-pokedex');
 
 /* Filter */
 const filterMenu = document.getElementById('filter-menu');
 const filterIcon = document.getElementById('filter-icon');
-const filterPanel = document.getElementById('filter-panel');
 
 
 const alfaSelect = document.getElementById('alfa-select');
@@ -50,6 +48,7 @@ const validation = () => {
   const password = document.getElementById('password');
   if (password.value === passwordTrue) {
     loginSection.classList.add('hide');
+    filterMenu.classList.add('hide');
     pokedexSection.classList.replace('hide', 'show');
     incubatorSection.classList.add('hide');
     headerTop.classList.replace('hide', 'show'); // Agregue el header 
@@ -81,7 +80,7 @@ const showPokemon = (data) => {
   data.map(obj => {
     templatePokemon += `
     <div id="${obj.id}" name="pokemon"class="show-pokemon flex">
-      <figure></figure>
+      <figure class="circle-shadow"></figure>
       <img class="img-pokemon" src="${obj.img}"/>
       <p class="id-num-pokemon">${obj.num}</p>
       <p class="name-pokemon flex">${obj.name}</p>
@@ -148,6 +147,8 @@ const openModal = () => {
     infoPokemon.innerHTML = `
     <img class="img-modal" src="${dataGlobal[newArrayPokemon].img}"/>
     <p class="name-modal">${dataGlobal[newArrayPokemon].name}</p>
+    <p class="num-modal">${dataGlobal[newArrayPokemon].num}</p>
+    <figure class="line-green"><figure>
     <div class="fact-container">
       <div class="fact">
         <p class="fact-style">${dataGlobal[newArrayPokemon].weight}</p>
@@ -236,18 +237,31 @@ eggSelect.addEventListener('change', () => {
 });
 
 /* Función que despliega el side menu */
+ 
 
-const showFilterMenu = () => {
-  if (filterPanel.classList.contains('hide')) {
-    filterPanel.classList.remove('hide');
-    filterPanel.classList.add('show');
-    filterPanel.style.width = '380px';
-    allPokedex.style.marginLeft = '250px';
+let filterOpen = 0;
+
+filterIcon.addEventListener('click', ()=> {
+  if (filterOpen === 0) {
+    filterMenu.classList.remove('hide');
+    filterMenu.classList.add('filter-show');
+    filterOpen = 1;
   } else {
-    filterPanel.classList.remove('show');
-    filterPanel.classList.add('hide');
-    filterPanel.style.width = '0';
-    allPokedex.style.marginLeft = '0';
+    filterMenu.classList.remove('filter-show');
+    filterOpen = 0;
   }
-};
-filterIcon.addEventListener('click', showFilterMenu);
+  console.log(filterOpen);
+});
+
+/*
+btnMenu.addEventListener('click', () => {
+  if (menuOpen === 0) {
+    navbar.classList.add('navbar-show');
+    btnMenu.classList.add('btn-menu-activo');
+    menuOpen = 1;
+  } else {
+    navbar.classList.remove('navbar-show');
+    btnMenu.classList.remove('btn-menu-activo');
+    menuOpen = 0;
+  }
+});*/
