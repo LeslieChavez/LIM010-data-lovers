@@ -19,7 +19,7 @@ Realizamos una [encuesta](https://docs.google.com/forms/d/17cPuU6pji1mnmJnU8Qu86
 
 ### Prototipado
 
-#### Prototipo de baja fidelidad
+#### Prototipo de alta fidelidad
 ![enter image description here](https://lh3.googleusercontent.com/uQBlNtXgDct60k_SaNwx39aCjVd17rZQo8mUzwOO_UdabEhx6pzPm0QxBiSW-i47V5NvWNMqsILGvQ)
 
 ![enter image description here](https://lh3.googleusercontent.com/w4zN1Icns2pAKVUvenNIwmSk_THbznN29J_O0iKuxR7XbjwTky0pBgE2rNAWvF-nFEVS3LcwUumJKw)
@@ -31,7 +31,7 @@ Realizamos una [encuesta](https://docs.google.com/forms/d/17cPuU6pji1mnmJnU8Qu86
  - Cuando se visualizan los detalles de cada pokémon, colocar un boton que permita volver a ver a los pokémons. 
  - Cambiar el ícono de "Menú" por uno de "Filtrar"
 
-#### Prototipo de baja fidelidad
+#### [Prototipo de baja fidelidad](https://www.figma.com/file/UU9WaQoZWFm9ubMymNCoUjn5/Pokekool?node-id=93%3A168)
 
 <img width="543" alt="Filtro" src="https://user-images.githubusercontent.com/51206952/61644530-833f8600-ac6a-11e9-90e3-4af3f04d9ca5.PNG">
 <img width="542" alt="Filtro-2" src="https://user-images.githubusercontent.com/51206952/61644535-889cd080-ac6a-11e9-904c-18bcda66a3db.PNG">
