@@ -63,11 +63,15 @@ enterButton.addEventListener('click', () => {
 pokedexTitle.addEventListener('click', () => {
   pokedexSection.classList.remove('hide');
   incubatorSection.classList.add('hide');
+  pokedexTitle.classList.add('now-title-nav'); 
+  incubatorTitle.classList.remove('now-title-nav');
 });
 
 incubatorTitle.addEventListener('click', () => {
   incubatorSection.classList.remove('hide');
   pokedexSection.classList.add('hide');
+  incubatorTitle.classList.add('now-title-nav');
+  pokedexTitle.classList.remove('now-title-nav');
 });
 
 /* Div de Pokémons - Pokedex*/

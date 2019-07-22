@@ -59,6 +59,16 @@ header {
     height: 30px;
     background: #ecfff8;
     box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+    color: #285943;
+}
+
+.title-nav {
+    color: #285943;
+    cursor: pointer;
+    margin: 0 5px;
+}
+.now-title-nav {
+    font-weight: bold;
 }
 
 .header-logo{ /* Centrar el logo */
@@ -217,6 +227,7 @@ header {
 .show-pokemon {
     flex-flow: column wrap;
     margin: 20px;
+    width: 200px;
 }
 
 .circle-shadow {
