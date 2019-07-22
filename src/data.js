@@ -1,22 +1,6 @@
-/* Ordenar Alfabeticamente*/
-const sortAlfa = (data) => {
-  return data.sort((prev, next) => {
-    if (prev.name > next.name) {
-      return 1;
-    } else {
-      return -1;
-    }
-  });
-};
-
 /* Buscar a un pokémon */
 const searchPokemons = (data, wanted) => {
   return data.filter(obj => obj.name.toLowerCase().startsWith(wanted));
-};
-
-/* Ordenar por Aparición */
-const sortSpawn = (data) => {
-  return data.sort((prev, next) => prev.spawn_chance - next.spawn_chance);
 };
 
 /* Filtra por debilidad */
@@ -32,6 +16,22 @@ const filterTypes = (data, types) => {
 /* Filtrado por tipo de huevos */
 const filterEggs = (data, typeEgg) => {
   return data.filter(obj => obj.egg.indexOf(typeEgg) > -1);
+};
+
+/* Ordenar por Aparición */
+const sortSpawn = (data) => {
+  return data.sort((prev, next) => prev.spawn_chance - next.spawn_chance);
+};
+
+/* Ordenar Alfabeticamente*/
+const sortAlfa = (data) => {
+  return data.sort((prev, next) => {
+    if (prev.name > next.name) {
+      return 1;
+    } else {
+      return -1;
+    }
+  });
 };
 
 window.searchPokemons = searchPokemons;

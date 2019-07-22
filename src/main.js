@@ -3,8 +3,9 @@ const dataGlobal = POKEMON.pokemon;
 const loginSection = document.getElementById('login-section');
 const pokedexSection = document.getElementById('pokedex-section');
 const headerTop = document.getElementById('header'); // Agregue el header 
-const password = document.getElementById('password');
 const user = document.getElementById('user');
+const password = document.getElementById('password');
+const errorMessage = document.getElementById('error-message')
 const enterButton = document.getElementById('enter-button');
 
 /* Header - Titles*/
@@ -24,7 +25,7 @@ const filterIcon = document.getElementById('filter-icon');
 const alfaSelect = document.getElementById('alfa-select');
 const spawnSelect = document.getElementById('spawn-select');
 const typeSelect = document.getElementById('type-select'); // padre de botones
-const weakSelect = document.getElementById('weak-select');
+const weaknessSelect = document.getElementById('weakness-select');
 
 /* Modal */
 const modalMask = document.getElementById('modal-mask');
@@ -32,20 +33,18 @@ const modalBox = document.getElementById('modal-box');
 const infoPokemon = document.getElementById('info-pokemon');
 const close = document.getElementById('close');
 
-/* Incucubadora */
+/* Incubadora */
 const incubatorSection = document.getElementById('incubator-section');
 const eggSelect = document.getElementById('egg-select');
 const eggPokedex = document.getElementById('egg-pokedex');
 const eggDescriptionPercent = document.getElementById('egg-description-percent');
 
 
-/* Funcionalidad del Login */
+/* Acceso al Login */
 const userTrue = 'LABORATORIA';
 const passwordTrue = 'LABORATORIA';
-let tryNumb = 0;
 
-const validation = () => {
-  const password = document.getElementById('password');
+enterButton.addEventListener('click', () => {
   if (password.value === passwordTrue) {
     loginSection.classList.add('hide');
     filterMenu.classList.add('hide');
@@ -54,17 +53,13 @@ const validation = () => {
     headerTop.classList.replace('hide', 'show'); // Agregue el header 
     event.preventDefault();
   } else {
-    loginSection.classList.add('hide');
-    errorMessage.classList.add('hide');
-  }
-};
-
-enterButton.addEventListener('click', (event) => {
-  event.preventDefault();
-  validation();
+    errorMessage.innerHTML = 'Usuario o contraseña incorrecto';
+    user.value = null;
+    password.value = null;
+  };
 });
 
-/* Seleccionar la sección de Pokedex - Incubadora*/
+/* Header-nav: Pokedex - Incubadora*/
 pokedexTitle.addEventListener('click', () => {
   pokedexSection.classList.remove('hide');
   incubatorSection.classList.add('hide');
@@ -75,13 +70,17 @@ incubatorTitle.addEventListener('click', () => {
   pokedexSection.classList.add('hide');
 });
 
+/* Div de Pokémons - Pokedex*/
 const showPokemon = (data) => {
   let templatePokemon = '';
   data.map(obj => {
     templatePokemon += `
-    <div id="${obj.id}" name="pokemon"class="show-pokemon flex">
-      <figure class="circle-shadow"></figure>
-      <img class="img-pokemon" src="${obj.img}"/>
+    <div id="${obj.id}" name="pokemon" class="show-pokemon flex">
+      <div class="">
+        <figure class="circle-shadow"></figure>
+        <img class="img-pokemon" src="${obj.img}"/>
+      </div> 
+
       <p class="id-num-pokemon">${obj.num}</p>
       <p class="name-pokemon flex">${obj.name}</p>
       <p class="type-pokemon" >${obj.type}</p>
@@ -90,30 +89,6 @@ const showPokemon = (data) => {
   return templatePokemon;
 };
 allPokedex.innerHTML = showPokemon(dataGlobal);
-
-/* Ordena AZ / ZA*/
-alfaSelect.addEventListener('change', (event) => {
-  switch (event.target.value) {
-  case '0':
-    allPokedex.innerHTML = showPokemon(sortAlfa(dataGlobal));
-    break;
-  case '1':
-    allPokedex.innerHTML = showPokemon(sortAlfa(dataGlobal).reverse());
-    break;
-  };
-});
-
-/* Filtra por aparición*/
-spawnSelect.addEventListener('change', () => {
-  switch (spawnSelect.value) {
-  case 'asc':
-    allPokedex.innerHTML = showPokemon(sortSpawn(dataGlobal));
-    break;
-  case 'desc':
-    allPokedex.innerHTML = showPokemon(sortSpawn(dataGlobal).reverse());
-    break;
-  };
-});
 
 /* Buscar a un pokémon */
 inputSearch.addEventListener('input', event => {
@@ -131,9 +106,33 @@ typeSelect.addEventListener('click', (event) => {
 });
 
 /* Filtra por debilidad */
-weakSelect.addEventListener('change', () => {
-  const weakPokemons = filterWeakness(dataGlobal, weakSelect.value);
+weaknessSelect.addEventListener('change', () => {
+  const weakPokemons = filterWeakness(dataGlobal, weaknessSelect.value);
   allPokedex.innerHTML = showPokemon(weakPokemons);
+});
+
+/* Filtra por aparición*/
+spawnSelect.addEventListener('change', () => {
+  switch (spawnSelect.value) {
+  case 'asc':
+    allPokedex.innerHTML = showPokemon(sortSpawn(dataGlobal));
+    break;
+  case 'desc':
+    allPokedex.innerHTML = showPokemon(sortSpawn(dataGlobal).reverse());
+    break;
+  };
+});
+
+/* Ordena AZ / ZA*/
+alfaSelect.addEventListener('change', (event) => {
+  switch (event.target.value) {
+  case '0':
+    allPokedex.innerHTML = showPokemon(sortAlfa(dataGlobal));
+    break;
+  case '1':
+    allPokedex.innerHTML = showPokemon(sortAlfa(dataGlobal).reverse());
+    break;
+  };
 });
 
 /* Open Modal */
@@ -172,6 +171,7 @@ const openModal = () => {
     <p>${dataGlobal[newArrayPokemon].weaknesses}</p>
     <p>${dataGlobal[newArrayPokemon].next_evolution}</p>
     `;
+    console.log(eventIdPokemon);
   }
 };
 
@@ -217,8 +217,7 @@ eggSelect.addEventListener('change', () => {
   case 'Not in Eggs':
     eggDescriptionPercent.innerHTML = `
     <p>El ${typeEggPercent}% (${typeEggCount}) de los pokémons de la región Kanto
-    jamás podrá ser incubado.<br>
-    <p>¡Conoce quien son esos pokémons!</p>
+    jamás podrá ser incubado.<br>¡Conoce quien son esos pokémons!</p>
     `;
     break;
   case '7 km':
@@ -230,8 +229,7 @@ eggSelect.addEventListener('change', () => {
   default:
     eggDescriptionPercent.innerHTML = `
     <p>De los 151 pokémons de la región Kanto, el ${typeEggPercent}% (${typeEggCount}) es
-    incubado en huevos de ${eggSelect.value}.<br>
-    <p>¡Conoce quien son esos pokémons!</p>
+    incubado en huevos de ${eggSelect.value}.<br>¡Conoce quien son esos pokémons!</p>
     `;
   }
 });
@@ -252,16 +250,3 @@ filterIcon.addEventListener('click', ()=> {
   }
   console.log(filterOpen);
 });
-
-/*
-btnMenu.addEventListener('click', () => {
-  if (menuOpen === 0) {
-    navbar.classList.add('navbar-show');
-    btnMenu.classList.add('btn-menu-activo');
-    menuOpen = 1;
-  } else {
-    navbar.classList.remove('navbar-show');
-    btnMenu.classList.remove('btn-menu-activo');
-    menuOpen = 0;
-  }
-});*/

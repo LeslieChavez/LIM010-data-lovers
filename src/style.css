@@ -41,7 +41,32 @@
     align-items: center;
 }
 
-/*Login Section*/
+/*Header*/
+
+header {
+    width: 100vw;
+    position: fixed;
+    z-index: 1000;
+
+}
+
+.header-up {
+    padding: 10px;
+    background: linear-gradient(to bottom, #24CCAA, #A2DB95);   
+}
+
+.header-nav{
+    height: 30px;
+    background: #ecfff8;
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+}
+
+.header-logo{ /* Centrar el logo */
+    block-size: 42px;
+}
+
+/* Login Section */
+
 .login-bg{
     background: url(img/bg-13.png) no-repeat center top;
     background-size: cover;
@@ -79,54 +104,21 @@
     padding-left: 12px;
 }
 
+.error-message {
+    width: 100%;
+    height: 20px;
+    color: red;
+    margin: 10px;
+}
+   
 .login-btn{
     width: 100%;
     background: linear-gradient(to right, #24CCAA, #A2DB95);
     color: white;
     padding: 10px;
-    margin: 35px 0 10px 0;
+    margin: 0 0 5px 0;
     border-radius: 4px;
     cursor: pointer;
-}
-
-/*Header*/
-header {
-    width: 100vw;
-    position: fixed;
-}
-
-.header-up {
-    padding: 10px;
-    background: linear-gradient(to bottom, #24CCAA, #A2DB95);   
-}
-
-.header-nav{
-    height: 30px;
-    background: #ecfff8;
-    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
-}
-
-.header-logo{ /* Centrar el logo */
-    block-size: 42px;
-}
-
-
-
-.candy-modal{
-    width: 20px;
-    height: 20px;
-}
-
-/*AGREGAR BOX-SIZING = BORDER BOX*/
-.circle-shadow{
-    height: 7%;
-    width: 8%;
-    border-radius: 50%;
-    background: linear-gradient(to right, #24CCAA, #A2DB95);
-    filter: blur(25px);
-    position: absolute;
-    margin: 2%;
-    z-index: -1;
 }
 
 /* Averiguar que es esto*/
@@ -135,36 +127,22 @@ header {
     font-size: 18px;
     font-weight: bold;
     color: #707070;
-}
-
-nav ul li {
-    list-style: none;
-    padding: 7px;
-}
-
-figure{ 
-    height: 7%;
-    width: 8%;
-    border-radius: 50%;
-    background: linear-gradient(to right, #24CCAA, #A2DB95);
-    filter: blur(25px);
-    position: absolute;
-    margin: 2%;
-    z-index: -1;
+    padding: 10px 0;
 }
 
 /* Filtro */
 .filter-menu {
     width: 350px;
     height: 100vh;
+    margin-top: 90px;
     float: left;
     flex-direction: column;
     z-index: 2;
     height: calc(100vh - 88px);
-    background-color: #5692d1;
     margin-left: -350px;
     transition: 0.5s;
-    margin-top: 90px;
+    box-shadow: 3px 12px 25px 0 rgba(0, 0, 0, 0.18);
+
 }
 
 .filter-icon { 
@@ -174,19 +152,19 @@ figure{
 }
 
 .filter-title {
-    margin: 20px;
-    position: relative;
-    top: 10px;
-    font-size: 1.2rem;
-    font-weight: 500;
-    margin-left: 30%;
+    font-size: 20px;
+}
+
+.filter-select-title {
+    text-align: center;
 }
 
 .selectors {
-    width: 75%;
+    width: 200px;
     margin: 10px;
     padding: 12px;
     border-radius: 50px;
+    border: 0.5px solid #d1d1d1;
 }
 
 .type-select { /*Div de botones*/
@@ -213,40 +191,45 @@ figure{
 /*Podekex Section*/
 .pokedex-section {
     width: 100%;
-    background: blue;
-    padding: 30px;
-    height: calc(100% - 96px);
-    overflow: hidden;
+    height: calc(100vh - 88px);
+    padding: 30px 0;
     margin-top: 90px;
 }
 
-.search { /*Input de buscar*/
+
+.search {
     width: 55vw;
     height: 42px;
-    padding: 10px 10px 11px 30px;
-    margin-top: 20px;
+    padding: 10px 30px;
+    margin: 10px;
     background: #f6f4f4 url(img/icon-web/search-icon.svg) no-repeat;
     border: solid 1px rgb(230, 230, 230);
     border-radius: 45px;
 }
 
-.all-pokemones { /*Contenedor de pokémons*/
+.all-pokedex {
     justify-content: space-evenly;
     flex-flow: row wrap;
-    padding-top: 50px;
-    background: yellow;
+    padding: 50px;
 }
 
-.show-pokemon { /*Div de cada pokémon*/
-    flex-flow: wrap row;
-    width: 200px;
-    padding: 20px;
-    margin: 20px;    
+/*Div de cada pokémon*/
+.show-pokemon {
+    flex-flow: column wrap;
+    margin: 20px;
 }
 
+.circle-shadow {
+    height: 70px;
+    width: 70px;
+    border-radius: 50px;
+    background: linear-gradient(to right, #24CCAA, #A2DB95);
+    filter: blur(25px);
+}
 
-
-
+.type-pokemon{
+    width: 140px;
+}
 
 [value="Grass"] { /*Selectores de atributos en CSS*/
     background: #24CCAA url(img/type-pokemon/grass.svg) no-repeat;
@@ -360,7 +343,6 @@ figure{
 }
 
 .fact-container{ 
-    display: flex;
     flex-flow: row wrap;
     margin-bottom: 10px;
     text-align: center;
@@ -413,36 +395,32 @@ figure{
 }
 
 
-
-.name-pokemon {
-    display: flex;
-    justify-content: center;
-    border-bottom: solid 2px #A2DB95;
-    width: 140px;
-    height: 30px;
+.candy-modal{
+    width: 20px;
+    height: 20px;
 }
 
-.id-num-pokemon{
-    display: flex;
+/* Incubator Section */
+.incubator-section {
+    width: 100vw;
+    margin-top: 100px;
+    flex-flow: row wrap;
+
 }
 
-.img-pokemon{
-    margin-left: 5px;
-    margin-bottom: 5px;
-    margin-top: -25px;
+.egg-pokedex {
+    justify-content: space-evenly;
+    flex-flow: row wrap;
+    padding: 50px;
+
+}
+.egg-description-percent {
+    width: 100vw;
+    height: 100px;
 }
 
-.type-pokemon{
-    display: flex;
-    justify-content: center;
-    width: 140px;
-}
-
-.type-title, .weakness-title {
-    padding-top: 10px;
-    padding-bottom: 10px;
-    border-top: 2px solid #a2c3bd8c;
-    width: 280px;
-    text-align: center;
-    margin-left: 10%;
+.intro-incubator {
+    flex-flow: column wrap;
+    width: 100vw;
+    height: 100px;
 }

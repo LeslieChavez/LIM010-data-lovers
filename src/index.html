@@ -34,9 +34,9 @@
       <input class="field flex" value="LABORATORIA" type="text" id="user" placeholder="" />
       <label class="label-field" for="password">Contraseña</label>
       <input value="LABORATORIA" class="field" type="password" id="password" placeholder="" />
-      <p><b>¿Olvidaste la contraseña?</b></p>
+      <p class="right"><b>¿Olvidaste la contraseña?</b></p>
+      <p id="error-message" class="error-message flex"></p>  <!-- Agregar esto en MAIN -->
       <button class="login-btn" id="enter-button" type="submit"><b>INGRESA</b></button>
-      <p id="error-message" class="error-message hide">Datos incorrectos</p>  <!-- Agregar esto en MAIN -->
       <p>¿No tienes una cuenta? <b>Regístrate</b></p>
     </form>
   </section>
@@ -50,13 +50,14 @@
     </select>
 
     <select id="spawn-select" class="selectors">
+      <p class="filter-select-title">Aparición</p>
       <option>Aparición</option>
       <option value="desc" id="more">Más comunes</option>
       <option value="asc" id="less">Menos comunes</option>
     </select>
 
     <div id="type-select" class="type-select flex">
-      <p class="type-title">Tipo</p>
+      <p class="filter-select-title">Tipo</p>
       <button class="button" value="Grass">Planta</button>
       <button class="button" value="Fire">Fuego</button>
       <button class="button" value="Water">Agua</button>
@@ -75,8 +76,8 @@
     </div>
 
     <div>
-      <p class="weakness-title">Debilidad</p>
-      <select id="weak-select" class="selectors">
+      <p class="filter-select-title">Debilidad</p>
+      <select id="weakness-select" class="selectors">
         <option value="weak" disabled="" selected="">Debilidad</option>
         <option value="Grass">Planta</option>
         <option value="Poison">Veneno</option>
@@ -102,7 +103,7 @@
         <img class="filter-icon" id="filter-icon" src="img/icon-web/filter-icon.svg" alt="filtrar">
         <input id="input-search" class="search flex" type="search" value="" placeholder="Busca a tu pokemon">
       </div>
-      <div id="all-pokedex" class="all-pokemones flex"></div>
+      <div id="all-pokedex" class="all-pokedex flex"></div>
     </section>
     <!--Seccion Modal -->
     <div id="modal-mask" class="modal-mask flex hide">
@@ -113,22 +114,23 @@
       </div>
     </div>
     <!-- Incubadora -->
-    <section id="incubator-section" class="flex hide">
-      <div class="flex">
+    <section id="incubator-section" class="incubator-section flex hide">
+      <div class="intro-incubator flex">
         <p class="name-pokemon">¿Qué pokémones se incuban en cada tipo de huevo?</p>
         <figure class="line-green"></figure>
-        <select class="selectors" name="" id="egg-select">
-          <option value="Not in Eggs">Huevo sin embrion</option>
-          <option value="2 km">Huevos de 2 km</option>
-          <option value="5 km">Huevos de 5 km</option>
-          <option value="10 km">Huevos de 7 km</option>
-          <option value="10 km">Huevos de 10 km</option>
-        </select>
       </div>
-      <div id="egg-description-percent" class="text-content"></div> <!-- Aqui va el resultado del porcentaje -->
-      <div id="egg-pokedex" class="all-pokemones"></div> <!-- Todos los pokemones -->
+      <select class="selectors" name="" id="egg-select">
+        <option value="Not in Eggs">Huevo sin embrion</option>
+        <option value="2 km">Huevos de 2 km</option>
+        <option value="5 km">Huevos de 5 km</option>
+        <option value="10 km">Huevos de 7 km</option>
+        <option value="10 km">Huevos de 10 km</option>
+      </select>
+      <div id="egg-description-percent" class="egg-description-percent flex"></div> <!-- Aqui va el resultado del porcentaje -->
+      <div id="egg-pokedex" class="egg-pokedex"></div> <!-- Todos los pokemones -->
     </section>
   </main>
+  <footer></footer>
 
   <script src="./data/pokemon/pokemon.js"></script>
   <script src="data.js"> </script>
