@@ -80,11 +80,8 @@ const showPokemon = (data) => {
   data.map(obj => {
     templatePokemon += `
     <div id="${obj.id}" name="pokemon" class="show-pokemon flex">
-      <div class="">
-        <figure class="circle-shadow"></figure>
-        <img class="img-pokemon" src="${obj.img}"/>
-      </div> 
-
+      <figure class="circle-shadow flex"></figure>
+      <img class="img-pokemon flex" src="${obj.img}"/>
       <p class="id-num-pokemon">${obj.num}</p>
       <p class="name-pokemon flex">${obj.name}</p>
       <p class="type-pokemon" >${obj.type}</p>
