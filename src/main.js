@@ -5,7 +5,7 @@ const pokedexSection = document.getElementById('pokedex-section');
 const headerTop = document.getElementById('header'); // Agregue el header 
 const user = document.getElementById('user');
 const password = document.getElementById('password');
-const errorMessage = document.getElementById('error-message')
+const errorMessage = document.getElementById('error-message');
 const enterButton = document.getElementById('enter-button');
 
 /* Header - Titles*/
