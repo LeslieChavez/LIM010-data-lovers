@@ -5,8 +5,7 @@
   <meta charset="utf-8">
   <title>Pokekool</title>
   <link rel="icon" type="image/png" href="img/icon-pokemon/pokebol-2.png" />
-  <meta name="viewport"
-    content="width=device-width, user-scalable=no, initial-scale=1.0, maximun-scale=1.0, minimun-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
@@ -25,7 +24,7 @@
     </nav>
   </header>
   <!-- Sección Login -->
-  <section id="login-section" class="login-bg flex">
+  <div id="login-section" class="login-bg flex">
     <form class="login-box flex">
       <img class="img-logo" src="img/logo.png" alt="logo" />
       <label class="label-field" for="user">Usuario</label>
@@ -37,7 +36,7 @@
       <button class="login-btn" id="enter-button" type="submit"><b>INGRESA</b></button>
       <p>¿No tienes una cuenta? <b>Regístrate</b></p>
     </form>
-  </section>
+  </div>
   <!--Menu lateral-->
   <nav class="filter-menu flex hide" id="filter-menu">
     <p class="filter-title">¡Ordénalos ya!</p>
@@ -46,9 +45,8 @@
       <option value="0">A-Z</option>
       <option value="1">Z-A</option>
     </select>
-
+    <p class="filter-select-title">Aparición</p>
     <select id="spawn-select" class="selectors">
-      <p class="filter-select-title">Aparición</p>
       <option>Aparición</option>
       <option value="desc" id="more">Más comunes</option>
       <option value="asc" id="less">Menos comunes</option>
@@ -96,13 +94,13 @@
   </nav>
   <main class="flex">
     <!-- Segunda pantalla -->
-    <section id="pokedex-section" class="pokedex-section hide">
+    <div id="pokedex-section" class="pokedex-section hide">
       <div class="search-with-icon flex">
         <img class="filter-icon" id="filter-icon" src="img/icon-web/filter-icon.svg" alt="filtrar">
         <input id="input-search" class="search flex" type="search" value="" placeholder="Busca a tu pokemon">
       </div>
       <div id="all-pokedex" class="all-pokedex flex"></div>
-    </section>
+    </div>
     <!--Seccion Modal -->
     <div id="modal-mask" class="modal-mask flex hide">
       <span class="close flex" id="close">&times;</span>
@@ -112,12 +110,12 @@
       </div>
     </div>
     <!-- Incubadora -->
-    <section id="incubator-section" class="incubator-section flex hide">
+    <div id="incubator-section" class="incubator-section flex hide">
       <div class="intro-incubator flex">
         <p class="name-pokemon">¿Qué pokémones se incuban en cada tipo de huevo?</p>
         <figure class="line-green"></figure>
       </div>
-      <select class="selectors" name="" id="egg-select">
+      <select class="selectors" id="egg-select">
         <option value="Not in Eggs">Huevo sin embrion</option>
         <option value="2 km">Huevos de 2 km</option>
         <option value="5 km">Huevos de 5 km</option>
@@ -126,7 +124,7 @@
       </select>
       <div id="egg-description-percent" class="egg-description-percent flex"></div> <!-- Aqui va el resultado del porcentaje -->
       <div id="egg-pokedex" class="egg-pokedex"></div> <!-- Todos los pokemones -->
-    </section>
+    </div>
   </main>
   <footer></footer>
 
