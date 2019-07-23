@@ -19,80 +19,79 @@
       <img class="header-logo flex" src="img/logo.png" alt="logo">
     </div>
     <nav class="header-nav flex">
-        <a class="title-nav" href="#" id="pokedex-title">Mi Pokedex</a>
-        <a class="title-nav" href="#" id="incubator-title">Incubadora</a>
+      <a class="title-nav" href="#" id="pokedex-title">Mi Pokedex</a>
+      <a class="title-nav" href="#" id="incubator-title">Incubadora</a>
     </nav>
   </header>
   <!-- Sección Login -->
-  <div id="login-section" class="login-bg flex">
-    <form class="login-box flex">
-      <img class="img-logo" src="img/logo.png" alt="logo" />
-      <label class="label-field" for="user">Usuario</label>
-      <input class="field flex" value="LABORATORIA" type="text" id="user" placeholder="" />
-      <label class="label-field" for="password">Contraseña</label>
-      <input value="LABORATORIA" class="field" type="password" id="password" placeholder="" />
-      <p class="right"><b>¿Olvidaste la contraseña?</b></p>
-      <p id="error-message" class="error-message flex"></p>  <!-- Agregar esto en MAIN -->
-      <button class="login-btn" id="enter-button" type="submit"><b>INGRESA</b></button>
-      <p>¿No tienes una cuenta? <b>Regístrate</b></p>
-    </form>
-  </div>
-  <!--Menu lateral-->
-  <nav class="filter-menu flex hide" id="filter-menu">
-    <p class="filter-title">¡Ordénalos ya!</p>
-    <select id="alfa-select" class="selectors">
-      <option disabled="" selected="">Alfabéticamente</option>
-      <option value="0">A-Z</option>
-      <option value="1">Z-A</option>
-    </select>
-    <p class="filter-select-title">Aparición</p>
-    <select id="spawn-select" class="selectors">
-      <option>Aparición</option>
-      <option value="desc" id="more">Más comunes</option>
-      <option value="asc" id="less">Menos comunes</option>
-    </select>
-
-    <div id="type-select" class="type-select flex">
-      <p class="filter-select-title">Tipo</p>
-      <button class="button" value="Grass">Planta</button>
-      <button class="button" value="Fire">Fuego</button>
-      <button class="button" value="Water">Agua</button>
-      <button class="button" value="Ground">Tierra</button>
-      <button class="button" value="Electric">Eléctrico</button>
-      <button class="button" value="Flying">Volador</button>
-      <button class="button" value="Poison">Veneno</button>
-      <button class="button" value="Normal">Normal</button>
-      <button class="button" value="Psychic">Psíquico</button>
-      <button class="button" value="Dragon">Dragón</button>
-      <button class="button" value="Ice">Hielo</button>
-      <button class="button" value="Rock">Roca</button>
-      <button class="button" value="Bug">Bicho</button>
-      <button class="button" value="Ghost">Fantasma</button>
-      <button class="button" value="Fighting">Lucha</button>
-    </div>
-
-    <div>
-      <p class="filter-select-title">Debilidad</p>
-      <select id="weakness-select" class="selectors">
-        <option value="weak" disabled="" selected="">Debilidad</option>
-        <option value="Grass">Planta</option>
-        <option value="Poison">Veneno</option>
-        <option value="Fire">Fuego</option>
-        <option value="Normal">Normal</option>
-        <option value="Psychic">Psíquico</option>
-        <option value="Dragon">Dragón</option>
-        <option value="Electric">Eléctrico</option>
-        <option value="Ice">Hielo</option>
-        <option value="Rock">Roca</option>
-        <option value="Bug">Bicho</option>
-        <option value="Ground">Tierra</option>
-        <option value="Water">Agua</option>
-        <option value="Ghost">Fantasma</option>
-        <option value="Flying">Volador</option>
-      </select>
-    </div>
-  </nav>
   <main class="flex">
+    <div id="login-section" class="login-bg flex">
+      <form class="login-box flex">
+        <img class="img-logo" src="img/logo.png" alt="logo" />
+        <label class="label-field" for="user">Usuario</label>
+        <input class="field flex" value="LABORATORIA" type="text" id="user" placeholder="" />
+        <label class="label-field" for="password">Contraseña</label>
+        <input value="LABORATORIA" class="field" type="password" id="password" placeholder="" />
+        <p class="right"><b>¿Olvidaste la contraseña?</b></p>
+        <p id="error-message" class="error-message flex"></p> <!-- Agregar esto en MAIN -->
+        <button class="login-btn" id="enter-button" type="submit"><b>INGRESA</b></button>
+        <p>¿No tienes una cuenta? <b>Regístrate</b></p>
+      </form>
+    </div>
+    <!--Menu lateral-->
+    <nav class="filter-menu hide flex" id="filter-menu">
+      <p class="filter-title">¡Ordénalos ya!</p>
+      <select id="alfa-select" class="selectors">
+        <option disabled="" selected="">Alfabéticamente</option>
+        <option value="0">Desde A hasta la Z</option>
+        <option value="1">Desde Z hasta la A</option>
+      </select>
+      <p class="filter-select-title">Aparición</p>
+      <select id="spawn-select" class="selectors">
+        <option>Aparición</option>
+        <option value="desc" id="more">Más comunes</option>
+        <option value="asc" id="less">Menos comunes</option>
+      </select>
+      <p class="filter-select-title">Tipo</p>
+      <div id="type-select" class="type-select flex">
+        <button class="button" value="Grass">Planta</button>
+        <button class="button" value="Fire">Fuego</button>
+        <button class="button" value="Water">Agua</button>
+        <button class="button" value="Ground">Tierra</button>
+        <button class="button" value="Electric">Eléctrico</button>
+        <button class="button" value="Flying">Volador</button>
+        <button class="button" value="Poison">Veneno</button>
+        <button class="button" value="Normal">Normal</button>
+        <button class="button" value="Psychic">Psíquico</button>
+        <button class="button" value="Dragon">Dragón</button>
+        <button class="button" value="Ice">Hielo</button>
+        <button class="button" value="Rock">Roca</button>
+        <button class="button" value="Bug">Bicho</button>
+        <button class="button" value="Ghost">Fantasma</button>
+        <button class="button" value="Fighting">Lucha</button>
+      </div>
+
+      <div>
+        <p class="filter-select-title">Debilidad</p>
+        <select id="weakness-select" class="selectors">
+          <option value="weak" disabled="" selected="">Debilidad</option>
+          <option value="Grass">Planta</option>
+          <option value="Poison">Veneno</option>
+          <option value="Fire">Fuego</option>
+          <option value="Normal">Normal</option>
+          <option value="Psychic">Psíquico</option>
+          <option value="Dragon">Dragón</option>
+          <option value="Electric">Eléctrico</option>
+          <option value="Ice">Hielo</option>
+          <option value="Rock">Roca</option>
+          <option value="Bug">Bicho</option>
+          <option value="Ground">Tierra</option>
+          <option value="Water">Agua</option>
+          <option value="Ghost">Fantasma</option>
+          <option value="Flying">Volador</option>
+        </select>
+      </div>
+    </nav>
     <!-- Segunda pantalla -->
     <div id="pokedex-section" class="pokedex-section hide">
       <div class="search-with-icon flex">
@@ -105,7 +104,7 @@
     <div id="modal-mask" class="modal-mask flex hide">
       <span class="close flex" id="close">&times;</span>
       <!-- Modal content -->
-      <div class="modal-box" id="modal-box">
+      <div class="modal-box flex" id="modal-box">
         <div id="info-pokemon" class="info-pokemon flex"></div>
       </div>
     </div>
@@ -116,14 +115,16 @@
         <figure class="line-green"></figure>
       </div>
       <select class="selectors" id="egg-select">
-        <option value="Not in Eggs">Huevo sin embrion</option>
+        <option>Tipos de huevo</option>
+        <option value="Not in Eggs">Pokémons no incubados</option>
         <option value="2 km">Huevos de 2 km</option>
         <option value="5 km">Huevos de 5 km</option>
-        <option value="10 km">Huevos de 7 km</option>
+        <option value="7 km">Huevos de 7 km</option>
         <option value="10 km">Huevos de 10 km</option>
       </select>
-      <div id="egg-description-percent" class="egg-description-percent flex"></div> <!-- Aqui va el resultado del porcentaje -->
-      <div id="egg-pokedex" class="egg-pokedex"></div> <!-- Todos los pokemones -->
+      <div id="egg-description-percent" class="egg-description-percent flex"></div>
+      <!-- Aqui va el resultado del porcentaje -->
+      <div id="egg-pokedex" class="egg-pokedex flex"></div> <!-- Todos los pokemones -->
     </div>
   </main>
   <footer></footer>

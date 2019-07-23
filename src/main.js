@@ -50,7 +50,8 @@ enterButton.addEventListener('click', () => {
     filterMenu.classList.add('hide');
     pokedexSection.classList.replace('hide', 'show');
     incubatorSection.classList.add('hide');
-    headerTop.classList.replace('hide', 'show'); // Agregue el header 
+    headerTop.classList.replace('hide', 'show'); // Agregue el header
+    pokedexTitle.classList.add('now-title-nav');
     event.preventDefault();
   } else {
     errorMessage.innerHTML = 'Usuario o contraseña incorrecto';
@@ -72,6 +73,7 @@ incubatorTitle.addEventListener('click', () => {
   pokedexSection.classList.add('hide');
   incubatorTitle.classList.add('now-title-nav');
   pokedexTitle.classList.remove('now-title-nav');
+  filterMenu.classList.add('hide');
 });
 
 /* Div de Pokémons - Pokedex*/
@@ -79,17 +81,34 @@ const showPokemon = (data) => {
   let templatePokemon = '';
   data.map(obj => {
     templatePokemon += `
-    <div id="${obj.id}" name="pokemon" class="show-pokemon flex">
-      <figure class="circle-shadow flex"></figure>
-      <img class="img-pokemon flex" src="${obj.img}"/>
-      <p class="id-num-pokemon">${obj.num}</p>
+    <div class="show-pokemon flex">
+      <div id="${obj.id}" name="pokemon" class="flex">
+        <figure class="circle-shadow flex"></figure>
+        <img class="img-pokemon flex" src="${obj.img}"/>
+      </div>
+      <p class="num-pokemon flex">#${obj.num}</p>
       <p class="name-pokemon flex">${obj.name}</p>
-      <p class="type-pokemon" >${obj.type}</p>
+      <p class="type-pokemon-title flex">Tipo</p>
+      <p class="type-pokemon flex">${obj.type.join('-')}</p>
     </div>`;
   });
   return templatePokemon;
 };
 allPokedex.innerHTML = showPokemon(dataGlobal);
+
+/* Función que despliega menu de filtro */
+let filterOpen = 0;
+
+filterIcon.addEventListener('click', ()=> {
+  if (filterOpen === 0) {
+    filterMenu.classList.remove('hide');
+    filterMenu.classList.add('filter-show');
+    filterOpen = 1;
+  } else {
+    filterMenu.classList.remove('filter-show');
+    filterOpen = 0;
+  }
+});
 
 /* Buscar a un pokémon */
 inputSearch.addEventListener('input', event => {
@@ -149,7 +168,7 @@ const openModal = () => {
     <p class="name-modal">${dataGlobal[newArrayPokemon].name}</p>
     <p class="num-modal">${dataGlobal[newArrayPokemon].num}</p>
     <figure class="line-green"><figure>
-    <div class="fact-container">
+    <div class="fact-container flex">
       <div class="fact">
         <p class="fact-style">${dataGlobal[newArrayPokemon].weight}</p>
         <span>Peso</span>
@@ -172,11 +191,10 @@ const openModal = () => {
     <p>${dataGlobal[newArrayPokemon].weaknesses}</p>
     <p>${dataGlobal[newArrayPokemon].next_evolution}</p>
     `;
-    console.log(eventIdPokemon);
   }
 };
 
-/* Pokedex Modal */
+/* Abre el Modal en la sección Pokedex */
 allPokedex.addEventListener('click', () => {
   openModal();
 });
@@ -192,12 +210,14 @@ eggSelect.addEventListener('change', () => {
     let templateEggPokemon = '';
     data.map(obj => {
       templateEggPokemon += `
-      <div id="${obj.id}" name="pokemon" class="show-pokemon flex">
-        <figure class="circle-shadow"></figure>
-        <img src="${obj.img}"/>
-        <p>${obj.egg}</p>
+      <div class="show-pokemon flex">
+      <div id="${obj.id}" name="pokemon" class="flex">
+        <figure class="circle-shadow flex"></figure>
+        <img class="img-pokemon flex" src="${obj.img}"/>
+      </div>
+        <p>Tipo: ${obj.egg}</p>
         <p class="name-pokemon flex" >${obj.name}</p>
-        <p>${obj.type}</p></div>
+        </div>
         `;
     });
     return templateEggPokemon;
@@ -223,8 +243,8 @@ eggSelect.addEventListener('change', () => {
     break;
   case '7 km':
     eggDescriptionPercent.innerHTML = `
-    <p>Ningún pokémon de la Región Kanto es incubado en
-    huevos de ${eggSelect.value}.<br>
+    <p>Ningún pokémon de la Región Kanto es incubado en huevos de ${eggSelect.value}.<br><br>
+    <img src="img/icon-web/pokemon-no-found.svg" class="header-logo">
     `;
     break;
   default:
@@ -235,19 +255,3 @@ eggSelect.addEventListener('change', () => {
   }
 });
 
-/* Función que despliega el side menu */
- 
-
-let filterOpen = 0;
-
-filterIcon.addEventListener('click', ()=> {
-  if (filterOpen === 0) {
-    filterMenu.classList.remove('hide');
-    filterMenu.classList.add('filter-show');
-    filterOpen = 1;
-  } else {
-    filterMenu.classList.remove('filter-show');
-    filterOpen = 0;
-  }
-  console.log(filterOpen);
-});
