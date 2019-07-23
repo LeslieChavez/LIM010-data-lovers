@@ -214,9 +214,10 @@ eggSelect.addEventListener('change', () => {
       <div id="${obj.id}" name="pokemon" class="flex">
         <figure class="circle-shadow flex"></figure>
         <img class="img-pokemon flex" src="${obj.img}"/>
-      </div>
-        <p>Tipo: ${obj.egg}</p>
+      </div> 
         <p class="name-pokemon flex" >${obj.name}</p>
+        <p class="type-pokemon-title">Tipo</p>
+        <p class"type-pokemon flex">${obj.egg}</p>
         </div>
         `;
     });
