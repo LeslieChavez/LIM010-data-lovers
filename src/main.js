@@ -186,7 +186,7 @@ const openModal = () => {
     </div>
     <div class="subtitles-container">
     <p class="subtitles-modal">Tipo: <span class="data-modal">${dataGlobal[objId].type.join(' | ')}</span></p> 
-    <p class="subtitles-modal">Promedio de aparición: <span class="data-modal">${Math.round(dataGlobal[objId].avg_spawns * 10)} / 100 000</span></p> 
+    <p class="subtitles-modal">Promedio de aparición: <span class="data-modal">${Math.round(dataGlobal[objId].avg_spawns * 1000)} / 10 000</span></p> 
     <p class="subtitles-modal">Hora de aparición: <span class="data-modal">${dataGlobal[objId].spawn_time}</span></p> 
     <p class="subtitles-modal">Débil a: <span class="data-modal">${dataGlobal[objId].weaknesses.join(' | ')}</span></p>
     <p class="subtitles-modal">Tipo de huevo: <img class="icon-modal" src="img/icon-pokemon/egg.svg"><span class="data-modal">${dataGlobal[objId].egg}</span></p>
