@@ -46,9 +46,9 @@
         <option value="0">Desde A hasta la Z</option>
         <option value="1">Desde Z hasta la A</option>
       </select>
-      <p class="filter-select-title">Aparición</p>
+      <!--<p class="filter-select-title">Aparición</p>-->
       <select id="spawn-select" class="selectors">
-        <option>Aparición</option>
+        <option>Frecuencia de Aparición</option>
         <option value="desc" id="more">Más comunes</option>
         <option value="asc" id="less">Menos comunes</option>
       </select>
@@ -74,7 +74,7 @@
       <div>
         <p class="filter-select-title">Debilidad</p>
         <select id="weakness-select" class="selectors">
-          <option value="weak" disabled="" selected="">Debilidad</option>
+          <option disabled="" selected="">Debilidad</option>
           <option value="Grass">Planta</option>
           <option value="Poison">Veneno</option>
           <option value="Fire">Fuego</option>
@@ -89,13 +89,14 @@
           <option value="Water">Agua</option>
           <option value="Ghost">Fantasma</option>
           <option value="Flying">Volador</option>
+          <option value="Steel">Lucha</option>
         </select>
       </div>
     </nav>
     <!-- Segunda pantalla -->
     <div id="pokedex-section" class="pokedex-section hide">
       <div class="search-with-icon flex">
-        <img class="filter-icon" id="filter-icon" src="img/icon-web/filter-icon.svg" alt="filtrar">
+        <img class="filter-icon" id="filter-icon" title="Filtra a tus pokémons"src="img/icon-web/filter-icon.svg" alt="filtrar">
         <input id="input-search" class="search flex" type="search" value="" placeholder="Busca a tu pokemon">
       </div>
       <div id="all-pokedex" class="all-pokedex flex"></div>

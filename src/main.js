@@ -76,6 +76,7 @@ incubatorTitle.addEventListener('click', () => {
   filterMenu.classList.add('hide');
 });
 
+
 /* Div de Pokémons - Pokedex*/
 const showPokemon = (data) => {
   let templatePokemon = '';
@@ -86,10 +87,11 @@ const showPokemon = (data) => {
         <figure class="circle-shadow flex"></figure>
         <img class="img-pokemon flex" src="${obj.img}"/>
       </div>
-      <p class="num-pokemon flex">#${obj.num}</p>
       <p class="name-pokemon flex">${obj.name}</p>
-      <p class="type-pokemon-title flex">Tipo</p>
-      <p class="type-pokemon flex">${obj.type.join('-')}</p>
+      <div class="icon-and-title">
+      <img class="icon-type" src="img/type-pokemon-png/${obj.type[0]}.png">
+      <p class="type-title-pokemon"> ${obj.type.join(' & ')}</p>
+      </div>
     </div>`;
   });
   return templatePokemon;
@@ -154,42 +156,41 @@ alfaSelect.addEventListener('change', (event) => {
     break;
   };
 });
-
 /* Open Modal */
 const openModal = () => {
   const eventIdPokemon = parseInt(event.target.parentElement.id);
-  const newArrayPokemon = dataGlobal.map(obj => {
+  const objId = dataGlobal.map(obj => {
     return obj.id;
   }).indexOf(eventIdPokemon);
   if (event.target.parentElement.getAttribute('name') === 'pokemon') {
     modalMask.classList.remove('hide');
     infoPokemon.innerHTML = `
-    <img class="img-modal" src="${dataGlobal[newArrayPokemon].img}"/>
-    <p class="name-modal">${dataGlobal[newArrayPokemon].name}</p>
-    <p class="num-modal">${dataGlobal[newArrayPokemon].num}</p>
-    <figure class="line-green"><figure>
+    <img class="img-modal" src="${dataGlobal[objId].img}"/>
+    <p class="name-modal">${dataGlobal[objId].name}</p>
+    <p class="num-modal">#${dataGlobal[objId].num}</p>
+    <figure class="line-green-modal"></figure>
     <div class="fact-container flex">
       <div class="fact">
-        <p class="fact-style">${dataGlobal[newArrayPokemon].weight}</p>
+        <p class="fact-style">${dataGlobal[objId].weight}</p>
         <span>Peso</span>
       </div>
       <div class="fact">
-        <p class="fact-style">${dataGlobal[newArrayPokemon].height}</p>
+        <p class="fact-style">${dataGlobal[objId].height}</p>
         <span>Altura</span>
       </div>
       <div class="fact">
-        <p class="fact-style">${dataGlobal[newArrayPokemon].candy_count}</p>
+        <p class="fact-style">${dataGlobal[objId].candy_count}<span>
+        <img class="icon-modal" src="img/icon-pokemon/candy.png"></span></p>
         <span>Caramelos</span>
       </div>
     </div>
-    <div class="type-container"></div>
-    <div class="type-poke-modal"></div>
-    <p>Tipo</p>
-    <img src=""/>
-    <p>${dataGlobal[newArrayPokemon].type}</p> 
-    <p>${dataGlobal[newArrayPokemon].avg_spawns}</p> 
-    <p>${dataGlobal[newArrayPokemon].weaknesses}</p>
-    <p>${dataGlobal[newArrayPokemon].next_evolution}</p>
+    <div class="subtitles-container">
+    <p class="subtitles-modal">Tipo: <span class="data-modal">${dataGlobal[objId].type.join(' | ')}</span></p> 
+    <p class="subtitles-modal">Promedio de aparición: <span class="data-modal">${dataGlobal[objId].avg_spawns * 10} / 100 000</span></p> 
+    <p class="subtitles-modal">Hora de aparición: <span class="data-modal">${dataGlobal[objId].spawn_time}</span></p> 
+    <p class="subtitles-modal">Débil a: <span class="data-modal">${dataGlobal[objId].weaknesses.join(' | ')}</span></p>
+    <p class="subtitles-modal">Tipo de huevo: <img class="icon-modal" src="img/icon-pokemon/egg.svg"><span class="data-modal">${dataGlobal[objId].egg}</span></p>
+    </div>
     `;
   }
 };
@@ -211,15 +212,17 @@ eggSelect.addEventListener('change', () => {
     data.map(obj => {
       templateEggPokemon += `
       <div class="show-pokemon flex">
-      <div id="${obj.id}" name="pokemon" class="flex">
-        <figure class="circle-shadow flex"></figure>
-        <img class="img-pokemon flex" src="${obj.img}"/>
-      </div> 
+        <div id="${obj.id}" name="pokemon" class="flex">
+          <figure class="circle-shadow flex"></figure>
+          <img class="img-pokemon flex" src="${obj.img}"/>
+        </div> 
         <p class="name-pokemon flex" >${obj.name}</p>
-        <p class="type-pokemon-title">Tipo</p>
-        <p class"type-pokemon flex">${obj.egg}</p>
+        <div class="flex">
+        <span><img class="icon-modal" src="img/icon-pokemon/egg.svg"></span>
+        <span><p class="type-pokemon flex">${obj.egg}</p></span>
         </div>
-        `;
+      </div>
+      `;
     });
     return templateEggPokemon;
   };
@@ -245,12 +248,12 @@ eggSelect.addEventListener('change', () => {
   case '7 km':
     eggDescriptionPercent.innerHTML = `
     <p>Ningún pokémon de la Región Kanto es incubado en huevos de ${eggSelect.value}.<br><br>
-    <img src="img/icon-web/pokemon-no-found.svg" class="header-logo">
+    <img src="img/icon-web/pokemon-no-found.svg" class="header-logo flex">
     `;
     break;
   default:
     eggDescriptionPercent.innerHTML = `
-    <p>De los 151 pokémons de la región Kanto, el ${typeEggPercent}% (${typeEggCount}) es
+    <p>De los 151 pokémons de la región Kanto, ${typeEggCount} <strong>(${typeEggPercent}%)</strong> es
     incubado en huevos de ${eggSelect.value}.<br>¡Conoce quien son esos pokémons!</p>
     `;
   }
