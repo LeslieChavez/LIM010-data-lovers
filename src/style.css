@@ -153,6 +153,7 @@ header {
 .filter-menu { /*Le quite el float left, z index*/
     width: 350px;
     height: 100vh;
+    float: left;
     margin-left: -350px;
     flex-flow: column wrap;
     transition: 0.5s;
@@ -160,12 +161,9 @@ header {
 }
 
 .filter-show{
+    margin-top: 0;
     margin-left: 0;
-    width: 350px;
-}
-
-.filter-view {
-    width: calc(100vw - 350px)
+    width: 350x;
 }
 
 .filter-icon { 
@@ -348,7 +346,7 @@ header {
     border-radius: 35px;
     position: fixed;
     box-shadow: 4px 15px 25px 0 rgba(0, 0, 0, 0.18);
-    bottom: 10%;
+    bottom: 50px;
 }
 
 .info-pokemon { /* Información de los pokemones */ 
@@ -459,7 +457,7 @@ header {
 
 .close { /* Close del modal */ 
     font-size: 70px;
-    color: #ecfff8;
+    color: white;
     font-weight: lighter;
     cursor: pointer;
     position: absolute;
@@ -502,12 +500,5 @@ header {
     .filter-show {
     margin-left: 0;
     width: 500px;
-    }
-}
-
-@media only screen and (max-width: 580px) {
-    .filter-show {
-    margin-left: 0;
-    width: 580px;
     }
 }

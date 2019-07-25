@@ -90,7 +90,7 @@ const showPokemon = (data) => {
       <p class="name-pokemon flex">${obj.name}</p>
       <div class="icon-and-title">
       <img class="icon-type" src="img/type-pokemon-png/${obj.type[0]}.png">
-      <p class="type-title-pokemon"> ${obj.type.join(' & ')}</p>
+      <p class="type-title-pokemon"><strong>Tipo</strong><br>${obj.type.join(' & ')}</p>
       </div>
     </div>`;
   });
@@ -186,7 +186,7 @@ const openModal = () => {
     </div>
     <div class="subtitles-container">
     <p class="subtitles-modal">Tipo: <span class="data-modal">${dataGlobal[objId].type.join(' | ')}</span></p> 
-    <p class="subtitles-modal">Promedio de aparición: <span class="data-modal">${dataGlobal[objId].avg_spawns * 10} / 100 000</span></p> 
+    <p class="subtitles-modal">Promedio de aparición: <span class="data-modal">${Math.round(dataGlobal[objId].avg_spawns * 10)} / 100 000</span></p> 
     <p class="subtitles-modal">Hora de aparición: <span class="data-modal">${dataGlobal[objId].spawn_time}</span></p> 
     <p class="subtitles-modal">Débil a: <span class="data-modal">${dataGlobal[objId].weaknesses.join(' | ')}</span></p>
     <p class="subtitles-modal">Tipo de huevo: <img class="icon-modal" src="img/icon-pokemon/egg.svg"><span class="data-modal">${dataGlobal[objId].egg}</span></p>
@@ -202,6 +202,9 @@ allPokedex.addEventListener('click', () => {
 
 /* Cerrar Modal */
 close.addEventListener('click', () => {
+  modalMask.classList.add('hide');
+});
+modalMask.addEventListener('click', () => {
   modalMask.classList.add('hide');
 });
 
